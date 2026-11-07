@@ -1,0 +1,131 @@
+<svg class="house" viewBox="0 0 1000 620" role="img" aria-label="Illustrated home with rooftop solar panels, a wall battery, a main electrical panel, an EV charger and a connection to the utility grid">
+  <defs>
+    <linearGradient id="h-glare" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ffd27a" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#fff3d1" stop-opacity=".1"/>
+    </linearGradient>
+    <linearGradient id="h-glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b3b5e"/>
+      <stop offset="1" stop-color="#0a1a2b"/>
+    </linearGradient>
+    <radialGradient id="h-lamp" cx=".5" cy=".2" r=".9">
+      <stop offset="0" stop-color="#ffe2a3"/>
+      <stop offset="1" stop-color="#f2a33a"/>
+    </radialGradient>
+    <filter id="h-soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter>
+  </defs>
+
+  <!-- ground -->
+  <rect class="h-ground" x="0" y="520" width="1000" height="100"/>
+  <path class="h-ground-line" d="M0 520H1000"/>
+  <ellipse class="h-light-pool" cx="430" cy="534" rx="220" ry="16" filter="url(#h-soft)"/>
+
+  <!-- landscaping -->
+  <g class="h-plants">
+    <path d="M150 520c-6-34 10-60 34-60s40 26 34 60z"/>
+    <path d="M206 520c-4-22 6-40 22-40s26 18 22 40z"/>
+    <path d="M948 520c-5-28 8-50 28-50s32 22 28 50z"/>
+  </g>
+
+  <!-- utility pole + grid wire -->
+  <g class="h-pole">
+    <path d="M86 520V286" class="h-pole-post"/>
+    <path d="M60 300H112M66 316H106" class="h-pole-bar"/>
+    <circle cx="66" cy="296" r="3"/><circle cx="106" cy="296" r="3"/>
+  </g>
+  <path id="h-wire" class="h-wire" d="M106 300C170 330 236 352 300 354"/>
+  <path class="h-flow h-flow--grid" data-flow="grid" d="M106 300C170 330 236 352 300 354"/>
+  <g class="h-cut" aria-hidden="true"><circle cx="200" cy="336" r="15"/><path d="M193 329l14 14M207 329l-14 14"/></g>
+
+  <!-- garage annex -->
+  <g class="h-garage">
+    <rect x="652" y="396" width="150" height="124" class="h-wall"/>
+    <rect x="644" y="388" width="166" height="12" class="h-roofcap"/>
+    <rect x="672" y="420" width="110" height="100" class="h-garage-door"/>
+    <path d="M672 440H782M672 460H782M672 480H782M672 500H782" class="h-door-lines"/>
+  </g>
+
+  <!-- EV charger + car -->
+  <g class="h-ev" data-spot="ev">
+    <rect x="806" y="430" width="22" height="40" rx="4" class="h-device"/>
+    <rect x="811" y="438" width="12" height="5" rx="2" class="h-led h-led--ev"/>
+  </g>
+  <g class="h-car">
+    <path d="M838 512c0-16 4-26 16-32l18-16c6-5 13-7 21-7h38c9 0 16 3 22 9l16 16c10 3 16 12 16 23v7z" class="h-car-body"/>
+    <path d="M882 470l12-11c4-3 8-4 13-4h22c5 0 9 2 12 5l10 10z" class="h-car-glass"/>
+    <circle cx="866" cy="514" r="13" class="h-wheel"/><circle cx="950" cy="514" r="13" class="h-wheel"/>
+    <circle cx="866" cy="514" r="5" class="h-hub"/><circle cx="950" cy="514" r="5" class="h-hub"/>
+    <rect x="904" y="490" width="22" height="6" rx="3" class="h-car-charge"/>
+  </g>
+  <path class="h-cable" d="M817 470C820 500 836 504 846 496"/>
+  <path class="h-flow h-flow--ev" data-flow="ev" d="M817 470C820 500 836 504 846 496"/>
+
+  <!-- main house -->
+  <rect x="300" y="336" width="340" height="184" class="h-wall"/>
+  <rect x="300" y="336" width="340" height="10" class="h-shadow"/>
+  <polygon points="272,336 654,336 620,220 310,220" class="h-roof"/>
+  <polygon points="314.1,322.8 612.4,322.8 593.8,237.0 335.8,237.0" class="h-array-base"/>
+  <g class="h-cells" data-spot="panels">
+      <polygon class="h-cell" points="317.7,319.5 354.6,319.5 358.8,297.5 323.2,297.5"/>
+      <polygon class="h-cell" points="360.1,319.5 397.0,319.5 399.7,297.5 364.1,297.5"/>
+      <polygon class="h-cell" points="402.5,319.5 439.3,319.5 440.6,297.5 405.0,297.5"/>
+      <polygon class="h-cell" points="444.9,319.5 481.7,319.5 481.5,297.5 445.9,297.5"/>
+      <polygon class="h-cell" points="487.3,319.5 524.1,319.5 522.4,297.5 486.8,297.5"/>
+      <polygon class="h-cell" points="529.6,319.5 566.5,319.5 563.3,297.5 527.7,297.5"/>
+      <polygon class="h-cell" points="572.0,319.5 608.9,319.5 604.2,297.5 568.6,297.5"/>
+      <polygon class="h-cell" points="324.8,290.9 360.0,290.9 364.2,268.9 330.3,268.9"/>
+      <polygon class="h-cell" points="365.3,290.9 400.5,290.9 403.2,268.9 369.3,268.9"/>
+      <polygon class="h-cell" points="405.8,290.9 441.0,290.9 442.2,268.9 408.3,268.9"/>
+      <polygon class="h-cell" points="446.2,290.9 481.4,290.9 481.2,268.9 447.3,268.9"/>
+      <polygon class="h-cell" points="486.7,290.9 521.9,290.9 520.2,268.9 486.3,268.9"/>
+      <polygon class="h-cell" points="527.2,290.9 562.4,290.9 559.2,268.9 525.3,268.9"/>
+      <polygon class="h-cell" points="567.6,290.9 602.8,290.9 598.2,268.9 564.2,268.9"/>
+      <polygon class="h-cell" points="331.9,262.3 365.4,262.3 369.6,240.3 337.4,240.3"/>
+      <polygon class="h-cell" points="370.5,262.3 404.0,262.3 406.7,240.3 374.5,240.3"/>
+      <polygon class="h-cell" points="409.0,262.3 442.6,262.3 443.8,240.3 411.5,240.3"/>
+      <polygon class="h-cell" points="447.6,262.3 481.1,262.3 480.9,240.3 448.6,240.3"/>
+      <polygon class="h-cell" points="486.1,262.3 519.7,262.3 517.9,240.3 485.7,240.3"/>
+      <polygon class="h-cell" points="524.7,262.3 558.2,262.3 555.0,240.3 522.8,240.3"/>
+      <polygon class="h-cell" points="563.2,262.3 596.8,262.3 592.1,240.3 559.9,240.3"/>
+  </g>
+  <path class="h-cell-lines" d="M320.4 308.5L356.7 308.5M336.1 319.5L341.0 297.5M362.1 308.5L398.3 308.5M378.5 319.5L381.9 297.5M403.7 308.5L440.0 308.5M420.9 319.5L422.8 297.5M445.4 308.5L481.6 308.5M463.3 319.5L463.7 297.5M487.0 308.5L523.3 308.5M505.7 319.5L504.6 297.5M528.7 308.5L564.9 308.5M548.1 319.5L545.5 297.5M570.3 308.5L606.6 308.5M590.5 319.5L586.4 297.5M327.5 279.9L362.1 279.9M342.4 290.9L347.2 268.9M367.3 279.9L401.8 279.9M382.9 290.9L386.2 268.9M407.0 279.9L441.6 279.9M423.4 290.9L425.2 268.9M446.7 279.9L481.3 279.9M463.8 290.9L464.2 268.9M486.5 279.9L521.0 279.9M504.3 290.9L503.2 268.9M526.2 279.9L560.8 279.9M544.8 290.9L542.2 268.9M565.9 279.9L600.5 279.9M585.2 290.9L581.2 268.9M334.6 251.3L367.5 251.3M348.7 262.3L353.5 240.3M372.5 251.3L405.4 251.3M387.2 262.3L390.6 240.3M410.3 251.3L443.2 251.3M425.8 262.3L427.7 240.3M448.1 251.3L481.0 251.3M464.3 262.3L464.7 240.3M485.9 251.3L518.8 251.3M502.9 262.3L501.8 240.3M523.7 251.3L556.6 251.3M541.4 262.3L538.9 240.3M561.5 251.3L594.4 251.3M580.0 262.3L576.0 240.3"/>
+  <polygon points="314.1,322.8 612.4,322.8 593.8,237.0 335.8,237.0" class="h-glare" fill="url(#h-glare)"/>
+
+  <!-- windows -->
+  <g class="h-windows">
+    <rect x="328" y="372" width="132" height="108" rx="3" fill="url(#h-glass)"/>
+    <rect x="482" y="372" width="78" height="66" rx="3" fill="url(#h-glass)"/>
+    <rect x="328" y="372" width="132" height="108" rx="3" class="h-win-light"/>
+    <rect x="482" y="372" width="78" height="66" rx="3" class="h-win-light"/>
+    <path d="M394 372V480M328 426H460M521 372V438" class="h-mullion"/>
+  </g>
+  <rect x="580" y="414" width="38" height="106" rx="2" class="h-door"/>
+  <circle cx="610" cy="468" r="2.4" class="h-knob"/>
+  <rect x="300" y="520" width="340" height="0" />
+
+  <!-- main electrical panel -->
+  <g class="h-mainpanel" data-spot="mainpanel">
+    <rect x="480" y="452" width="34" height="46" rx="3" class="h-device"/>
+    <path d="M487 462H507M487 470H507M487 478H507M487 486H500" class="h-device-lines"/>
+  </g>
+
+  <!-- inverter + battery (outside left wall) -->
+  <g class="h-inverter">
+    <rect x="252" y="372" width="34" height="40" rx="4" class="h-device"/>
+    <rect x="259" y="380" width="20" height="6" rx="2" class="h-led h-led--inv"/>
+  </g>
+  <g class="h-battery" data-spot="battery">
+    <rect x="244" y="424" width="50" height="94" rx="8" class="h-device h-batt-shell"/>
+    <rect x="252" y="432" width="34" height="78" rx="4" class="h-batt-well"/>
+    <rect x="252" y="432" width="34" height="78" rx="4" class="h-batt-fill"/>
+    <text x="269" y="476" class="h-batt-text" text-anchor="middle" dominant-baseline="middle">0%</text>
+  </g>
+
+  <!-- energy flows -->
+  <path class="h-flow h-flow--solar" data-flow="solar" d="M318 330C300 344 284 356 276 372"/>
+  <path class="h-flow h-flow--home" data-flow="home" d="M286 392C310 394 330 404 352 420"/>
+  <path class="h-flow h-flow--charge" data-flow="charge" d="M262 412V424"/>
+  <path class="h-flow h-flow--discharge" data-flow="discharge" d="M294 472C320 472 340 462 360 450"/>
+  <path class="h-flow h-flow--evfeed" data-flow="ev" d="M640 470H652M802 450H806"/>
+</svg>

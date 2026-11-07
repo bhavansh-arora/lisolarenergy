@@ -10,15 +10,15 @@ The finished site is the HTML pages and `assets/` folder at the repo root: plain
 
 | Page | What it does |
 |---|---|
-| `index.html` | Home: live WebGL sun hero, instant savings estimator, pinned 6-step process, benefits, testimonials, FAQ |
-| `residential.html` | Home solar, battery backup, main panel upgrades, EV charging, why storage matters under NEM 3.0 |
-| `commercial.html` | Business solar, backup, electrical upgrades, EV charging, subcontracting for contractors |
+| `index.html` | Home: scroll-driven dive into a live WebGL sun, variable-width headline, “A day on your roof” interactive energy story (with outage simulation), expanding Homes/Business panels, sentence-style savings estimate, pinned 6-step process, testimonials, FAQ |
+| `residential.html` | Interactive house hero (live day cycle with tappable hotspots), home services, why storage matters under NEM 3.0 |
+| `commercial.html` | Full-bleed hero, services with a sticky photo that changes as you read, business case, subcontracting for contractors |
 | `process.html` | The six steps with typical timing and what the customer does at each one |
 | `savings.html` | Full calculator with editable assumptions, 25-year cost chart (hover + table view) |
-| `about.html` | Story, values, expertise, equipment partners |
+| `about.html` | Editorial statement and photo mosaic, story, values, expertise, equipment partners |
 | `quote.html` | 7-step quote funnel: live estimate, autosave and resume, ZIP check, site-visit time request, confirmation with tracking code and calendar file |
 | `track.html` | Project tracker: look up a project by code + ZIP. Includes a sample project (`LI-SAMPLE`, ZIP `92399`) |
-| `contact.html` | Phone, email, map card, contact form |
+| `contact.html` | Giant tap-to-call phone number, map card, contact form |
 | `privacy.html`, `404.html` | Privacy notice and not-found page |
 
 ## Run it locally
@@ -57,7 +57,8 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 ## Motion and accessibility
 
 - GSAP + ScrollTrigger + SplitText and Lenis smooth scrolling (vendored in `assets/vendor/`; GSAP is free under its standard license).
-- First visit shows a short preloader; later page loads use a quick curtain transition.
+- First visit shows a short preloader; moving between pages uses a sun-burst transition from the click point.
+- `assets/js/house.js` holds the illustrative energy model behind the house story (8.2 kW system, 13.5 kWh battery); tweak it there.
 - `prefers-reduced-motion` turns off smooth scrolling, pinning, parallax and text animation; the WebGL sun renders a still frame.
 - Without WebGL the sun falls back to a CSS gradient. Without JavaScript all content is still visible.
 

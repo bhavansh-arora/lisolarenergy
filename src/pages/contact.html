@@ -6,14 +6,14 @@ bodyClass: page-contact
 scripts: contact
 -->
 
-<section class="page-hero">
-  <div class="page-hero__bg" data-parallax="8"><img src="assets/img/grid-sunset-2000.webp" alt="" fetchpriority="high"></div>
-  <span class="page-hero__index" aria-hidden="true">06</span>
+<section class="phero" aria-label="Introduction">
   <div class="wrap">
     <div class="page-hero__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span style="color:var(--sun)">Contact</span></div>
-    <h1 class="h-1" data-split="hero">Let’s talk<br><em>power.</em></h1>
-    <div class="page-hero__row">
-      <p class="lead" data-reveal data-delay=".2">Questions, a project in progress, or a partnership idea. Call, email or send a note below and the team will get back to you.</p>
+    <h1 class="phero__title" data-split="hero">Let’s talk <em>power.</em></h1>
+    <a class="phero__phone" href="{{phoneHref}}" data-cursor="Call" data-reveal data-delay=".2"><span class="label label--sun">Call anytime · 24/7 support</span><b>{{phone}}</b></a>
+    <div class="phero__row" data-reveal data-delay=".3">
+      <a href="mailto:{{email}}" class="link-arrow"><span>{{email}}</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <span class="label">{{street}}, {{city}}</span>
     </div>
   </div>
 </section>
@@ -22,16 +22,7 @@ scripts: contact
   <div class="wrap">
     <div class="contact">
       <div class="contact__cards">
-        <a class="ccard" href="{{phoneHref}}" data-reveal data-cursor="Call">
-          <span class="label">Call anytime</span>
-          <b>{{phone}}</b>
-          <span class="muted">24/7 customer service and technical support</span>
-        </a>
-        <a class="ccard" href="mailto:{{email}}" data-reveal data-delay=".08" data-cursor="Email">
-          <span class="label">Email</span>
-          <b>{{email}}</b>
-          <span class="muted">Best for documents, bills and photos</span>
-        </a>
+
         <a class="map-card" href="https://maps.google.com/?q=12003+Fremont+St+Yucaipa+CA+92399" target="_blank" rel="noopener" data-reveal data-delay=".16" data-cursor="Map">
           <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <defs><radialGradient id="mg" cx="58%" cy="46%" r="60%"><stop offset="0" stop-color="#12304d"/><stop offset="1" stop-color="#06111f"/></radialGradient></defs>

@@ -3,20 +3,37 @@ title: Residential Solar & Battery Backup — Lithium
 description: Home solar, battery backup, main panel upgrades and EV charging in Southern California. Designed around your roof and usage, installed by certified technicians.
 page: residential
 bodyClass: page-residential
+scripts: house
 image: assets/img/home-dusk-1000.webp
 -->
 
-<section class="page-hero">
-  <div class="page-hero__bg" data-parallax="8"><img src="assets/img/home-dusk-2000.webp" alt="" fetchpriority="high"></div>
-  <span class="page-hero__index" aria-hidden="true">01</span>
-  <div class="wrap">
-    <div class="page-hero__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span style="color:var(--sun)">Residential</span></div>
-    <h1 class="h-1" data-split="hero">Solar equals<br><em>low energy</em> costs.</h1>
-    <div class="page-hero__row">
+<section class="rhero" aria-label="Introduction">
+  <div class="wrap rhero__grid">
+    <div class="rhero__copy">
+      <div class="page-hero__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span style="color:var(--sun)">Residential</span></div>
+      <h1 class="h-1" data-split="hero">Solar equals<br><em>low energy</em> costs.</h1>
       <p class="lead" data-reveal data-delay=".2">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power, then install it right the first time.</p>
       <div class="btn-row" data-reveal data-delay=".3">
         <a class="btn btn--sun btn--lg" href="quote.html" data-magnetic data-cursor="Start"><span>Free home quote</span><svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+    </div>
+    <div class="rhero__stage" data-house-loop data-from="6" data-to="23.5" data-still="13" data-spots data-reveal data-delay=".15">
+      <div class="rday__sky" aria-hidden="true"></div>
+      <div class="rday__stars" aria-hidden="true"></div>
+      <div class="rday__sun" aria-hidden="true"></div>
+      <div class="rhero__scene">
+        {{> house}}
+        <button class="spot" type="button" style="left:46.5%;top:44%" data-spot-btn data-num="01" data-title="Solar panels" data-text="Designed around your roof and your real usage, installed by certified technicians and monitored in real time." aria-expanded="false"><span>1</span><span class="sr-only">Solar panels</span></button>
+        <button class="spot" type="button" style="left:26.9%;top:72%" data-spot-btn data-num="02" data-title="Battery backup" data-text="Stores daytime solar for the evening peak and keeps your essentials running through outages. Expandable as you grow." aria-expanded="false"><span>2</span><span class="sr-only">Battery backup</span></button>
+        <button class="spot" type="button" style="left:49.7%;top:76.5%" data-spot-btn data-num="03" data-title="Main panel upgrade" data-text="We check that your electrical panel can carry solar, batteries and EV charging, then bring it up to code and capacity." aria-expanded="false"><span>3</span><span class="sr-only">Main panel upgrade</span></button>
+        <button class="spot" type="button" style="left:81.7%;top:72%" data-spot-btn data-num="04" data-title="EV charging" data-text="A home charger sized with the rest of your system, so you fill up on sunshine instead of the grid." aria-expanded="false"><span>4</span><span class="sr-only">EV charging</span></button>
+      </div>
+      <div class="spot-card" data-spot-card aria-live="polite">
+        <span class="label label--sun" data-spot-num>01</span>
+        <b data-spot-title>Solar panels</b>
+        <p data-spot-text></p>
+      </div>
+      <div class="rhero__clock"><span class="label">Live day</span><span class="num" data-hud="clock">6:00 AM</span></div>
     </div>
   </div>
 </section>

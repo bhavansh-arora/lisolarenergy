@@ -9,7 +9,7 @@
   var FRAG = [
     'precision highp float;',
     'uniform vec2 uRes;uniform float uTime;uniform vec2 uMouse;uniform float uScroll;',
-    'uniform float uSunX;uniform float uSunY;uniform float uRadius;uniform float uHorizon;uniform float uGround;',
+    'uniform float uSunX;uniform float uSunY;uniform float uRadius;uniform float uHorizon;uniform float uGround;uniform float uZoom;',
     'float hash(vec2 p){p=fract(p*vec2(123.34,456.21));p+=dot(p,p+45.32);return fract(p.x*p.y);}',
     'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);',
     ' return mix(mix(hash(i),hash(i+vec2(1.,0.)),u.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),u.x),u.y);}',
@@ -18,8 +18,10 @@
     ' vec2 uv=gl_FragCoord.xy/uRes;float asp=uRes.x/uRes.y;',
     ' vec2 p=vec2(uv.x*asp,uv.y);',
     ' float hz=uHorizon;',
+    ' float zm=uZoom;float zz=zm*zm;',
     ' vec2 sc=vec2((uSunX+uMouse.x*.025)*asp,hz+uSunY-uScroll*.22+uMouse.y*.012);',
-    ' float R=uRadius;',
+    ' sc=mix(sc,vec2(.5*asp,.5),smoothstep(0.,.75,zm));',
+    ' float R=uRadius*(1.+zz*zz*11.+zm*.6);',
     ' vec3 top=vec3(.012,.03,.058);vec3 hor=vec3(.05,.1,.18);',
     ' vec3 col=mix(hor,top,smoothstep(hz,1.,uv.y));',
     // stars
@@ -67,10 +69,11 @@
     '  float shim=.65+.35*noise(vec2(wx*2.,wz*6.-uTime*.6));',
     '  g+=gcol*refl*shim*.9;',
     '  g+=gcol*exp(-dep*30.)*.35;',
-    '  col=g;',
+    '  g=mix(g,gcol*.5,smoothstep(.25,.9,zm));',
+    '  col=mix(g,core,disc*smoothstep(.0,.3,zm));',
     ' }',
     // vignette
-    ' vec2 vv=uv-.5;col*=1.-dot(vv,vv)*.55;',
+    ' vec2 vv=uv-.5;col*=1.-dot(vv,vv)*.55*(1.-zm);',
     ' col=pow(col,vec3(.95));',
     ' gl_FragColor=vec4(col,1.);',
     '}'
@@ -111,7 +114,7 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     var U = {};
-    ['uRes', 'uTime', 'uMouse', 'uScroll', 'uSunX', 'uSunY', 'uRadius', 'uHorizon', 'uGround'].forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
+    ['uRes', 'uTime', 'uMouse', 'uScroll', 'uSunX', 'uSunY', 'uRadius', 'uHorizon', 'uGround', 'uZoom'].forEach(function (n) { U[n] = gl.getUniformLocation(prog, n); });
 
     var preset = PRESETS[canvas.getAttribute('data-sun')] || PRESETS.hero;
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -143,7 +146,16 @@
       gl.uniform2f(U.uRes, canvas.width, canvas.height);
       gl.uniform1f(U.uTime, reduce ? 12.0 : (now - start) / 1000);
       gl.uniform2f(U.uMouse, mouse.x, mouse.y);
-      gl.uniform1f(U.uScroll, scrollProgress());
+      var dive = canvas.closest('[data-dive]');
+      if (dive) {
+        var dr = dive.getBoundingClientRect();
+        var dp = Math.max(0, Math.min(1, -dr.top / Math.max(1, dr.height - window.innerHeight)));
+        gl.uniform1f(U.uZoom, dp);
+        gl.uniform1f(U.uScroll, 0);
+      } else {
+        gl.uniform1f(U.uZoom, 0);
+        gl.uniform1f(U.uScroll, scrollProgress());
+      }
       gl.uniform1f(U.uSunX, cfg.sunX);
       gl.uniform1f(U.uSunY, cfg.sunY);
       gl.uniform1f(U.uRadius, cfg.radius);
