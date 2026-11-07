@@ -1,4 +1,4 @@
-// Assembles src/pages/*.html with the shared partials into public/*.html.
+// Assembles src/pages/*.html with the shared partials into the repo root, where the site is served from.
 // Run: node build.mjs
 import fs from 'node:fs';
 import path from 'node:path';
@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const src = path.join(root, 'src');
-const out = path.join(root, 'public');
+const out = root;
 
 const SITE = {
   siteUrl: 'https://lisolarenergy.com',

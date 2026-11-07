@@ -2,7 +2,9 @@
 
 A multi-page marketing site and quote funnel for **Lithium LLC** (Yucaipa, CA): solar, battery backup, panel upgrades and EV charging. Built by Code Bunny as a redesign preview of lisolarenergy.com.
 
-`public/` is the finished site: plain HTML, CSS and JS with no server code. Upload that folder to any static host (Netlify, Vercel, Cloudflare Pages, S3, cPanel). On Netlify, connect this repo and it deploys `public/` automatically (see `netlify.toml`).
+Live preview: https://lisolarenergy.codebunny.net (GitHub Pages, served from the root of `main`).
+
+The finished site is the HTML pages and `assets/` folder at the repo root: plain HTML, CSS and JS with no server code, so any static host works (GitHub Pages, Netlify, Vercel, Cloudflare Pages, cPanel). `.nojekyll` tells GitHub Pages to serve the files as they are.
 
 ## Pages
 
@@ -22,10 +24,6 @@ A multi-page marketing site and quote funnel for **Lithium LLC** (Yucaipa, CA): 
 ## Run it locally
 
 ```bash
-cd public
-```
-
-```bash
 python3 -m http.server 8080
 ```
 
@@ -39,11 +37,11 @@ Pages are written in `src/pages/*.html` and share the header, footer and closing
 node build.mjs
 ```
 
-That writes the finished pages into `public/`. CSS, JS, images and fonts live directly in `public/assets/` and need no build.
+That writes the finished pages into the repo root. CSS, JS, images and fonts live directly in `assets/` and need no build.
 
 ## Going live: connect the forms
 
-Edit `public/assets/js/config.js`:
+Edit `assets/js/config.js`:
 
 - `formEndpoint`: any URL that accepts a JSON `POST` (Formspree, HubSpot, GoHighLevel, a Zapier or Make webhook, or a CRM). Quote and contact submissions are sent there.
   Until it is set, submissions open a pre-filled email to `leadEmail` so nothing is lost.
@@ -54,7 +52,7 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Savings model
 
-`public/assets/js/calc.js` holds every assumption: rate $0.34/kWh, 5.6 peak sun hours, 80% system efficiency, $3.10/W installed, 3% yearly utility increase, 0.5% yearly panel degradation, 410 W panels. All results are labeled as estimates before incentives.
+`assets/js/calc.js` holds every assumption: rate $0.34/kWh, 5.6 peak sun hours, 80% system efficiency, $3.10/W installed, 3% yearly utility increase, 0.5% yearly panel degradation, 410 W panels. All results are labeled as estimates before incentives.
 
 ## Motion and accessibility
 
