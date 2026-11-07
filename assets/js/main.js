@@ -61,15 +61,69 @@
 
     gsap.set(curtain, { clipPath: 'circle(0% at 50% 50%)', visibility: 'hidden' });
     if (lenis) lenis.stop();
+    sunrise(pre);
+  }
+
+  /* First visit: a sunrise that lands exactly where the live hero sun sits, then dissolves into it. */
+  function sunrise(pre) {
+    var W = window.innerWidth, H = window.innerHeight;
+    var heroSun = $('.hero canvas[data-sun="hero"]');
+    var mobile = W < 760 || H > W * 1.1;
+    // Same geometry as the WebGL hero preset in sun.js (fractions of the screen height).
+    var g = heroSun
+      ? (mobile ? { x: 0.5, hz: 0.22, sy: -0.05, r: 0.17 } : { x: 0.66, hz: 0.27, sy: 0, r: 0.26 })
+      : { x: 0.5, hz: 0.3, sy: 0.02, r: mobile ? 0.15 : 0.2 };
+    var horizon = Math.round(H * (1 - g.hz));
+    var cx = W * g.x, cy = H * (1 - (g.hz + g.sy)), D = 2 * g.r * H;
+    pre.style.setProperty('--hz', horizon + 'px');
+    pre.style.setProperty('--sx', cx + 'px');
+    pre.style.setProperty('--sy', cy + 'px');
+    pre.style.setProperty('--d', D + 'px');
+
+    // Perspective field of panels below the horizon, converging on the sun.
+    var svg = $('.pre__grid', pre), gh = H - horizon, lines = '';
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + gh);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    for (var k = -18; k <= 18; k++) {
+      var bx = cx + k * W * 0.085;
+      lines += '<path d="M' + (cx + k * 3).toFixed(1) + ' 0L' + bx.toFixed(1) + ' ' + gh + '"/>';
+    }
+    for (var n = 1; n <= 9; n++) {
+      var y = gh * (1 - 1 / (1 + n * n * 0.09));
+      lines += '<path d="M0 ' + y.toFixed(1) + 'H' + W + '"/>';
+    }
+    svg.innerHTML = lines;
+    var paths = $$('path', svg);
+    paths.forEach(function (pth) { var L = pth.getTotalLength(); pth.style.strokeDasharray = L; pth.style.strokeDashoffset = L; });
+
     var count = $('[data-preload-count]', pre);
+    var status = $('[data-pre-status]', pre);
     var o = { v: 0 };
+    var phases = [[0, 'Before dawn'], [22, 'First light'], [55, 'Sunrise · Yucaipa'], [92, 'Full power']];
     var tl = gsap.timeline({ onComplete: function () { pre.remove(); if (lenis) lenis.start(); } });
-    tl.to(o, { v: 100, duration: 2.0, ease: 'power2.inOut', onUpdate: function () { count.textContent = String(Math.round(o.v)).padStart(3, '0'); } })
-      .to($('.preloader__bar i', pre), { scaleX: 1, duration: 2.0, ease: 'power2.inOut' }, 0)
-      .to($('.preloader__sun', pre), { scale: 3.4, duration: 1.15, ease: 'expo.in' }, 1.45)
-      .to($$('.preloader__count, .preloader__top, .preloader__bottom', pre), { opacity: 0, duration: 0.35 }, 2.05)
-      .to(pre, { clipPath: 'inset(0% 0% 100% 0%)', duration: 1.15, ease: 'expo.inOut' }, 2.45)
-      .add(ready, 2.7);
+    tl.fromTo($('.pre__horizon', pre), { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: 'expo.out' }, 0.1)
+      .fromTo($$('.pre__top, .pre__bottom', pre), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', stagger: 0.08 }, 0.2)
+      .fromTo($('.pre__count', pre), { opacity: 0 }, { opacity: 1, duration: 0.6 }, 0.25)
+      .to(o, { v: 100, duration: 2.3, ease: 'power2.inOut', onUpdate: function () {
+        var v = Math.round(o.v);
+        count.textContent = String(v).padStart(3, '0');
+        for (var i = phases.length - 1; i >= 0; i--) if (v >= phases[i][0]) { if (status.textContent !== phases[i][1]) status.textContent = phases[i][1]; break; }
+      } }, 0.3)
+      .to($('.pre__bar i', pre), { scaleX: 1, duration: 2.3, ease: 'power2.inOut' }, 0.3)
+      .fromTo($('.pre__sun', pre), { y: D * 0.95 }, { y: 0, duration: 2.4, ease: 'power3.out' }, 0.45)
+      .fromTo($('.pre__sky', pre), { opacity: 0 }, { opacity: 1, duration: 2.2, ease: 'power1.inOut' }, 0.45)
+      .fromTo($('.pre__haze', pre), { opacity: 0, scaleX: 0.4 }, { opacity: 1, scaleX: 1, duration: 2, ease: 'power2.out' }, 0.6)
+      .fromTo($('.pre__refl', pre), { opacity: 0, scaleY: 0.2 }, { opacity: 1, scaleY: 1, duration: 1.8, ease: 'power2.out' }, 0.9)
+      .to(paths, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut', stagger: { each: 0.025, from: 'center' } }, 0.5)
+      .fromTo($('.pre__stars', pre), { opacity: 0.9 }, { opacity: 0.1, duration: 2.4, ease: 'power1.in' }, 0.3)
+      .to($$('.pre__count, .pre__top, .pre__bottom', pre), { opacity: 0, y: -14, duration: 0.45, ease: 'power2.in', stagger: 0.04 }, 2.65);
+    if (heroSun) {
+      // Hand-off: the live WebGL sun is already drawn underneath in the same place.
+      tl.to(pre, { opacity: 0, duration: 0.9, ease: 'power2.inOut' }, 2.9).add(ready, 3.0);
+    } else {
+      tl.to($('.pre__sun', pre), { scale: 3.2, duration: 0.9, ease: 'expo.in' }, 2.75)
+        .to(pre, { opacity: 0, duration: 0.6, ease: 'power2.inOut' }, 3.35).add(ready, 3.3);
+    }
   }
 
   function ready() {

@@ -1503,3 +1503,59 @@ html:not(.js) .acc__panel { visibility: visible; }
 @media (max-width: 480px) { .phero__phone b { font-size: 11.4vw; } }
 .stats--thin .stat p { margin-top: clamp(14px, 1.6vw, 26px); }
 .rhero .h-1 { font-size: clamp(44px, 6.2vw, 100px); }
+
+/* ==========================================================================
+   First-visit sunrise intro (lands exactly on the live hero sun)
+   ========================================================================== */
+.preloader { display: block; padding: 0; background: #03080f; --hz: 73vh; --sx: 66vw; --sy: 73vh; --d: 52vh; }
+.pre__sky { position: absolute; inset: 0; opacity: 0; background:
+  radial-gradient(calc(var(--d) * 1.6) calc(var(--d) * 1.05) at var(--sx) var(--hz), rgba(255, 150, 60, .55), rgba(242, 120, 40, .18) 45%, transparent 75%),
+  linear-gradient(180deg, #040b16 0%, #0b1426 calc(var(--hz) * .6), #1b1a2a var(--hz)); }
+.pre__stars { position: absolute; left: 0; right: 0; top: 0; height: var(--hz); opacity: .9;
+  background-image: radial-gradient(1.2px 1.2px at 12% 18%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 28% 42%, #fff 50%, transparent 51%), radial-gradient(1.4px 1.4px at 44% 12%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 63% 30%, #fff 50%, transparent 51%), radial-gradient(1.3px 1.3px at 78% 9%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 88% 38%, #fff 50%, transparent 51%), radial-gradient(1px 1px at 6% 55%, #fff 50%, transparent 51%), radial-gradient(1.2px 1.2px at 53% 58%, #fff 50%, transparent 51%);
+  background-size: 480px 380px; }
+.pre__sunwrap { position: absolute; left: 0; right: 0; top: 0; height: var(--hz); overflow: hidden; }
+.pre__sun { position: absolute; left: calc(var(--sx) - var(--d) / 2); top: calc(var(--sy) - var(--d) / 2); width: var(--d); height: var(--d); border-radius: 50%;
+  background: radial-gradient(circle at 50% 46%, #ffe9b0 0%, #ffcc66 26%, #ffa23a 55%, #f47d22 80%, #e5661a 100%);
+  box-shadow: 0 0 calc(var(--d) * .12) calc(var(--d) * .03) rgba(255, 196, 92, .75), 0 0 calc(var(--d) * .5) calc(var(--d) * .12) rgba(255, 140, 50, .35), 0 0 calc(var(--d) * 1.2) calc(var(--d) * .2) rgba(255, 120, 40, .18);
+  will-change: transform; }
+.pre__plasma { position: absolute; inset: 0; border-radius: 50%; overflow: hidden; opacity: .35; mix-blend-mode: soft-light;
+  background: conic-gradient(from 0deg, #fff3 0deg, #f803 60deg, #fff2 140deg, #f604 220deg, #fff3 300deg, #fff3 360deg); animation: plasma 9s linear infinite; }
+@keyframes plasma { to { transform: rotate(360deg); } }
+.pre__haze { position: absolute; left: calc(var(--sx) - var(--d) * 1.6); width: calc(var(--d) * 3.2); top: calc(var(--hz) - 40px); height: 80px; opacity: 0;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 190, 90, .55), rgba(255, 140, 50, .18) 45%, transparent 70%); filter: blur(6px); }
+.pre__ground { position: absolute; left: 0; right: 0; top: var(--hz); bottom: 0; overflow: hidden;
+  background: linear-gradient(180deg, #0b1a33 0%, #071226 40%, #040b16 100%); }
+.pre__grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pre__grid path { fill: none; stroke: rgba(74, 150, 240, .38); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.pre__refl { position: absolute; left: calc(var(--sx) - var(--d) * .2); width: calc(var(--d) * .4); top: 0; bottom: 0; opacity: 0; transform-origin: top;
+  background: radial-gradient(50% 100% at 50% 0%, rgba(255, 200, 110, .55), rgba(255, 150, 60, .12) 55%, transparent 80%); }
+.pre__horizon { position: absolute; left: 0; right: 0; top: calc(var(--hz) - 1px); height: 2px; transform-origin: var(--sx) 50%;
+  background: linear-gradient(90deg, transparent, rgba(255, 190, 100, .25) 20%, #ffd27a calc(var(--sx) - 1px), rgba(255, 190, 100, .25) 80%, transparent); box-shadow: 0 0 18px rgba(255, 180, 80, .45); }
+.pre__top, .pre__bottom { position: absolute; left: var(--gutter); right: var(--gutter); display: flex; justify-content: space-between; align-items: center; gap: 20px; z-index: 2; }
+.pre__top { top: clamp(20px, 3vw, 36px); }
+.pre__bottom { bottom: clamp(20px, 3vw, 36px); }
+.pre__bottom .label, .pre__top .label { color: rgba(234, 240, 247, .62); }
+.pre__bottom [data-pre-status] { color: var(--sun); min-width: 16ch; }
+.pre__bar { flex: 1; max-width: 420px; height: 1px; background: rgba(234, 240, 247, .16); position: relative; overflow: hidden; }
+.pre__bar i { position: absolute; inset: 0; background: var(--sun); transform-origin: left; transform: scaleX(0); }
+.pre__count { position: absolute; left: var(--gutter); bottom: calc(100% - var(--hz) + clamp(18px, 3vh, 40px)); display: flex; align-items: flex-start; gap: .1em; z-index: 2; color: var(--text); }
+.pre__num { font-weight: 200; font-stretch: 62%; font-size: clamp(110px, 19vw, 300px); line-height: .78; letter-spacing: -.04em; font-variant-numeric: tabular-nums; }
+.pre__unit { font-weight: 600; font-stretch: 100%; font-size: clamp(22px, 2.6vw, 40px); color: var(--sun); margin-top: .2em; }
+@media (max-width: 760px), (orientation: portrait) {
+  .pre__count { bottom: auto; top: 22vh; }
+  .pre__bottom .pre__bar { display: none; }
+}
+
+/* Closer match to the WebGL sun for a seamless hand-off */
+.pre__sun { background:
+  radial-gradient(28% 22% at 38% 34%, rgba(255, 226, 150, .55), transparent 70%),
+  radial-gradient(30% 26% at 66% 58%, rgba(255, 196, 92, .45), transparent 70%),
+  radial-gradient(24% 30% at 30% 70%, rgba(214, 84, 20, .35), transparent 70%),
+  radial-gradient(circle at 50% 46%, #ffd98a 0%, #ffb24a 34%, #f78a2c 66%, #e2621b 88%, #c9501a 100%); }
+.pre__plasma { opacity: .55; mix-blend-mode: overlay; background: conic-gradient(from 20deg, #fff4 0deg, #c4410c55 50deg, #ffd27a66 120deg, #c4410c44 200deg, #fff3 270deg, #f2b23655 330deg, #fff4 360deg); filter: blur(calc(var(--d) * .04)); }
+.pre__sky { background:
+  radial-gradient(calc(var(--d) * 2.2) calc(var(--d) * 1.5) at var(--sx) var(--hz), rgba(255, 150, 60, .5), rgba(170, 90, 40, .22) 45%, transparent 78%),
+  linear-gradient(180deg, #080a12 0%, #1b1418 calc(var(--hz) * .65), #3a2216 var(--hz)); }
+
+@media (max-width: 560px) { .pre__top .label:last-child { display: none; } }
