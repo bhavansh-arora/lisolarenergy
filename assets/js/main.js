@@ -51,15 +51,16 @@
 
     if (returning || reduce || !pre) {
       if (pre) pre.remove();
-      var at = '50% 50%';
-      try { var o = JSON.parse(sessionStorage.getItem('li-burst') || 'null'); if (o) at = o.x + '% ' + o.y + '%'; sessionStorage.removeItem('li-burst'); } catch (e) {}
-      gsap.set(curtain, { clipPath: 'circle(150% at ' + at + ')', visibility: 'visible' });
-      gsap.to(curtain, { clipPath: 'circle(0% at 50% 50%)', duration: reduce ? 0 : 1.05, ease: 'expo.inOut', delay: 0.05, onComplete: function () { gsap.set(curtain, { visibility: 'hidden' }); } });
+      var slats = $$('i', curtain);
+      gsap.set(curtain, { visibility: 'visible' });
+      gsap.set(slats, { scaleY: 1, transformOrigin: '50% 0%' });
+      gsap.to(slats, { scaleY: 0, duration: reduce ? 0 : 0.75, ease: 'expo.inOut', stagger: reduce ? 0 : 0.045, delay: 0.05, onComplete: function () { gsap.set(curtain, { visibility: 'hidden' }); } });
       setTimeout(ready, reduce ? 0 : 380);
       return;
     }
 
-    gsap.set(curtain, { clipPath: 'circle(0% at 50% 50%)', visibility: 'hidden' });
+    gsap.set(curtain, { visibility: 'hidden' });
+    gsap.set($$('i', curtain), { scaleY: 0 });
     if (lenis) lenis.stop();
     sunrise(pre);
   }
@@ -150,12 +151,10 @@
       if (url.pathname === location.pathname && url.hash) return;
       e.preventDefault();
       closeMenu();
-      var x = Math.round((e.clientX || window.innerWidth / 2) / window.innerWidth * 100);
-      var y = Math.round((e.clientY || window.innerHeight / 2) / window.innerHeight * 100);
-      try { sessionStorage.setItem('li-burst', JSON.stringify({ x: x, y: y })); } catch (err) {}
-      gsap.fromTo(curtain, { clipPath: 'circle(0% at ' + x + '% ' + y + '%)', visibility: 'visible' }, { clipPath: 'circle(150% at ' + x + '% ' + y + '%)', duration: 0.85, ease: 'expo.inOut', onComplete: function () { location.href = url.href; } });
+      gsap.set(curtain, { visibility: 'visible' });
+      gsap.fromTo($$('i', curtain), { scaleY: 0, transformOrigin: '50% 100%' }, { scaleY: 1, duration: 0.6, ease: 'expo.inOut', stagger: 0.045, onComplete: function () { location.href = url.href; } });
     });
-    window.addEventListener('pageshow', function (e) { if (e.persisted) gsap.set(curtain, { clipPath: 'circle(0% at 50% 50%)', visibility: 'hidden' }); });
+    window.addEventListener('pageshow', function (e) { if (e.persisted) { gsap.set($$('i', curtain), { scaleY: 0 }); gsap.set(curtain, { visibility: 'hidden' }); } });
   }
 
   /* ---------- Header ---------- */
@@ -469,21 +468,25 @@
       var items = $$('.quote', wrap);
       var count = $('.quotes__count', wrap);
       var i = 0, timer;
-      function show(n) {
-        var prev = items[i];
+      function show(n, instant) {
         i = (n + items.length) % items.length;
-        var next = items[i];
         if (count) count.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');
-        if (prev === next) return;
-        if (hasGsap && !reduce) {
-          gsap.to(prev, { opacity: 0, y: -20, duration: 0.45, ease: 'power2.in', onComplete: function () { prev.classList.remove('is-active'); next.classList.add('is-active'); gsap.fromTo(next, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: 'expo.out' }); } });
-        } else { prev.classList.remove('is-active'); next.classList.add('is-active'); next.style.opacity = 1; }
+        // Every quote is driven on every change, so a rapid click can never leave two visible.
+        items.forEach(function (q, k) {
+          var on = k === i;
+          q.classList.toggle('is-active', on);
+          q.setAttribute('aria-hidden', String(!on));
+          if (!hasGsap || reduce || instant) { if (hasGsap) gsap.killTweensOf(q); q.style.opacity = on ? 1 : 0; q.style.transform = 'none'; return; }
+          gsap.killTweensOf(q);
+          if (on) gsap.fromTo(q, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.9, delay: 0.32, ease: 'expo.out' });
+          else gsap.to(q, { opacity: 0, y: -18, duration: 0.3, ease: 'power2.in' });
+        });
       }
       function auto() { clearInterval(timer); timer = setInterval(function () { show(i + 1); }, 7000); }
       var p = $('[data-prev]', wrap), n = $('[data-next]', wrap);
       if (p) p.addEventListener('click', function () { show(i - 1); auto(); });
       if (n) n.addEventListener('click', function () { show(i + 1); auto(); });
-      show(0);
+      show(0, true);
       if (!reduce) auto();
     });
   }
@@ -706,6 +709,50 @@
     });
   }
 
+
+  /* ---------- Footer: the sign-off letters unfold as you reach the end ---------- */
+  function initFooter() {
+    var foot = $('[data-footer]');
+    var mega = $('[data-footer-mega]');
+    if (!foot || !mega) return;
+    var chars = [];
+    $$('span', mega).forEach(function (word) {
+      var t = word.textContent; word.textContent = '';
+      t.split('').forEach(function (ch) { var c = doc.createElement('span'); c.className = 'vt-ch'; c.textContent = ch; word.appendChild(c); chars.push(c); });
+    });
+    if (reduce || !hasGsap) return;
+    var mx = -9999, my = -9999, raf = 0, cur = chars.map(function () { return { w: 62, g: 200 }; });
+    function frame() {
+      raf = 0;
+      var r = foot.getBoundingClientRect(), vh = window.innerHeight;
+      var p = Math.max(0, Math.min(1, (vh - r.top) / Math.max(1, Math.min(r.height, vh))));
+      foot.style.setProperty('--fp', p.toFixed(3));
+      var moving = false;
+      chars.forEach(function (c, k) {
+        var local = Math.max(0, Math.min(1, p * 1.7 - (k / chars.length) * 0.7));
+        var e = 1 - Math.pow(1 - local, 3);
+        var tw = 62 + 63 * e, tg = 200 + 600 * e;
+        if (fine && mx > -9000) {
+          var b = c.getBoundingClientRect();
+          var d = Math.hypot(mx - (b.left + b.width / 2), my - (b.top + b.height / 2));
+          var t = Math.exp(-(d * d) / (2 * 140 * 140));
+          tw -= 60 * t * e; tg -= 520 * t * e;
+        }
+        cur[k].w += (tw - cur[k].w) * 0.18; cur[k].g += (tg - cur[k].g) * 0.18;
+        if (Math.abs(tw - cur[k].w) > 0.2) moving = true;
+        c.style.setProperty('--w', cur[k].w.toFixed(1));
+        c.style.setProperty('--g', cur[k].g.toFixed(0));
+      });
+      if (moving) raf = requestAnimationFrame(frame);
+    }
+    function req() { if (!raf) raf = requestAnimationFrame(frame); }
+    window.addEventListener('scroll', req, { passive: true });
+    window.addEventListener('resize', req, { passive: true });
+    mega.addEventListener('pointermove', function (e) { mx = e.clientX; my = e.clientY; req(); });
+    mega.addEventListener('pointerleave', function () { mx = -9999; my = -9999; req(); });
+    frame();
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
     initLenis();
@@ -723,7 +770,6 @@
     initTimeline();
     initMarquee();
     initAccordion();
-    initPreview();
     initQuotes();
     initSunclock();
     initEstimator();
@@ -731,6 +777,7 @@
     initDive();
     initExpand();
     initStack();
+    initFooter();
     var fontsReady = doc.fonts && doc.fonts.ready ? doc.fonts.ready : Promise.resolve();
     fontsReady.then(function () { initSplit(); intro(); if (hasGsap) ScrollTrigger.refresh(); });
     window.addEventListener('load', function () { if (hasGsap) ScrollTrigger.refresh(); });

@@ -1559,3 +1559,48 @@ html:not(.js) .acc__panel { visibility: visible; }
   linear-gradient(180deg, #080a12 0%, #1b1418 calc(var(--hz) * .65), #3a2216 var(--hz)); }
 
 @media (max-width: 560px) { .pre__top .label:last-child { display: none; } }
+
+/* ==========================================================================
+   Round 3
+   ========================================================================== */
+/* Benefits rows: the photo opens inside the row, behind the text */
+.row-item.has-bg { isolation: isolate; }
+.row-item__bg { position: absolute; inset: 6px -22px; z-index: -1; border-radius: 18px; overflow: hidden; clip-path: inset(50% 0 50% 0 round 18px); transition: clip-path .8s var(--ease); pointer-events: none; }
+.row-item__bg img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.18); transition: transform 1.2s var(--ease); filter: saturate(.9) contrast(1.05) brightness(.8); }
+.row-item__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(4,11,20,.82) 0%, rgba(4,11,20,.45) 55%, rgba(4,11,20,.7) 100%); }
+@media (hover: hover) and (min-width: 861px) {
+  .row-item.has-bg:hover .row-item__bg { clip-path: inset(0 0 0 0 round 18px); }
+  .row-item.has-bg:hover .row-item__bg img { transform: scale(1); }
+  .row-item.has-bg:hover .row-item__title, .section--paper .row-item.has-bg:hover .row-item__title { color: #fff; }
+  .row-item.has-bg:hover p { color: rgba(255,255,255,.86); }
+  .row-item.has-bg:hover .label { color: var(--sun); }
+  .row-item.has-bg:hover .row-item__arrow { border-color: var(--sun); }
+  .row-item.has-bg { border-bottom-color: transparent; }
+}
+.row-item p, .row-item .label { transition: color .4s; position: relative; }
+
+/* Testimonials: stacked in one cell, only the active one is visible */
+.quote { opacity: 0; }
+.quote.is-active { pointer-events: auto; }
+
+/* Footer: unfolding sign-off and a sun that rises behind it */
+.site-footer { isolation: isolate; }
+.site-footer__glow { position: absolute; left: 50%; bottom: 0; z-index: -1; width: min(1100px, 120vw); aspect-ratio: 1; border-radius: 50%; pointer-events: none;
+  transform: translate(-50%, calc(78% - var(--fp, 0) * 22%));
+  background: radial-gradient(circle, rgba(255, 214, 140, .5) 0%, rgba(242, 178, 54, .28) 22%, rgba(255, 122, 26, .12) 42%, transparent 66%);
+  opacity: calc(.25 + var(--fp, 0) * .75); }
+.site-footer__mega span { display: inline-block; }
+.site-footer__mega .vt-ch { display: inline-block; font-variation-settings: "wdth" var(--w, 125), "wght" var(--g, 800); font-stretch: normal; }
+.site-footer__mega { cursor: default; }
+
+/* Page change: navy panel slats close, then open on the next page */
+.curtain { display: flex; background: none !important; clip-path: none !important; transform: none !important; }
+.curtain i { flex: 1; height: 100%; transform: scaleY(0); transform-origin: 50% 100%; background: linear-gradient(180deg, var(--sun) 0, var(--sun) 2px, #0a1d33 2px, var(--navy) 100%); }
+.curtain i + i { box-shadow: inset 1px 0 0 rgba(234, 240, 247, .06); }
+.is-returning .curtain i { transform: scaleY(1); }
+
+/* Intro sun: same luminous look as the new hero sun */
+.pre__sun { background: radial-gradient(circle at 50% 50%, #fffaf0 0%, #ffeec4 16%, #ffd27f 38%, #ffb050 62%, #f78a2e 84%, #ef7020 100%) !important; }
+.pre__plasma { display: none; }
+
+@media (hover: none), (max-width: 860px) { .row-item__bg { display: none; } }

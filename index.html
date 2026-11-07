@@ -61,9 +61,7 @@
   </div>
 </div>
 
-<div class="curtain" aria-hidden="true">
-  <img src="assets/brand/lithium-mark.svg" alt="" width="72" height="72">
-</div>
+<div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
 
 <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
 
@@ -444,38 +442,36 @@
       <div class="sec-head__meta"><span class="label" style="color:var(--blue)">(06)</span><span class="label">Why go solar</span></div>
       <h2 class="h-2 sec-head__title" data-split>Opt for solar. Opt for a <em>better future.</em></h2>
     </div>
-    <div class="rows" data-preview-list>
-      <div class="row-item" data-preview="0" data-reveal>
+    <div class="rows">
+      <div class="row-item has-bg" data-reveal>
+        <span class="row-item__bg" aria-hidden="true"><img src="assets/img/home-pool-2000.webp" alt="" loading="lazy"></span>
         <span class="label">01</span>
         <h3 class="row-item__title">Save money</h3>
         <p>Cut your electricity bill by up to 100% with a system sized to how you actually use power.</p>
         <span class="row-item__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
       </div>
-      <div class="row-item" data-preview="1" data-reveal>
+      <div class="row-item has-bg" data-reveal>
+        <span class="row-item__bg" aria-hidden="true"><img src="assets/img/field-sky-1000.webp" alt="" loading="lazy"></span>
         <span class="label">02</span>
         <h3 class="row-item__title">Cut your carbon</h3>
         <p>Make a lasting impact on the environment by relying less on fossil fuels, every single day.</p>
         <span class="row-item__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
       </div>
-      <div class="row-item" data-preview="2" data-reveal>
+      <div class="row-item has-bg" data-reveal>
+        <span class="row-item__bg" aria-hidden="true"><img src="assets/img/home-white-1000.webp" alt="" loading="lazy"></span>
         <span class="label">03</span>
         <h3 class="row-item__title">Raise your value</h3>
         <p>Homes and buildings with solar are in demand. Lower running costs make your property stand out.</p>
         <span class="row-item__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
       </div>
-      <div class="row-item" data-preview="3" data-reveal>
+      <div class="row-item has-bg" data-reveal>
+        <span class="row-item__bg" aria-hidden="true"><img src="assets/img/grid-sunset-2000.webp" alt="" loading="lazy"></span>
         <span class="label">04</span>
         <h3 class="row-item__title">Stay powered</h3>
         <p>Pair solar with battery storage and keep your home or business running through a grid outage.</p>
         <span class="row-item__arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
       </div>
     </div>
-  </div>
-  <div class="preview" aria-hidden="true">
-    <img src="assets/img/home-pool-1000.webp" alt="" loading="lazy">
-    <img src="assets/img/field-sky-1000.webp" alt="" loading="lazy">
-    <img src="assets/img/home-white-1000.webp" alt="" loading="lazy">
-    <img src="assets/img/grid-sunset-1000.webp" alt="" loading="lazy">
   </div>
 </section>
 
@@ -556,15 +552,16 @@
 
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer" data-footer>
+  <div class="site-footer__glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="site-footer__top">
-      <div class="site-footer__brand">
+      <div class="site-footer__brand" data-reveal>
         <img src="assets/brand/lithium-logo-white.svg" alt="Lithium — Power for life" width="220" height="74" loading="lazy">
         <p>Custom solar, battery backup and EV charging for Southern California homes and businesses. 17+ years in power and renewable energy.</p>
       </div>
       <div class="site-footer__cols">
-        <div>
+        <div data-reveal data-delay=".05">
           <p class="label">Explore</p>
           <a href="residential.html">Residential</a>
           <a href="commercial.html">Commercial</a>
@@ -572,14 +569,14 @@
           <a href="savings.html">Savings calculator</a>
           <a href="about.html">About</a>
         </div>
-        <div>
+        <div data-reveal data-delay=".12">
           <p class="label">Customers</p>
           <a href="quote.html">Free quote</a>
           <a href="track.html">Track a project</a>
           <a href="contact.html">Contact</a>
           <a href="privacy.html">Privacy</a>
         </div>
-        <div>
+        <div data-reveal data-delay=".19">
           <p class="label">Reach us</p>
           <a href="tel:+19516626748">(951) 662-6748</a>
           <a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a>
@@ -591,7 +588,7 @@
         </div>
       </div>
     </div>
-    <div class="site-footer__mega" aria-hidden="true">
+    <div class="site-footer__mega" aria-hidden="true" data-footer-mega>
       <span>Power</span><em>for</em><span>life</span>
     </div>
     <div class="site-footer__bottom">
