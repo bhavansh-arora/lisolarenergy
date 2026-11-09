@@ -223,8 +223,64 @@
     open(spots[0]);
   }
 
+  /* ---------- Card player: play / pause, time slider, outage toggle ---------- */
+  function initPlayer(card) {
+    var range = card.querySelector('[data-day-range]');
+    var play = card.querySelector('[data-day-play]');
+    var btn = card.querySelector('[data-outage]');
+    var cap = { kicker: card.querySelector('[data-cap="kicker"]'), title: card.querySelector('[data-cap="title"]'), text: card.querySelector('[data-cap="text"]') };
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var outage = false, playing = false, h = +(range ? range.value : 12), last = 0, raf = 0, lastCap = null, started = false;
+
+    function chapter(hh) {
+      if (outage) return OUTAGE;
+      for (var i = 0; i < CHAPTERS.length; i++) if (hh < CHAPTERS[i].until) return CHAPTERS[i];
+      return CHAPTERS[CHAPTERS.length - 1];
+    }
+    function draw() {
+      render(card, h, outage);
+      if (range) {
+        range.value = h;
+        range.style.setProperty('--p', ((h - range.min) / (range.max - range.min)) * 100 + '%');
+      }
+      var c = chapter(h);
+      if (c !== lastCap && cap.title) { lastCap = c; cap.kicker.textContent = c.kicker; cap.title.textContent = c.title; cap.text.textContent = c.text; }
+    }
+    function setPlaying(on) {
+      playing = on;
+      if (play) { play.setAttribute('aria-pressed', String(on)); play.setAttribute('aria-label', on ? 'Pause the day' : 'Play the day'); }
+      if (on && !raf) { last = performance.now(); raf = requestAnimationFrame(loop); }
+    }
+    function loop(now) {
+      raf = 0;
+      if (!playing) return;
+      var dt = Math.min(0.1, (now - last) / 1000); last = now;
+      h += dt * 1.15;
+      if (h > 24) h = 6;
+      draw();
+      raf = requestAnimationFrame(loop);
+    }
+    if (range) range.addEventListener('input', function () { setPlaying(false); h = +range.value; draw(); });
+    if (play) play.addEventListener('click', function () { setPlaying(!playing); });
+    if (btn) btn.addEventListener('click', function () {
+      outage = !outage;
+      btn.setAttribute('aria-pressed', String(outage));
+      btn.querySelector('span').textContent = outage ? 'Restore the grid' : 'Simulate an outage';
+      lastCap = null; draw();
+    });
+    draw();
+    // Start the day automatically the first time the card is on screen.
+    if (!reduce && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) {
+        if (e[0].isIntersecting && !started) { started = true; setPlaying(true); }
+        if (!e[0].isIntersecting && playing) setPlaying(false), started = false;
+      }, { threshold: 0.35 }).observe(card);
+    }
+  }
+
   function init() {
     document.querySelectorAll('[data-day]').forEach(initDay);
+    document.querySelectorAll('[data-house-player]').forEach(initPlayer);
     document.querySelectorAll('[data-house-loop]').forEach(initLoop);
     document.querySelectorAll('[data-spots]').forEach(initSpots);
   }

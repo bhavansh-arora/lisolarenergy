@@ -6,7 +6,8 @@
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="{{siteUrl}}/{{file}}">
-<meta name="theme-color" content="#040b14">
+<meta name="theme-color" content="#f7f7f4">
+<meta name="view-transition" content="same-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lithium — Power for life">
 <meta property="og:title" content="{{title}}">
@@ -16,14 +17,10 @@
 <link rel="icon" href="assets/brand/lithium-mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon-48.png" sizes="48x48">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/archivo-normal-100-900.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/instrument-serif-italic-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/main.css">
-<script>
-  document.documentElement.classList.add('js');
-  try { if (sessionStorage.getItem('li-visited')) document.documentElement.classList.add('is-returning'); } catch (e) {}
-</script>
+<link rel="stylesheet" href="assets/css/site.css">
+<script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -41,26 +38,3 @@
 </head>
 <body class="{{bodyClass}}" data-page="{{page}}">
 <a class="skip" href="#main">Skip to content</a>
-
-<div class="preloader" aria-hidden="true">
-  <div class="pre__sky"></div>
-  <div class="pre__stars"></div>
-  <div class="pre__sunwrap"><div class="pre__sun"><i class="pre__plasma"></i></div></div>
-  <div class="pre__haze"></div>
-  <div class="pre__ground"><svg class="pre__grid"></svg><i class="pre__refl"></i></div>
-  <div class="pre__horizon"></div>
-  <div class="pre__top">
-    <span class="label">Lithium LLC · Yucaipa, California</span>
-    <span class="label">34.03° N · 117.04° W</span>
-  </div>
-  <div class="pre__count"><span class="pre__num" data-preload-count>000</span><span class="pre__unit">%</span></div>
-  <div class="pre__bottom">
-    <span class="label" data-pre-status>Before dawn</span>
-    <span class="pre__bar"><i></i></span>
-    <span class="label">Power for life</span>
-  </div>
-</div>
-
-<div class="curtain" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-
-<div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>

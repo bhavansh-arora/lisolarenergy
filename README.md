@@ -10,15 +10,15 @@ The finished site is the HTML pages and `assets/` folder at the repo root: plain
 
 | Page | What it does |
 |---|---|
-| `index.html` | Home: scroll-driven dive into a live WebGL sun, variable-width headline, “A day on your roof” interactive energy story (with outage simulation), expanding Homes/Business panels, sentence-style savings estimate, pinned 6-step process, testimonials, FAQ |
-| `residential.html` | Interactive house hero (live day cycle with tappable hotspots), home services, why storage matters under NEM 3.0 |
-| `commercial.html` | Full-bleed hero, services with a sticky photo that changes as you read, business case, subcontracting for contractors |
+| `index.html` | Home: hero with live solar/battery widgets for Yucaipa’s current time, services bento, interactive house day (play, scrub, outage), instant estimate, 6-step process, project-tracker preview, testimonials, FAQ |
+| `residential.html` | House with tappable hotspots, home services, why storage matters under NEM 3.0, FAQ |
+| `commercial.html` | Services with a sticky photo that changes as you read, business case, subcontracting for contractors, FAQ |
 | `process.html` | The six steps with typical timing and what the customer does at each one |
 | `savings.html` | Full calculator with editable assumptions, 25-year cost chart (hover + table view) |
-| `about.html` | Editorial statement and photo mosaic, story, values, expertise, equipment partners |
+| `about.html` | Photo mosaic, story, stats, values, expertise, equipment partners |
 | `quote.html` | 7-step quote funnel: live estimate, autosave and resume, ZIP check, site-visit time request, confirmation with tracking code and calendar file |
 | `track.html` | Project tracker: look up a project by code + ZIP. Includes a sample project (`LI-SAMPLE`, ZIP `92399`) |
-| `contact.html` | Giant tap-to-call phone number, map card, contact form |
+| `contact.html` | Phone, email and map cards, contact form |
 | `privacy.html`, `404.html` | Privacy notice and not-found page |
 
 ## Run it locally
@@ -54,13 +54,13 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 `assets/js/calc.js` holds every assumption: rate $0.34/kWh, 5.6 peak sun hours, 80% system efficiency, $3.10/W installed, 3% yearly utility increase, 0.5% yearly panel degradation, 410 W panels. All results are labeled as estimates before incentives.
 
-## Motion and accessibility
+## Design and motion
 
-- GSAP + ScrollTrigger + SplitText and Lenis smooth scrolling (vendored in `assets/vendor/`; GSAP is free under its standard license).
-- First visit shows a short preloader; moving between pages uses a sun-burst transition from the click point.
-- `assets/js/house.js` holds the illustrative energy model behind the house story (8.2 kW system, 13.5 kWh battery); tweak it there.
-- `prefers-reduced-motion` turns off smooth scrolling, pinning, parallax and text animation; the WebGL sun renders a still frame.
-- Without WebGL the sun falls back to a CSS gradient. Without JavaScript all content is still visible.
+- Light, product-style design system in `assets/css/site.css`: Geist and Geist Mono (self-hosted), warm white surfaces, rounded cards and bento grids.
+- No animation libraries. `assets/js/main.js` handles subtle fade-up reveals, count-ups, the FAQ, the mobile menu and the live hero widgets.
+- Page changes use the browser's native cross-fade (View Transitions) where supported.
+- `assets/js/house.js` holds the illustrative energy model behind the house widget (8.2 kW system, 13.5 kWh battery) and the hero's live readouts; tweak it there.
+- `prefers-reduced-motion` turns off reveals and autoplay. Without JavaScript all content is still visible.
 
 ## Credits
 
