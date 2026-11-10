@@ -10,10 +10,10 @@ The finished site is the HTML pages and `assets/` folder at the repo root: plain
 
 | Page | What it does |
 |---|---|
-| `index.html` | Home: hero with live solar/battery widgets for Yucaipa’s current time, services bento, interactive house day (play, scrub, outage), instant estimate, 6-step process, project-tracker preview, testimonials, FAQ |
-| `residential.html` | House with tappable hotspots, home services, why storage matters under NEM 3.0, FAQ |
+| `index.html` | Home: arched hero with rotating badge, word ribbon, “why Lithium” statement, “Solar makes sense if…” rows, sunrise-to-savings cards, three system packages, utility-vs-solar toggle, testimonial tabs, photo step cards, closing photo section |
+| `residential.html` | Arched hero, house with tappable hotspots, home services, why storage matters under NEM 3.0, FAQ |
 | `commercial.html` | Services with a sticky photo that changes as you read, business case, subcontracting for contractors, FAQ |
-| `process.html` | The six steps with typical timing and what the customer does at each one |
+| `process.html` | The six steps with typical timing and what the customer does at each one, tracker promise, general FAQ |
 | `savings.html` | Full calculator with editable assumptions, 25-year cost chart (hover + table view) |
 | `about.html` | Photo mosaic, story, stats, values, expertise, equipment partners |
 | `quote.html` | 7-step quote funnel: live estimate, autosave and resume, ZIP check, site-visit time request, confirmation with tracking code and calendar file |
