@@ -6,7 +6,7 @@
 <title>Page not found — Lithium</title>
 <meta name="description" content="This page drifted off the grid.">
 <link rel="canonical" href="https://lisolarenergy.com/404.html">
-<meta name="theme-color" content="#f5f1e9">
+<meta name="theme-color" content="#0a0f14">
 <meta name="view-transition" content="same-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lithium — Power for life">
@@ -17,8 +17,8 @@
 <link rel="icon" href="assets/brand/lithium-mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon-48.png" sizes="48x48">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -40,22 +40,36 @@
 <body class="page-404" data-page="404">
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="ticker" aria-label="Announcements">
+  <div class="ticker__track">
+    <span>✦ Free consultations — no obligation</span><span>✦ Battery backup that keeps the lights on</span><a href="quote.html">Book yours →</a><span>✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+  </div>
+</div>
+
 <header class="site-header" data-header>
   <div class="wrap">
     <div class="site-header__bar">
-      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark.svg" alt="Lithium" width="128" height="29"></a>
+      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark-white.svg" alt="Lithium" width="132" height="30"></a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" data-nav="home">Home</a>
-        <a href="residential.html" data-nav="residential">Residential</a>
-        <a href="commercial.html" data-nav="commercial">Commercial</a>
+        <div class="nav__drop" data-drop>
+          <button type="button" aria-expanded="false">Solar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="nav__menu">
+            <a href="residential.html" data-nav="residential"><b>Residential solar</b><span>Panels, battery backup, panel upgrades and EV charging for homes.</span></a>
+            <a href="commercial.html" data-nav="commercial"><b>Commercial solar</b><span>Lower operating costs and keep running through outages.</span></a>
+            <a href="savings.html" data-nav="savings"><b>Savings calculator</b><span>See system size, payback and 25-year savings.</span></a>
+          </div>
+        </div>
         <a href="process.html" data-nav="process">Process</a>
-        <a href="savings.html" data-nav="savings">Savings</a>
+        <a href="track.html" data-nav="track">Track</a>
         <a href="about.html" data-nav="about">About</a>
         <a href="contact.html" data-nav="contact">Contact</a>
       </nav>
       <div class="site-header__actions">
-        <a class="header-link" href="track.html" data-nav="track">Track</a>
-        <a class="btn btn--primary btn--sm" href="quote.html">Free quote</a>
+        <a class="header-phone" href="tel:+19516626748"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(951) 662-6748</a>
+        <a class="btn btn--primary btn--sm" href="quote.html">Free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu <span class="bars" aria-hidden="true"><i></i><i></i></span></button>
       </div>
     </div>
@@ -64,31 +78,32 @@
 
 <div class="menu" id="menu" data-menu aria-hidden="true">
   <nav class="menu__nav" aria-label="Mobile">
-    <a href="index.html" data-nav="home"><i>I</i>Home</a>
-    <a href="residential.html" data-nav="residential"><i>II</i>Residential</a>
-    <a href="commercial.html" data-nav="commercial"><i>III</i>Commercial</a>
-    <a href="process.html" data-nav="process"><i>IV</i>Process</a>
-    <a href="savings.html" data-nav="savings"><i>V</i>Savings</a>
-    <a href="about.html" data-nav="about"><i>VI</i>About</a>
-    <a href="track.html" data-nav="track"><i>VII</i>Track a project</a>
-    <a href="contact.html" data-nav="contact"><i>VIII</i>Contact</a>
+    <a href="index.html" data-nav="home"><i>01</i>Home</a>
+    <a href="residential.html" data-nav="residential"><i>02</i>Residential solar</a>
+    <a href="commercial.html" data-nav="commercial"><i>03</i>Commercial solar</a>
+    <a href="savings.html" data-nav="savings"><i>04</i>Savings</a>
+    <a href="process.html" data-nav="process"><i>05</i>Process</a>
+    <a href="track.html" data-nav="track"><i>06</i>Track a project</a>
+    <a href="about.html" data-nav="about"><i>07</i>About</a>
+    <a href="contact.html" data-nav="contact"><i>08</i>Contact</a>
   </nav>
   <div class="menu__foot">
-    <a class="btn btn--primary btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div class="menu__contact"><a href="tel:+19516626748">(951) 662-6748</a><a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a></div>
+    <a class="btn btn--gold btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="menu__contact"><a href="tel:+19516626748">(951) 662-6748</a><a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a><span>12003 Fremont St, Yucaipa, CA 92399</span></div>
   </div>
 </div>
 
 <main id="main">
-<section class="phead" style="min-height:72svh;display:grid;align-items:center">
-  <div class="wrap center" style="display:grid;justify-items:center;gap:22px">
-    <span class="kicker" data-reveal>Error 404</span>
-    <h1 class="display" data-reveal data-delay=".05">Off the grid. <em>This page doesn’t exist.</em></h1>
-    <p class="lead" data-reveal data-delay=".1">But your savings still do.</p>
-    <div class="btn-row" data-reveal data-delay=".15" style="justify-content:center">
-      <a class="btn btn--primary btn--lg" href="index.html">Back home <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn--ghost btn--lg" href="quote.html">Get a quote</a>
+<section class="phero" aria-label="Page not found">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/grid-sunset-1000.webp" alt="" fetchpriority="high"></div>
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>Error 404</span>
+    <h1 class="display hero__title mt-m" data-rise>Off the <em>grid.</em></h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal>This page doesn’t exist, but your savings still do.</p>
+      <div class="hero__side" data-reveal><div class="btn-row"><a class="btn btn--gold btn--lg" href="index.html">Back home <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="quote.html">Get a quote</a></div></div>
     </div>
+    <div class="strip"><div><span class="label">Try</span><strong><a href="residential.html">Residential solar</a></strong></div><div><span class="label">Try</span><strong><a href="commercial.html">Commercial solar</a></strong></div><div><span class="label">Try</span><strong><a href="savings.html">Savings calculator</a></strong></div><div><span class="label">Or call</span><strong><a href="tel:+19516626748">(951) 662-6748</a></strong></div></div>
   </div>
 </section>
 
@@ -98,28 +113,27 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <img src="assets/brand/lithium-logo-white.svg" alt="Lithium — Power for life" width="170" height="57" loading="lazy">
-        <p>Custom solar, battery backup and EV charging for Southern California homes and businesses, with 17+ years in power and renewable energy.</p>
+        <span class="kicker">Power for life</span>
+        <p class="h-3">Ready when the sun comes up.</p>
+        <a class="btn btn--gold btn--sm" href="quote.html">Book a free consultation <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="ftr__cols">
         <div>
-          <p class="label">Explore</p>
-          <a href="index.html">Home</a>
-          <a href="residential.html">Residential</a>
-          <a href="commercial.html">Commercial</a>
+          <p class="label">Solar</p>
+          <a href="residential.html">Residential solar</a>
+          <a href="commercial.html">Commercial solar</a>
+          <a href="savings.html">Savings calculator</a>
           <a href="process.html">Our process</a>
-          <a href="about.html">About</a>
         </div>
         <div>
-          <p class="label">Customers</p>
-          <a href="quote.html">Free quote</a>
-          <a href="savings.html">Savings calculator</a>
+          <p class="label">Company</p>
+          <a href="about.html">About Lithium</a>
           <a href="track.html">Track a project</a>
-          <a href="contact.html">Contact</a>
+          <a href="quote.html">Free quote</a>
           <a href="privacy.html">Privacy</a>
         </div>
         <div>
-          <p class="label">Reach us</p>
+          <p class="label">Contact</p>
           <a href="tel:+19516626748">(951) 662-6748</a>
           <a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a>
           <a href="https://maps.google.com/?q=12003+Fremont+St+Yucaipa+CA+92399" target="_blank" rel="noopener">12003 Fremont St<br>Yucaipa, CA 92399</a>
@@ -130,11 +144,11 @@
         </div>
       </div>
     </div>
-    <div class="ftr__word" aria-hidden="true"><span>Lithium</span><img src="assets/brand/lithium-mark.svg" alt=""><em>Power for life</em></div>
+    <div class="ftr__word" aria-hidden="true" data-word><span>L</span><span>i</span><span>t</span><span>h</span><span>i</span><span>u</span><span>m</span></div>
     <div class="ftr__bottom">
-      <span>© 2026 Lithium LLC. All rights reserved.</span>
+      <span>© 2026 Lithium LLC. Power for life.</span>
       <span data-sunclock="footer">Yucaipa, CA</span>
-      <a href="#main">Back to top ↑</a>
+      <span><a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="#main">Back to top ↑</a></span>
     </div>
   </div>
 </footer>

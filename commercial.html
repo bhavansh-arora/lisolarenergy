@@ -6,7 +6,7 @@
 <title>Commercial Solar, Battery Backup & EV Charging — Lithium</title>
 <meta name="description" content="Custom commercial solar, battery backup, electrical upgrades, EV charging and subcontracting for Southern California businesses. Lower operating costs and keep running through outages.">
 <link rel="canonical" href="https://lisolarenergy.com/commercial.html">
-<meta name="theme-color" content="#f5f1e9">
+<meta name="theme-color" content="#0a0f14">
 <meta name="view-transition" content="same-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lithium — Power for life">
@@ -17,8 +17,8 @@
 <link rel="icon" href="assets/brand/lithium-mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon-48.png" sizes="48x48">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-tight.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -40,22 +40,36 @@
 <body class="page-commercial" data-page="commercial">
 <a class="skip" href="#main">Skip to content</a>
 
+<div class="ticker" aria-label="Announcements">
+  <div class="ticker__track">
+    <span>✦ Free consultations — no obligation</span><span>✦ Battery backup that keeps the lights on</span><a href="quote.html">Book yours →</a><span>✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+    <span aria-hidden="true">✦ Free consultations — no obligation</span><span aria-hidden="true">✦ Battery backup that keeps the lights on</span><a href="quote.html" tabindex="-1" aria-hidden="true">Book yours →</a><span aria-hidden="true">✦ 17+ years in power · Yucaipa, CA</span>
+  </div>
+</div>
+
 <header class="site-header" data-header>
   <div class="wrap">
     <div class="site-header__bar">
-      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark.svg" alt="Lithium" width="128" height="29"></a>
+      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark-white.svg" alt="Lithium" width="132" height="30"></a>
       <nav class="nav" aria-label="Primary">
-        <a href="index.html" data-nav="home">Home</a>
-        <a href="residential.html" data-nav="residential">Residential</a>
-        <a href="commercial.html" data-nav="commercial" aria-current="page">Commercial</a>
+        <div class="nav__drop" data-drop>
+          <button type="button" aria-expanded="false">Solar <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="nav__menu">
+            <a href="residential.html" data-nav="residential"><b>Residential solar</b><span>Panels, battery backup, panel upgrades and EV charging for homes.</span></a>
+            <a href="commercial.html" data-nav="commercial" aria-current="page"><b>Commercial solar</b><span>Lower operating costs and keep running through outages.</span></a>
+            <a href="savings.html" data-nav="savings"><b>Savings calculator</b><span>See system size, payback and 25-year savings.</span></a>
+          </div>
+        </div>
         <a href="process.html" data-nav="process">Process</a>
-        <a href="savings.html" data-nav="savings">Savings</a>
+        <a href="track.html" data-nav="track">Track</a>
         <a href="about.html" data-nav="about">About</a>
         <a href="contact.html" data-nav="contact">Contact</a>
       </nav>
       <div class="site-header__actions">
-        <a class="header-link" href="track.html" data-nav="track">Track</a>
-        <a class="btn btn--primary btn--sm" href="quote.html">Free quote</a>
+        <a class="header-phone" href="tel:+19516626748"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>(951) 662-6748</a>
+        <a class="btn btn--primary btn--sm" href="quote.html">Free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu <span class="bars" aria-hidden="true"><i></i><i></i></span></button>
       </div>
     </div>
@@ -64,47 +78,42 @@
 
 <div class="menu" id="menu" data-menu aria-hidden="true">
   <nav class="menu__nav" aria-label="Mobile">
-    <a href="index.html" data-nav="home"><i>I</i>Home</a>
-    <a href="residential.html" data-nav="residential"><i>II</i>Residential</a>
-    <a href="commercial.html" data-nav="commercial" aria-current="page"><i>III</i>Commercial</a>
-    <a href="process.html" data-nav="process"><i>IV</i>Process</a>
-    <a href="savings.html" data-nav="savings"><i>V</i>Savings</a>
-    <a href="about.html" data-nav="about"><i>VI</i>About</a>
-    <a href="track.html" data-nav="track"><i>VII</i>Track a project</a>
-    <a href="contact.html" data-nav="contact"><i>VIII</i>Contact</a>
+    <a href="index.html" data-nav="home"><i>01</i>Home</a>
+    <a href="residential.html" data-nav="residential"><i>02</i>Residential solar</a>
+    <a href="commercial.html" data-nav="commercial" aria-current="page"><i>03</i>Commercial solar</a>
+    <a href="savings.html" data-nav="savings"><i>04</i>Savings</a>
+    <a href="process.html" data-nav="process"><i>05</i>Process</a>
+    <a href="track.html" data-nav="track"><i>06</i>Track a project</a>
+    <a href="about.html" data-nav="about"><i>07</i>About</a>
+    <a href="contact.html" data-nav="contact"><i>08</i>Contact</a>
   </nav>
   <div class="menu__foot">
-    <a class="btn btn--primary btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    <div class="menu__contact"><a href="tel:+19516626748">(951) 662-6748</a><a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a></div>
+    <a class="btn btn--gold btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="menu__contact"><a href="tel:+19516626748">(951) 662-6748</a><a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a><span>12003 Fremont St, Yucaipa, CA 92399</span></div>
   </div>
 </div>
 
 <main id="main">
-<section class="ehero ehero--inner">
+<section class="phero" aria-label="Introduction">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/commercial-dusk-2000.webp" alt="" fetchpriority="high" data-parallax></div>
+  <span class="hero-badge" data-reveal><i>✦</i>Lower operating costs, month after month</span>
   <div class="wrap">
-    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Commercial</span></div>
-    <div class="ehero__grid">
-      <div class="ehero__copy">
-        <span class="kicker" data-reveal>For your business</span>
-        <h1 class="h-1" data-reveal data-delay=".05">Keep your business <em>running.</em></h1>
-        <p class="lead" data-reveal data-delay=".1">Custom solar and battery systems built around your property, your budget and your operating hours, so power becomes a fixed advantage instead of a rising cost.</p>
-        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html?type=business">Get a free business quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="contact.html?topic=contractor">Partner with us <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </div>
-      <div class="ehero__visual" data-reveal data-delay=".1">
-        <div class="arch"><img src="assets/img/commercial-dusk-1000.webp" srcset="assets/img/commercial-dusk-1000.webp 1000w, assets/img/commercial-dusk-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Commercial building with rooftop solar at sunset" fetchpriority="high" data-parallax></div>
-        <div class="badge badge--bl"><svg class="badge__ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="badge-path" d="M60 60m-47 0a47 47 0 1 1 94 0a47 47 0 1 1-94 0"/></defs><text><textPath href="#badge-path" startOffset="0">Free consultation ◆ No obligation ◆ </textPath></text></svg><img src="assets/brand/lithium-mark.svg" alt="">
-</div>
-      </div>
+    <nav class="crumbs" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><span>/</span><span>Solar</span><span>/</span><span>Commercial</span></nav>
+    <h1 class="h-1 hero__title" data-rise>Keep your business <em>running.</em></h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal data-delay=".2">Custom solar and battery systems built around your property, your budget and your operating hours, so power becomes a fixed advantage instead of a rising cost.</p>
+      <div class="hero__side" data-reveal data-delay=".3"><div class="btn-row"><a class="btn btn--gold btn--lg" href="quote.html?type=business">Get a free business quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="contact.html?topic=contractor">Partner with us</a></div></div>
     </div>
-    <div class="estats" data-stagger><div><b>Lower</b><span>operating costs, month after month</span></div><div><b>Backup</b><span>to keep critical systems running</span></div><div><b>24/7</b><span>support and monitoring</span></div><span class="scroll" aria-hidden="true">Scroll</span></div>
+    <div class="strip" data-stagger><div><span class="label">Costs</span><strong>Lower operating costs</strong></div><div><span class="label">Continuity</span><strong>Battery backup for outages</strong></div><div><span class="label">Support</span><strong>24/7 support and monitoring</strong></div><div><span class="label">Team</span><strong>One team, plan to sign-off</strong></div></div>
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section">
+  <span class="sec-num" aria-hidden="true">01</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Business services</span>
-      <h2 class="h-2 shead__title" data-reveal>Energy that works as hard as you do.</h2>
+      <span class="label label--sun shead__label">(01) — Business services</span>
+      <h2 class="h-2 shead__title" data-rise>Energy that works as hard as you do.</h2>
       <p class="shead__aside" data-reveal>Planning, installation and ongoing maintenance, managed by one team that understands budgets and operational goals.</p>
     </div>
     <div class="istack" data-stack>
@@ -151,21 +160,22 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section section--forest">
+  <span class="sec-num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">The business case</span>
-      <h2 class="h-2 shead__title" data-reveal>Built for the bottom line.</h2>
+      <span class="label label--sun shead__label">(02) — The business case</span>
+      <h2 class="h-2 shead__title" data-rise>Built for the bottom line.</h2>
     </div>
-    <div class="trio" data-stagger>
-      <div class="card trio__card"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><h3 class="h-4">Lower operating costs</h3><p>Produce power on site and buy less of it at peak prices, month after month.</p><span class="big">↓ <em>bills</em></span></div>
-      <div class="card trio__card"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3 class="h-4">Uninterrupted operations</h3><p>Battery backup keeps critical systems running through power failures.</p><span class="big">Stay <em>open</em></span></div>
-      <div class="card trio__card"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span><h3 class="h-4">Higher property value</h3><p>A building with lower running costs and cleaner energy is a stronger asset.</p><span class="big">↑ <em>value</em></span></div>
+    <div class="features" data-stagger>
+      <div class="feature"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><h3 class="h-4">Lower operating costs</h3><p>Produce power on site and buy less of it at peak prices, month after month.</p><span class="big">↓ <em>bills</em></span></div>
+      <div class="feature"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3 class="h-4">Uninterrupted operations</h3><p>Battery backup keeps critical systems running through power failures.</p><span class="big">Stay <em>open</em></span></div>
+      <div class="feature"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span><h3 class="h-4">Higher property value</h3><p>A building with lower running costs and cleaner energy is a stronger asset.</p><span class="big">↑ <em>value</em></span></div>
     </div>
   </div>
 </section>
 
-<section class="section section--flush-top">
+<section class="section">
   <div class="wrap">
     <div class="split2 split2--flip">
       <div class="split2__media" data-reveal><div class="media"><img src="assets/img/installer-roof-1000.webp" srcset="assets/img/installer-roof-1000.webp 1000w, assets/img/installer-roof-2000.webp 2000w" sizes="(max-width: 960px) 100vw, 50vw" alt="Installer carrying a panel across a roof" loading="lazy"></div></div>
@@ -184,12 +194,13 @@
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section section--navy">
+  <span class="sec-num" aria-hidden="true">03</span>
   <div class="wrap">
     <div class="faq">
       <div class="faq__head">
-        <span class="kicker">Business FAQ</span>
-        <h2 class="h-2" data-reveal>Straight answers.</h2>
+        <span class="label label--sun shead__label">(03) — Business FAQ</span>
+        <h2 class="h-2" data-rise>Straight answers.</h2>
       </div>
       <div class="faq__list" data-stagger>
         <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">How do you size a system for a business?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>We start with your utility bills and how and when you use power, then look at your roof or available space. The proposal shows system options, expected savings and financing side by side.</div></div></div>
@@ -201,18 +212,26 @@
   </div>
 </section>
 
-<div style="height:var(--sec)"></div>
 
-<section class="bigcta" aria-labelledby="cta-h">
-  <div class="bigcta__bg" aria-hidden="true"><img src="assets/img/roof-sunset-2000.webp" alt="" loading="lazy" data-parallax></div>
-  <div class="wrap bigcta__inner on-dark">
-    <span class="kicker" data-reveal>Your free consultation</span>
-    <h2 class="display" id="cta-h" data-reveal>Ready to go <em>solar?</em></h2>
-    <p data-reveal>Tell us about your property in about two minutes. We’ll design your system, show you the numbers and book your free site assessment. No pressure, no obligation.</p>
-    <div class="btn-row" data-reveal style="justify-content:center">
-      <a class="btn btn--light btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<div class="mega" aria-hidden="true" data-mega>
+  <div class="mega__row"><span>Solar</span><span>Battery backup</span><span>Savings</span><span>Power for life</span><span>EV charging</span><span>One crew</span><span>Solar</span><span>Battery backup</span><span>Savings</span><span>Power for life</span><span>EV charging</span><span>One crew</span></div>
+</div>
+
+<section class="cta" aria-labelledby="cta-h">
+  <div class="cta__media" aria-hidden="true"><img src="assets/img/roof-sunset-2000.webp" alt="" loading="lazy" data-parallax></div>
+  <div class="wrap cta__inner">
+    <span class="kicker" data-reveal>Don’t wait to get started</span>
+    <h2 class="display" id="cta-h" data-rise>Now is the time to <em>go solar.</em></h2>
+    <p class="lead" data-reveal>A free consultation, a proposal built around your real numbers, and one crew that stands behind the work for life.</p>
+    <div class="btn-row" data-reveal>
+      <a class="btn btn--gold btn--lg" href="quote.html">Book my free consultation <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="tel:+19516626748">(951) 662-6748</a>
     </div>
-    <a class="bigcta__mail" href="tel:+19516626748" data-reveal>or call (951) 662-6748</a>
+    <div class="urgency" data-stagger>
+      <div><span class="label">01 — Rates</span><span><b>Utility prices keep climbing.</b> Producing your own power puts a ceiling on what you pay.</span></div>
+      <div><span class="label">02 — NEM 3.0</span><span><b>Storage keeps more of your sun.</b> Exports earn less now, so a battery lets you use your own solar at the 4–9 PM peak.</span></div>
+      <div><span class="label">03 — Time</span><span><b>Every month you wait</b> is another full electric bill you could have cut.</span></div>
+    </div>
   </div>
 </section>
 
@@ -223,28 +242,27 @@
   <div class="wrap">
     <div class="ftr__top">
       <div class="ftr__brand">
-        <img src="assets/brand/lithium-logo-white.svg" alt="Lithium — Power for life" width="170" height="57" loading="lazy">
-        <p>Custom solar, battery backup and EV charging for Southern California homes and businesses, with 17+ years in power and renewable energy.</p>
+        <span class="kicker">Power for life</span>
+        <p class="h-3">Ready when the sun comes up.</p>
+        <a class="btn btn--gold btn--sm" href="quote.html">Book a free consultation <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="ftr__cols">
         <div>
-          <p class="label">Explore</p>
-          <a href="index.html">Home</a>
-          <a href="residential.html">Residential</a>
-          <a href="commercial.html">Commercial</a>
+          <p class="label">Solar</p>
+          <a href="residential.html">Residential solar</a>
+          <a href="commercial.html">Commercial solar</a>
+          <a href="savings.html">Savings calculator</a>
           <a href="process.html">Our process</a>
-          <a href="about.html">About</a>
         </div>
         <div>
-          <p class="label">Customers</p>
-          <a href="quote.html">Free quote</a>
-          <a href="savings.html">Savings calculator</a>
+          <p class="label">Company</p>
+          <a href="about.html">About Lithium</a>
           <a href="track.html">Track a project</a>
-          <a href="contact.html">Contact</a>
+          <a href="quote.html">Free quote</a>
           <a href="privacy.html">Privacy</a>
         </div>
         <div>
-          <p class="label">Reach us</p>
+          <p class="label">Contact</p>
           <a href="tel:+19516626748">(951) 662-6748</a>
           <a href="mailto:rowan@socalenergy.info">rowan@socalenergy.info</a>
           <a href="https://maps.google.com/?q=12003+Fremont+St+Yucaipa+CA+92399" target="_blank" rel="noopener">12003 Fremont St<br>Yucaipa, CA 92399</a>
@@ -255,11 +273,11 @@
         </div>
       </div>
     </div>
-    <div class="ftr__word" aria-hidden="true"><span>Lithium</span><img src="assets/brand/lithium-mark.svg" alt=""><em>Power for life</em></div>
+    <div class="ftr__word" aria-hidden="true" data-word><span>L</span><span>i</span><span>t</span><span>h</span><span>i</span><span>u</span><span>m</span></div>
     <div class="ftr__bottom">
-      <span>© 2026 Lithium LLC. All rights reserved.</span>
+      <span>© 2026 Lithium LLC. Power for life.</span>
       <span data-sunclock="footer">Yucaipa, CA</span>
-      <a href="#main">Back to top ↑</a>
+      <span><a href="privacy.html">Privacy</a> · <a href="contact.html">Contact</a> · <a href="#main">Back to top ↑</a></span>
     </div>
   </div>
 </footer>

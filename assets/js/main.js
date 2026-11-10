@@ -155,6 +155,12 @@
       els.forEach(function (el) {
         var kind = el.getAttribute('data-sunclock');
         if (kind === 'footer') el.textContent = 'Yucaipa, CA · ' + fmt.format(now) + ' PT';
+        else if (kind === 'live') el.textContent = 'Live · Yucaipa ' + fmt.format(now);
+        else if (kind === 'next') {
+          if (now < t.rise) el.textContent = 'Sunrise at ' + fmt.format(t.rise);
+          else if (now < t.set) el.textContent = 'Sun is up · sets ' + fmt.format(t.set);
+          else el.textContent = 'Sun is down · batteries on duty';
+        }
         else el.textContent = 'Sunrise ' + fmt.format(t.rise) + ' · Sunset ' + fmt.format(t.set);
       });
     }
@@ -326,9 +332,202 @@
     show('utility');
   }
 
+
+  /* ---------- Ticker hides once you scroll; Solar dropdown works by tap and keyboard ---------- */
+  function initChrome() {
+    function onScroll() { root.classList.toggle('past-ticker', window.scrollY > 34); }
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    $$('[data-drop]').forEach(function (d) {
+      var b = $('button', d);
+      b.addEventListener('click', function () { var o = !d.classList.contains('is-open'); d.classList.toggle('is-open', o); b.setAttribute('aria-expanded', String(o)); });
+      doc.addEventListener('click', function (e) { if (!d.contains(e.target)) { d.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); } });
+      d.addEventListener('keydown', function (e) { if (e.key === 'Escape') { d.classList.remove('is-open'); b.setAttribute('aria-expanded', 'false'); b.focus(); } });
+    });
+    // Quick start: pass the chosen need into the quote form
+    $$('.qstart').forEach(function (f) {
+      f.addEventListener('submit', function () {
+        var opt = f.querySelector('select').selectedOptions[0];
+        var g = opt && opt.getAttribute('data-goal');
+        var h = f.querySelector('input[name="goal"]');
+        if (g) { if (!h) { h = doc.createElement('input'); h.type = 'hidden'; h.name = 'goal'; f.appendChild(h); } h.value = g; }
+        else if (h) h.remove();
+      });
+    });
+    // Card spotlight follows the pointer
+    $$('.feature').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+    });
+  }
+
+  /* ---------- Headlines: words rise in from a mask ---------- */
+  function initRise() {
+    $$('[data-rise]').forEach(function (el) {
+      var i = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = doc.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(doc.createTextNode(' ')); return; }
+              var w = doc.createElement('span'); w.className = 'rise-w';
+              var inner = doc.createElement('span'); inner.textContent = part; inner.style.setProperty('--d', (i++ * 0.06).toFixed(2) + 's');
+              w.appendChild(inner); frag.appendChild(w);
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.tagName === 'EM') {
+            // Keep the gold italic phrase as one unit so its gradient stays intact.
+            var w = doc.createElement('span'); w.className = 'rise-w';
+            var inner = doc.createElement('span'); inner.style.setProperty('--d', (i++ * 0.06).toFixed(2) + 's');
+            n.parentNode.replaceChild(w, n); inner.appendChild(n); w.appendChild(inner);
+          } else if (n.nodeType === 1 && !n.classList.contains('sr-only')) walk(n);
+        });
+      })(el);
+      if (reduce || !('IntersectionObserver' in window)) { el.classList.add('is-risen'); return; }
+      var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { el.classList.add('is-risen'); io.disconnect(); } }, { rootMargin: '0px 0px -8% 0px' });
+      io.observe(el);
+    });
+  }
+
+  /* ---------- Big word band: always drifting, faster while you scroll ---------- */
+  function initMega() {
+    $$('[data-mega] .mega__row').forEach(function (row) {
+      if (reduce) return;
+      var x = 0, v = 0, lastY = window.scrollY, half = 0;
+      function measure() { half = row.scrollWidth / 2; }
+      measure(); window.addEventListener('resize', measure);
+      (function tick() {
+        var y = window.scrollY, dy = Math.abs(y - lastY); lastY = y;
+        v += (Math.min(dy, 120) * 0.08 - v) * 0.1;
+        x -= 0.6 + v;
+        if (half && -x >= half) x += half;
+        row.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
+        requestAnimationFrame(tick);
+      })();
+    });
+  }
+
+  /* ---------- Horizontal reasons: pinned on desktop, swipe on mobile ---------- */
+  function initHScroll() {
+    $$('[data-hscroll]').forEach(function (sec) {
+      var track = $('.hscroll__track', sec), inner = $('.hscroll__inner', sec);
+      var mq = window.matchMedia('(min-width: 1024px)'), raf = 0;
+      function layout() {
+        if (!mq.matches || reduce) { sec.classList.remove('is-pinned'); sec.style.height = ''; track.style.transform = ''; return; }
+        sec.classList.add('is-pinned');
+        var dist = Math.max(0, track.scrollWidth - window.innerWidth);
+        sec.style.height = (window.innerHeight + dist) + 'px';
+        update();
+      }
+      function update() {
+        raf = 0;
+        if (!sec.classList.contains('is-pinned')) return;
+        var r = sec.getBoundingClientRect(), dist = Math.max(0, track.scrollWidth - window.innerWidth);
+        var p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - window.innerHeight)));
+        track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
+      }
+      window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+      window.addEventListener('resize', layout);
+      if (mq.addEventListener) mq.addEventListener('change', layout);
+      window.addEventListener('load', layout);
+      layout();
+    });
+  }
+
+  /* ---------- Home savings calculator ---------- */
+  function initCalcx() {
+    var box = $('[data-calcx]');
+    if (!box || !window.LithiumCalc) return;
+    var C = window.LithiumCalc, range = $('#cx-bill', box), go = $('[data-cx-go]', box), presets = $('[data-cx-presets]', box);
+    var RANGES = { home: { min: 50, max: 1000, step: 10, def: 250, chips: [150, 250, 400, 600] }, business: { min: 200, max: 15000, step: 50, def: 2500, chips: [1000, 2500, 5000, 10000] } };
+    var type = 'home';
+    function set(k, v) { var el = $('[data-cx="' + k + '"]', box); if (el) animateNumber(el, v.n, v.f); }
+    function setType(t) {
+      type = t; var r = RANGES[t];
+      range.min = r.min; range.max = r.max; range.step = r.step; range.value = r.def;
+      $('[data-cx-min]', box).textContent = C.money(r.min); $('[data-cx-max]', box).textContent = C.money(r.max) + '+';
+      $$('[data-cx-type]', box).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-cx-type') === t)); });
+      presets.innerHTML = r.chips.map(function (c) { return '<button type="button" data-v="' + c + '" aria-pressed="false">' + C.money(c) + '/mo</button>'; }).join('');
+      $$('button', presets).forEach(function (b) { b.addEventListener('click', function () { range.value = b.getAttribute('data-v'); update(); }); });
+      update();
+    }
+    function update() {
+      setRangeFill(range);
+      var bill = +range.value, r = C.estimate(bill), s = r.series, U = s[25].utility, S = s[25].solar;
+      var cost = r.cost, rest = Math.max(0, S - cost), keep = Math.max(0, U - S);
+      $('[data-cx-bill]', box).textContent = C.money(bill);
+      $$('button', presets).forEach(function (b) { b.setAttribute('aria-pressed', String(+b.getAttribute('data-v') === bill)); });
+      set('net', { n: r.net, f: function (v) { return C.money(v); } });
+      set('payback', { n: r.payback || 0, f: function (v) { return r.payback ? v.toFixed(1) + ' yrs' : '25+ yrs'; } });
+      set('cost', { n: cost, f: function (v) { return C.money(v); } });
+      set('rest', { n: rest, f: function (v) { return C.money(v); } });
+      set('keep', { n: keep, f: function (v) { return C.money(v); } });
+      set('kw', { n: r.systemKw, f: function (v) { return v.toFixed(1) + ' kW'; } });
+      $('[data-cx="panels"]', box).textContent = r.panels;
+      $('[data-cx="year1"]', box).textContent = C.money(r.year1);
+      var tot = cost + rest + keep || 1;
+      [['cost', cost], ['rest', rest], ['keep', keep]].forEach(function (p) { $('[data-cx-seg="' + p[0] + '"]', box).style.flexBasis = (p[1] / tot * 100).toFixed(2) + '%'; });
+      if (go) go.href = 'quote.html?type=' + type + '&bill=' + bill;
+    }
+    range.addEventListener('input', update);
+    $$('[data-cx-type]', box).forEach(function (b) { b.addEventListener('click', function () { setType(b.getAttribute('data-cx-type')); }); });
+    setType('home');
+  }
+
+  /* ---------- Payback timeline + yearly bars ---------- */
+  function initRoi() {
+    var box = $('[data-roi]');
+    if (!box || !window.LithiumCalc) return;
+    var C = window.LithiumCalc, r = C.estimate(250), s = r.series;
+    var pos = s.map(function (p) { return p.utility - p.solar; }); // cumulative net position by year
+    var payYr = Math.ceil(r.payback || 25);
+    var set = function (k, v) { $$('[data-roi="' + k + '"]', box).forEach(function (el) { el.textContent = v; }); };
+    var saved3 = s[3].utility - (s[3].solar - r.cost);
+    set('y1', C.money(r.year1)); set('y3pct', Math.min(100, Math.round(saved3 / r.cost * 100)) + '%');
+    set('paylabel', 'Year ' + payYr); set('payyrs', payYr); set('y25', C.money(r.net)); set('total', C.money(pos[25], true));
+    var plot = $('[data-roi-bars]', box), vals = pos.slice(1), max = Math.max.apply(null, vals), min = Math.min.apply(null, vals.concat(0));
+    var span = max - min || 1, zero = (max / span) * 100;
+    plot.style.setProperty('--zero', zero.toFixed(2) + '%');
+    plot.innerHTML = vals.map(function (v, i) {
+      var h = Math.abs(v) / span * 100, neg = v < 0;
+      var style = neg ? 'top:' + zero.toFixed(2) + '%;height:' + h.toFixed(2) + '%' : 'bottom:' + (100 - zero).toFixed(2) + '%;height:' + h.toFixed(2) + '%';
+      return '<span class="bar' + (neg ? ' is-neg' : '') + '" tabindex="0" data-tip="Year ' + (i + 1) + ': ' + (neg ? '−' : '+') + C.money(Math.abs(v)) + '" aria-label="Year ' + (i + 1) + ', ' + (neg ? 'still paying off, ' : 'ahead by ') + C.money(Math.abs(v)) + '"><i style="' + style + '"></i></span>';
+    }).join('');
+    var line = $('[data-roi-line]', box), bars = $$('.bar i', plot);
+    if (reduce || !('IntersectionObserver' in window)) return;
+    if (line) line.style.setProperty('--p', 0);
+    bars.forEach(function (b) { b.style.transform = 'scaleY(0)'; });
+    var io = new IntersectionObserver(function (en) {
+      if (!en[0].isIntersecting) return;
+      if (line) line.style.setProperty('--p', 1);
+      bars.forEach(function (b, i) { b.style.transitionDelay = (i * 0.03) + 's'; b.style.transform = 'scaleY(1)'; });
+      io.disconnect();
+    }, { threshold: 0.25 });
+    io.observe(box);
+  }
+
+  /* ---------- Footer wordmark: letters rise in and lift near the pointer ---------- */
+  function initWord() {
+    var w = $('[data-word]');
+    if (!w) return;
+    var letters = $$('span', w);
+    if (reduce || !('IntersectionObserver' in window)) return;
+    letters.forEach(function (l, i) { l.style.transform = 'translateY(60%)'; l.style.opacity = 0; l.style.transition = 'transform 1.2s var(--ease) ' + (i * 0.06) + 's, opacity 1s ease ' + (i * 0.06) + 's'; });
+    new IntersectionObserver(function (en, io) {
+      if (!en[0].isIntersecting) return;
+      letters.forEach(function (l) { l.style.transform = 'none'; l.style.opacity = 1; });
+      io.disconnect();
+      setTimeout(function () {
+        letters.forEach(function (l) { l.style.transition = 'transform .6s var(--ease)'; });
+        w.addEventListener('pointermove', function (e) { letters.forEach(function (l) { var r = l.getBoundingClientRect(), d = Math.abs(e.clientX - (r.left + r.width / 2)); l.style.transform = 'translateY(' + (-Math.max(0, 1 - d / 220) * 8).toFixed(1) + '%)'; }); });
+        w.addEventListener('pointerleave', function () { letters.forEach(function (l) { l.style.transform = 'none'; }); });
+      }, 1600);
+    }, { threshold: 0.3 }).observe(w);
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
-    initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initWait();
+    initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initCalcx(); initRoi(); initWord();
     window.Lithium = { scrollTo: scrollTo, onReady: function (fn) { fn(); }, lenis: function () { return null; }, animateNumber: animateNumber, setRangeFill: setRangeFill };
     window.addEventListener('load', function () { root.classList.add('is-ready'); initLive(); });
   }

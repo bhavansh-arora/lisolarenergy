@@ -10,12 +10,12 @@ The finished site is the HTML pages and `assets/` folder at the repo root: plain
 
 | Page | What it does |
 |---|---|
-| `index.html` | Home: arched hero with rotating badge, word ribbon, “why Lithium” statement, “Solar makes sense if…” rows, sunrise-to-savings cards, three system packages, utility-vs-solar toggle, testimonial tabs, photo step cards, closing photo section |
-| `residential.html` | Arched hero, house with tappable hotspots, home services, why storage matters under NEM 3.0, FAQ |
+| `index.html` | Home: full-photo hero with quick-start quote, stats strip, word marquee, “why Lithium” statement, big numbers, service bento, live savings calculator, 25-year payback bars, pinned horizontal “four reasons” cards, interactive day-on-a-solar-home player, stacked step cards, testimonial tabs |
+| `residential.html` | Photo hero, house with tappable hotspots, home services with photos, why storage matters under NEM 3.0, pull quote, FAQ |
 | `commercial.html` | Services with a sticky photo that changes as you read, business case, subcontracting for contractors, FAQ |
-| `process.html` | The six steps with typical timing and what the customer does at each one, tracker promise, general FAQ |
+| `process.html` | The six steps with typical timing and what the customer does at each one, live tracker preview, general FAQ |
 | `savings.html` | Full calculator with editable assumptions, 25-year cost chart (hover + table view) |
-| `about.html` | Photo mosaic, story, stats, values, expertise, equipment partners |
+| `about.html` | Story, stats, values, expertise, equipment partners |
 | `quote.html` | 7-step quote funnel: live estimate, autosave and resume, ZIP check, site-visit time request, confirmation with tracking code and calendar file |
 | `track.html` | Project tracker: look up a project by code + ZIP. Includes a sample project (`LI-SAMPLE`, ZIP `92399`) |
 | `contact.html` | Phone, email and map cards, contact form |
@@ -56,15 +56,15 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Design and motion
 
-- Editorial design in `assets/css/site.css`: warm ivory paper, deep navy bands, Bodoni Moda (headlines, with blue italic accents) and Manrope (text), both self-hosted.
-- Arched photo heroes with a rotating "Free consultation" badge, a tilted word ribbon, numbered rows, system "packages", a utility-vs-solar toggle, testimonial tabs and a full-photo closing section.
-- No animation libraries. `assets/js/main.js` handles fade-up reveals, statements that light up word by word, gentle photo parallax, count-ups, the FAQ, tabs, the toggle and the mobile menu.
+- Dark design in `assets/css/site.css`: ink background with rounded colour panels (forest, navy, ember), one gold accent, Inter Tight for headlines and text, Instrument Serif italic for the gold accent words, Geist Mono for small labels. All fonts are self-hosted.
+- Gold announcement ticker, photo heroes with a stats strip, outline section numbers, a giant word marquee that speeds up with scrolling, closing call-to-action with three “why now” cards, and a footer with a large gold wordmark whose letters rise in.
+- No animation libraries. `assets/js/main.js` handles headline words rising in, fade-up reveals, statements that light up word by word, photo parallax, count-ups, the pinned horizontal cards (desktop) and swipe cards (phone), the home calculator and payback bars, the FAQ, tabs and the mobile menu.
 - Page changes use the browser's native cross-fade (View Transitions) where supported.
-- `assets/js/house.js` holds the illustrative energy model behind the Residential house and the savings toggle (8.2 kW system, 13.5 kWh battery).
+- `assets/js/house.js` holds the illustrative energy model behind the house player and hotspots (8.2 kW system, 13.5 kWh battery).
 - `prefers-reduced-motion` turns off motion. Without JavaScript all content is still visible.
 
 ## Credits
 
 - Photography: Unsplash (free to use under the Unsplash License).
-- Fonts: Bodoni Moda and Manrope (SIL Open Font License), self-hosted.
+- Fonts: Inter Tight, Instrument Serif and Geist Mono (SIL Open Font License), self-hosted.
 - Logo and testimonials: Lithium LLC's existing website.

@@ -3,240 +3,280 @@ title: Lithium — Solar, Battery Backup & EV Charging in Southern California
 description: Go solar, save big. Custom solar, battery backup, panel upgrades and EV charging for SoCal homes and businesses, designed, permitted, installed and monitored by one Yucaipa team with 17+ years in power.
 page: home
 bodyClass: page-home
-image: assets/img/home-dusk-1000.webp
+scripts: house
+image: assets/img/roof-sunset-1000.webp
 -->
 
-<section class="ehero" aria-label="Introduction">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/roof-sunset-2000.webp" srcset="assets/img/roof-sunset-1000.webp 1000w, assets/img/roof-sunset-2000.webp 2000w" sizes="100vw" alt="" fetchpriority="high" data-parallax></div>
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="spin" aria-hidden="true">{{> badge}}</div>
   <div class="wrap">
-    <div class="ehero__grid">
-      <div class="ehero__copy">
-        <span class="kicker" data-reveal>Solar · Battery · EV — Southern California</span>
-        <h1 class="display" data-reveal data-delay=".05">Go solar.<br>Save <em>big.</em></h1>
-        <p class="lead" data-reveal data-delay=".1">We’re <strong>Lithium</strong>, a Yucaipa team with 17+ years in power. We design, permit, install and monitor solar, battery backup and EV charging, so your roof pays you back and your lights stay on.</p>
-        <div class="btn-row" data-reveal data-delay=".15">
-          <a class="btn btn--primary btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="link-arrow" href="#wait"><span>See what I’d save</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-        </div>
-        <span class="ehero__note" data-reveal data-delay=".2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Free consultation. No pressure, no obligation.</span>
-      </div>
-      <div class="ehero__visual" data-reveal data-delay=".1">
-        <div class="arch"><img src="assets/img/home-dusk-1000.webp" srcset="assets/img/home-dusk-1000.webp 1000w, assets/img/home-dusk-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Modern Southern California home at dusk" fetchpriority="high" data-parallax></div>
-        <div class="badge badge--tr">{{> badge}}</div>
-        <div class="float-tile"><img src="assets/img/installer-roof-1000.webp" alt="" loading="lazy"></div>
-        <figure class="float-note"><q>Lithium made the switch to solar seamless and stress-free. Our energy bills have been cut in half!</q><span>John T. · Homeowner</span></figure>
+    <span class="eyebrow" data-reveal><span>Solar · Battery · EV — <b>Yucaipa &amp; Southern California</b></span></span>
+    <h1 class="display hero__title mt-m" id="hero-title" data-rise>Go solar. Save <em>big.</em></h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal data-delay=".2">Custom solar, battery backup and EV charging for homes and businesses. One team from the first consultation to the day your system goes live, with 17+ years in power behind it.</p>
+      <div class="hero__side" data-reveal data-delay=".3">
+        <form class="qstart" action="quote.html" method="get" aria-label="Start a quote">
+          <label class="sr-only" for="qs-type">What do you need?</label>
+          <select id="qs-type" name="type">
+            <option value="home">Residential solar</option>
+            <option value="home" data-goal="Backup power">Battery backup</option>
+            <option value="business">Commercial solar</option>
+            <option value="home" data-goal="EV charging">EV charging</option>
+            <option value="home" data-goal="Panel upgrade">Panel upgrade</option>
+          </select>
+          <button class="btn btn--gold" type="submit">Start my quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </form>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Free consultation</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Permits handled</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Transparent pricing</li>
+        </ul>
       </div>
     </div>
-    <div class="estats" data-stagger>
-      <div><b><span data-count="17">17</span>+ <em>years</em></b><span>in power supply and renewable energy</span></div>
-      <div><b><span data-count="20">20</span>+ <em>yr</em></b><span>typical equipment warranty coverage</span></div>
-      <div><b>1–3 <em>days</em></b><span>typical install once permits are approved</span></div>
-      <span class="scroll" aria-hidden="true">Scroll</span>
+    <div class="strip" data-stagger>
+      <div><span class="label"><span class="pulse-dot"></span><span data-sunclock="live">Live · Yucaipa</span></span><strong data-sunclock="next">Sunrise &amp; sunset today</strong></div>
+      <div><span class="label">Experience</span><strong>17+ years in power</strong></div>
+      <div><span class="label">Warranty</span><strong>20+ years typical coverage</strong></div>
+      <div><span class="label">Install</span><strong>1–3 days once permitted</strong></div>
     </div>
   </div>
 </section>
 
-<div class="ribbon-wrap" aria-hidden="true"><div class="ribbon">
-  <div class="ribbon__track">
-    <div class="ribbon__group"><span>Solar</span><i></i><span>Storage</span><i></i><span>Savings</span><i></i><span>Backup</span><i></i><span>Independence</span><i></i><span>EV charging</span><i></i><span>Monitoring</span><i></i><span>Power for life</span><i></i></div>
-    <div class="ribbon__group"><span>Solar</span><i></i><span>Storage</span><i></i><span>Savings</span><i></i><span>Backup</span><i></i><span>Independence</span><i></i><span>EV charging</span><i></i><span>Monitoring</span><i></i><span>Power for life</span><i></i></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group"><span class="marquee__item">Residential Solar</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Battery Backup</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Commercial Solar</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">EV Charging</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Panel Upgrades</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Monitoring</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg></div>
+    <div class="marquee__group"><span class="marquee__item">Residential Solar</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Battery Backup</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Commercial Solar</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">EV Charging</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Panel Upgrades</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg><span class="marquee__item">Monitoring</span><svg class="star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg></div>
   </div>
 </div>
-</div>
 
-<section class="section">
+<section class="section section--forest" aria-labelledby="why-title">
+  <span class="sec-num" aria-hidden="true">01</span>
   <div class="wrap">
-    <div class="hello">
-      <div class="hello__media" data-reveal>
-        <div class="media"><img src="assets/img/install-hands-1000.webp" alt="Lithium technician wiring a solar installation" loading="lazy" data-parallax></div>
-        <div class="hello__cap"><span>Lithium LLC</span><span>Yucaipa, California</span></div>
-      </div>
-      <div class="hello__body">
-        <span class="kicker">Why Lithium</span>
-        <p class="statement" data-words>Your power bill is the one thing in your home that only goes up. We turn your roof into your own <em>power plant</em>, and we stay with you from the first conversation to the day the utility says <em>you’re live.</em></p>
-        <p class="body">Our team brings more than 17 years in power supply and renewable energy to every project: solar PV, battery storage, panel upgrades, EV charging, wind turbines and generators, and the maintenance that keeps it all running.</p>
-        <a class="link-arrow" href="about.html"><span>Read our story</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
-      </div>
+    <div class="shead shead--wide" style="margin-bottom:0">
+      <span class="label label--sun shead__label">(01) — Why Lithium</span>
+      <h2 class="sr-only" id="why-title">Why Lithium</h2>
+      <p class="statement shead__title" data-words>Lithium brings 17+ years in power to every roof in Southern California. <span class="pill-img" aria-hidden="true"><img src="assets/img/panel-texture-1000.webp" alt=""></span> One team designs, permits, installs and monitors your system, so we stand behind it <em>for life.</em></p>
+    </div>
+    <div class="pillars" data-stagger>
+      <div class="pillar"><span class="label">01</span><h3 class="h-4">One team. No hand-offs.</h3><p>The people who plan your system see it through permits, install, inspection and switch-on. You always know who to call.</p></div>
+      <div class="pillar"><span class="label">02</span><h3 class="h-4">Transparent pricing.</h3><p>Clear, upfront pricing with no hidden fees. Your proposal shows options, expected savings and financing side by side.</p></div>
+      <div class="pillar"><span class="label">03</span><h3 class="h-4">Built to last.</h3><p>Quality panels and equipment, typically backed by 20+ years of warranty coverage, plus 24/7 support when you need it.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section section--white">
+<section class="bigstats" aria-label="Lithium by the numbers">
+  <div class="wrap">
+    <div class="bigstats__grid" data-stagger>
+      <div class="bigstat"><span class="bigstat__num"><span data-count="17">17</span><small>+ yrs</small></span><p class="bigstat__label"><span>Experience</span>in power supply and renewable energy</p></div>
+      <div class="bigstat"><span class="bigstat__num"><span data-count="20">20</span><small>+ yr</small></span><p class="bigstat__label"><span>Warranty</span>typical equipment coverage on panels and install</p></div>
+      <div class="bigstat"><span class="bigstat__num">1–3<small>days</small></span><p class="bigstat__label"><span>Install</span>typical time on site once permits are approved</p></div>
+      <div class="bigstat"><span class="bigstat__num">24<small>/7</small></span><p class="bigstat__label"><span>Support</span>customer service and technical assistance</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="services-title">
+  <span class="sec-num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Is solar right for you?</span>
-      <h2 class="h-2 shead__title" data-reveal>Solar makes sense <em>if…</em></h2>
-      <p class="shead__aside" data-reveal>If any of these sound familiar, you’re exactly who we built this for. Your free consultation tells you what solar would really do for you.</p>
+      <span class="label label--sun shead__label">(02) — What we do</span>
+      <h2 class="h-2 shead__title" id="services-title" data-rise>Solar solutions that <em>make sense.</em></h2>
+      <p class="shead__aside" data-reveal>Homes, garages, businesses and fleets: one team, five specialties, every system designed around the property in front of us.</p>
     </div>
-    <div class="fit" data-stagger>
-      <a href="savings.html"><i>01</i><span>Your electric bill climbs every summer and never comes back down</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-      <a href="residential.html"><i>02</i><span>You want the lights, fridge and Wi-Fi to stay on when the grid goes down</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-      <a href="residential.html"><i>03</i><span>You’re adding an EV, a pool or a home office and your usage is about to jump</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-      <a href="residential.html"><i>04</i><span>Your electrical panel is older and you’re not sure it can carry more</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-      <a href="commercial.html"><i>05</i><span>You run a business that uses most of its power while the sun is up</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-      <a href="about.html"><i>06</i><span>You want a smaller carbon footprint without giving anything up</span><b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></b></a>
-    </div>
-    <div class="fit__foot" data-reveal>
-      <p>For homes of every size, businesses and contractors across Southern California who are ready to move from paying for power to <em class="it">producing it</em>.</p>
-      <a class="btn btn--primary" href="quote.html">Book a free consultation <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="svcs" data-stagger>
+      <a class="svc svc--lg svc--forest" href="residential.html">
+        <div class="svc__top"><span class="label label--sun">01 — Residential</span><span class="tag">Homes · Garages</span></div>
+        <div class="svc__img"><img src="assets/img/home-dusk-1000.webp" alt="Modern Southern California home at dusk" loading="lazy"></div>
+        <div class="svc__body"><h3 class="h-2">Residential <em>solar.</em></h3><p>Panels designed around your roof and real usage. Cut your bill and bank the extra.</p><span class="link-arrow">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+      </a>
+      <a class="svc svc--lg svc--ember" href="commercial.html">
+        <div class="svc__top"><span class="label label--sun">02 — Commercial</span><span class="tag">Businesses · Fleets</span></div>
+        <div class="svc__img"><img src="assets/img/commercial-dusk-1000.webp" alt="Commercial building with rooftop solar at sunset" loading="lazy"></div>
+        <div class="svc__body"><h3 class="h-2">Commercial <em>solar.</em></h3><p>Turn a roof into a lower operating cost, and keep running when the grid fails.</p><span class="link-arrow">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+      </a>
+      <a class="svc svc--sm svc--navy" href="residential.html">
+        <div class="svc__top"><span class="label label--sun">03 — Storage</span><span class="tag">Outage-ready</span></div>
+        <div class="svc__img"><img src="assets/img/home-modern-1000.webp" alt="Modern home lit up in the evening" loading="lazy"></div>
+        <div class="svc__body"><h3 class="h-3">Battery <em>backup.</em></h3><p>Store daytime sun for the evening peak and for outages.</p><span class="link-arrow">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+      </a>
+      <a class="svc svc--sm svc--forest" href="residential.html">
+        <div class="svc__top"><span class="label label--sun">04 — Driving</span><span class="tag">Home &amp; work</span></div>
+        <div class="svc__img"><img src="assets/img/ev-charge-1000.webp" alt="Electric vehicle charging" loading="lazy"></div>
+        <div class="svc__body"><h3 class="h-3">EV <em>charging.</em></h3><p>Chargers paired with solar, so you drive on sunshine.</p><span class="link-arrow">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+      </a>
+      <a class="svc svc--sm svc--navy" href="residential.html">
+        <div class="svc__top"><span class="label label--sun">05 — Electrical</span><span class="tag">To code</span></div>
+        <div class="svc__img"><img src="assets/img/electrician-1000.webp" alt="Electrician working on a main panel" loading="lazy"></div>
+        <div class="svc__body"><h3 class="h-3">Panel <em>upgrades.</em></h3><p>A main panel ready to carry solar, storage and EVs.</p><span class="link-arrow">Explore <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="section section--navy on-dark">
+<section class="section section--ember" id="savings" aria-labelledby="savings-title">
+  <span class="sec-num" aria-hidden="true">03</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">How the sun pays you back</span>
-      <h2 class="h-2 shead__title" data-reveal>From sunrise <em>to savings.</em></h2>
-      <p class="shead__aside" data-reveal>A Lithium system works all day, every day. Here’s what that looks like on your roof.</p>
+      <span class="label label--sun shead__label">(03) — The numbers</span>
+      <h2 class="h-2 shead__title" id="savings-title" data-rise>Your roof could be <em>paying you.</em></h2>
+      <p class="shead__aside" data-reveal>Set your average monthly bill and see what a system sized for you would do over the next 25 years.</p>
     </div>
-    <div class="band-cards" data-stagger>
-      <article class="bcard"><div class="bcard__img"><img src="assets/img/field-sky-1000.webp" alt="Solar panels under a clear blue sky" loading="lazy"></div><div class="bcard__body"><span class="num">01 · Produce</span><h3>Your panels power the house</h3><p>From first light, the system covers what your home uses and cuts what you buy from the utility.</p></div></article>
-      <article class="bcard"><div class="bcard__img"><img src="assets/img/home-modern-1000.webp" alt="Modern home lit up in the evening" loading="lazy"></div><div class="bcard__body"><span class="num">02 · Store</span><h3>Your battery banks the rest</h3><p>Surplus sun charges your battery for the expensive 4–9 PM peak and for outages.</p></div></article>
-      <article class="bcard"><div class="bcard__img"><img src="assets/img/home-pool-1000.webp" alt="Southern California home with a pool on a sunny day" loading="lazy"></div><div class="bcard__body"><span class="num">03 · Save</span><h3>You keep the difference</h3><p>Lower bills month after month, a home that’s worth more, and power that’s yours.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="packages">
-  <div class="wrap">
-    <div class="shead shead--center">
-      <span class="kicker">Choose your system</span>
-      <h2 class="h-2 shead__title" data-reveal>Solar that meets you <em>where you are.</em></h2>
-      <p class="shead__aside" data-reveal>Every system starts with a free consultation and site assessment, so you see the design and the numbers before you commit.</p>
-    </div>
-    <div class="pkgs" data-stagger>
-      <article class="pkg">
-        <div class="pkg__top"><span class="label">I · Homes</span></div>
-        <h3><i>I</i>Solar</h3>
-        <span class="pkg__sub">Lower bills · Homes</span>
-        <p class="pkg__desc">For homeowners who want to cut their electric bill with a system designed around their roof.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Custom panel design for your roof and usage</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Permits, install and inspection handled</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Real-time production monitoring</li>
-        </ul>
-        <a class="btn btn--ghost" href="quote.html?type=home">Start with a free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-      <article class="pkg pkg--dark">
-        <div class="pkg__top"><span class="label">II · Homes</span><span class="pkg__tag">Outage-ready</span></div>
-        <h3><i>II</i>Solar &amp; Battery</h3>
-        <span class="pkg__sub">Bills and backup · Homes</span>
-        <p class="pkg__desc">For homes that want to keep more of their solar under NEM 3.0 and stay powered when the grid goes down.</p>
-        <ul>
-          <li class="plus"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Everything in Solar</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Battery backup for outages</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Stored sun for the 4–9 PM peak</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Panel upgrade and EV charging if needed</li>
-        </ul>
-        <a class="btn btn--light" href="quote.html?type=home">Start with a free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-      <article class="pkg">
-        <div class="pkg__top"><span class="label">III · Business</span></div>
-        <h3><i>III</i>Commercial</h3>
-        <span class="pkg__sub">Operating costs · Businesses</span>
-        <p class="pkg__desc">For businesses and contractors who want lower operating costs and power that keeps running.</p>
-        <ul>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Commercial solar and battery backup</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Electrical upgrades and fleet EV charging</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Install planned around your hours</li>
-        </ul>
-        <a class="btn btn--ghost" href="quote.html?type=business">Start with a free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section section--sand" id="wait">
-  <div class="wrap">
-    <div class="wait" data-wait>
-      <div class="wait__copy">
-        <span class="kicker">The cost of waiting</span>
-        <h2 class="h-2" data-reveal>From paying for power <em>to producing it.</em></h2>
-        <p class="body" data-reveal>Same home, same $250 monthly bill, two very different next 25 years. Tap between them. Only one of them is a future you have to accept.</p>
-        <div class="toggle" role="group" aria-label="Compare">
-          <button type="button" data-wait-mode="utility" aria-pressed="true">Keep paying</button>
-          <button type="button" data-wait-mode="solar" aria-pressed="false">Go solar</button>
+    <div class="calcx" data-calcx data-reveal>
+      <div class="calcx__in">
+        <div class="row-between"><span class="label">Property</span><div class="seg" role="group" aria-label="Property type"><button type="button" data-cx-type="home" aria-pressed="true">Home</button><button type="button" data-cx-type="business" aria-pressed="false">Business</button></div></div>
+        <div class="field">
+          <div class="row-between"><label class="label" for="cx-bill">Average monthly bill</label><span class="calcx__val" data-cx-bill>$250</span></div>
+          <input class="range" id="cx-bill" type="range" min="50" max="1000" step="10" value="250">
+          <div class="range-scale"><span data-cx-min>$50</span><span data-cx-max>$1,000+</span></div>
         </div>
+        <div class="presets" role="group" aria-label="Typical bills" data-cx-presets></div>
+        <a class="btn btn--gold" href="quote.html" data-cx-go>Get my exact numbers <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <div class="wait__card" data-mode="utility" aria-live="polite" data-reveal>
-        <h3 data-wait-title>If you keep paying the utility…</h3>
-        <ul class="wait__list" data-wait-list></ul>
-        <p class="wait__note">Estimates for a $250/month bill using typical Southern California rates and sun, before incentives. <a href="savings.html" style="text-decoration:underline;text-underline-offset:3px">Use your own numbers</a>.</p>
+      <div class="calcx__out" aria-live="polite">
+        <div class="calcx__big">
+          <div><span class="label">Estimated 25-year net savings</span><b data-cx="net">$0</b></div>
+          <div class="calcx__pay"><b data-cx="payback">0 yrs</b><span class="label">To pay for itself</span></div>
+        </div>
+        <div>
+          <span class="label">Where 25 years of electric bills would go</span>
+          <div class="stackbar mt-s" aria-hidden="true"><i data-cx-seg="cost" style="background:#3170b6"></i><i data-cx-seg="rest" style="background:#c75a2a"></i><i data-cx-seg="keep" style="background:#2d8a62"></i></div>
+        </div>
+        <ul class="breakdown">
+          <li><i style="background:#3170b6"></i><span>Your solar system<small>Estimated installed cost, before incentives</small></span><b data-cx="cost">$0</b></li>
+          <li><i style="background:#c75a2a"></i><span>Remaining utility bills<small>Fixed charges and what solar doesn’t cover</small></span><b data-cx="rest">$0</b></li>
+          <li><i style="background:#2d8a62"></i><span>Stays in your pocket<small>Your estimated net savings</small></span><b data-cx="keep">$0</b></li>
+          <li><i style="background:transparent"></i><span>System size<small><span data-cx="panels">0</span> panels · year one saves <span data-cx="year1">$0</span></small></span><b data-cx="kw">0 kW</b></li>
+        </ul>
+        <p class="calcx__note">Estimates use typical Southern California rates and sun, a 3% yearly rate rise and 0.5% yearly panel ageing, before any incentives. Your free site assessment confirms the real numbers. <a href="savings.html" style="text-decoration:underline;text-underline-offset:3px">Open the full calculator</a>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" aria-labelledby="roi-title" data-roi>
+  <span class="sec-num" aria-hidden="true">04</span>
+  <div class="wrap">
+    <div class="shead">
+      <span class="label label--sun shead__label">(04) — Smart investment</span>
+      <h2 class="h-2 shead__title" id="roi-title" data-rise>A $250 bill. <em>Paid off</em> in under <span data-roi="payyrs">6</span> years.</h2>
+      <p class="shead__aside" data-reveal>The same example home from the calculator, year by year. Solar is like planting a tree: it gets better with age.</p>
+    </div>
+    <div class="roi__line" data-roi-line data-stagger>
+      <div class="roi__pt"><span class="label">Year 1</span><b data-roi="y1">$0</b><span>back in your pocket in the first year</span></div>
+      <div class="roi__pt"><span class="label">Year 3</span><b data-roi="y3pct">0%</b><span>of the system already paid off</span></div>
+      <div class="roi__pt"><span class="label" data-roi="paylabel">Year 6</span><b>Paid off</b><span>every month after this is profit</span></div>
+      <div class="roi__pt"><span class="label">Year 25</span><b data-roi="y25">$0</b><span>estimated net savings, fully paid off</span></div>
+    </div>
+    <div class="roi__chart">
+      <div class="roi__total" data-reveal><span class="label">Your position by year 25</span><b data-roi="total">$0</b><p>Below the line, the system is still paying for itself. Above it, solar is putting money back every year. Hover a bar for the exact figure.</p></div>
+      <div class="bars" data-reveal>
+        <div class="bars__legend"><span><i class="neg"></i>Still paying off</span><span><i></i>Ahead of the utility</span></div>
+        <div class="bars__plot" data-roi-bars role="img" aria-label="Cumulative savings minus system cost by year, from year 1 to year 25"></div>
+        <div class="bars__axis"><span>Yr 1</span><span>Yr 5</span><span>Yr 10</span><span>Yr 15</span><span>Yr 20</span><span>Yr 25</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--navy hscroll" data-hscroll aria-labelledby="reasons-title">
+  <div class="hscroll__inner">
+    <div class="wrap">
+      <div class="shead" style="margin-bottom:clamp(28px,4vh,48px)">
+        <span class="label label--sun shead__label">(05) — Why solar</span>
+        <h2 class="h-2 shead__title" id="reasons-title" data-rise>Four reasons to <em>go solar.</em></h2>
+        <p class="shead__aside" data-reveal>It isn’t only about the bill. Here’s what changes when your roof makes the power.</p>
+      </div>
+    </div>
+    <div class="hscroll__track">
+      <article class="reason"><img src="assets/img/home-pool-1000.webp" alt="" loading="lazy"><span class="reason__num">01</span><div class="reason__body"><h3 class="h-3">Save money</h3><p>Cut your electricity bill by <b>up to 100%</b> with a system sized to how you actually use power.</p></div></article>
+      <article class="reason"><img src="assets/img/field-sky-1000.webp" alt="" loading="lazy"><span class="reason__num">02</span><div class="reason__body"><h3 class="h-3">Cut your carbon</h3><p>Rely less on fossil fuels every day and make a <b>lasting impact</b> on the environment.</p></div></article>
+      <article class="reason"><img src="assets/img/home-white-1000.webp" alt="" loading="lazy"><span class="reason__num">03</span><div class="reason__body"><h3 class="h-3">Raise your value</h3><p>Homes with solar are in demand. <b>Lower running costs</b> help your property stand out.</p></div></article>
+      <article class="reason"><img src="assets/img/grid-sunset-1000.webp" alt="" loading="lazy"><span class="reason__num">04</span><div class="reason__body"><h3 class="h-3">Stay powered</h3><p>Pair solar with battery storage and <b>keep the lights on</b> through a grid outage.</p></div></article>
+      <article class="reason reason--gold"><span class="reason__num">→</span><div class="reason__body"><h3 class="h-3">See your numbers</h3><p>A free consultation shows what solar would really do for your home or business.</p><a class="btn btn--dark" href="quote.html">Free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="day-title">
+  <span class="sec-num" aria-hidden="true">06</span>
+  <div class="wrap">
+    <div class="dayw" data-house-player>
+      <div class="dayw__copy">
+        <span class="label label--sun">(06) — See it work</span>
+        <h2 class="h-2" id="day-title" data-rise>A day on a <em>Lithium home.</em></h2>
+        <p class="body" data-reveal>An example home with 8.2 kW of solar and a 13.5 kWh battery, from sunrise to midnight. Press play, drag the timeline, or cut the grid.</p>
+        <div class="dayw__caption" aria-live="polite">
+          <span class="label label--sun" data-cap="kicker">Sunrise</span>
+          <b data-cap="title">The panels wake up.</b>
+          <p data-cap="text">First light hits the roof.</p>
+        </div>
+        <button class="dayw__outage" type="button" data-outage aria-pressed="false"><i aria-hidden="true"></i><span>Simulate an outage</span></button>
+      </div>
+      <div class="dayw__card" data-reveal>
+        <div class="dayw__stage">
+          <div class="dayw__sky" aria-hidden="true"></div>
+          <div class="dayw__stars" aria-hidden="true"></div>
+          <div class="dayw__sun" aria-hidden="true"></div>
+          <div class="dayw__scene">{{> house}}</div>
+          <div class="dayw__hud"><span class="dayw__pill"><span class="pulse-dot"></span><b data-hud="clock">6:00 AM</b></span><span class="dayw__pill">Grid · <b data-hud="grid">Idle</b></span></div>
+        </div>
+        <div class="dayw__controls">
+          <button class="dayw__play" type="button" data-day-play aria-pressed="false" aria-label="Play the day"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg></button>
+          <div class="dayw__time"><label class="sr-only" for="day-range">Time of day</label><input class="range" id="day-range" type="range" min="6" max="24" step="0.05" value="6.4" data-day-range><div class="dayw__ticks"><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div></div>
+        </div>
+        <dl class="dayw__metrics">
+          <div><dt>Solar</dt><dd><span data-hud="solar">0.0</span><small>kW</small></dd></div>
+          <div><dt>Home</dt><dd><span data-hud="load">0.6</span><small>kW</small></dd></div>
+          <div><dt>Battery</dt><dd><span data-hud="batt">22</span><small>%</small></dd></div>
+          <div><dt>Battery is</dt><dd data-hud="battstate">Standby</dd></div>
+          <div><dt>Saved today</dt><dd data-hud="saved">$0.00</dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="dayw__note mt-m">Illustrative day for a typical system. Real production depends on your roof, equipment and utility plan.</p>
+  </div>
+</section>
+
+<section class="section section--flush-top" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="shead">
+      <span class="label label--sun shead__label">(07) — How it works</span>
+      <h2 class="h-2 shead__title" id="process-title" data-rise>Four steps. <em>One team.</em></h2>
+      <p class="shead__aside" data-reveal>From first call to first kilowatt, the same accountable team. No hand-offs, no finger-pointing.</p>
+    </div>
+    <div class="steps">
+      <article class="step step--forest"><div class="step__body"><div class="step__top"><span class="label label--sun">Step 01 / 04</span><span class="tag">Day 1</span></div><span class="step__num">01</span><h3 class="h-3">Free consultation</h3><p>Tell us about your property, your bills and your goals. We visit to assess your roof and space. No pressure, no obligation.</p></div><div class="step__img"><img src="assets/img/home-modern-1000.webp" alt="Home ready for a solar site assessment" loading="lazy"></div></article>
+      <article class="step step--navy"><div class="step__body"><div class="step__top"><span class="label label--sun">Step 02 / 04</span><span class="tag">~1–2 weeks</span></div><span class="step__num">02</span><h3 class="h-3">Your custom design</h3><p>A system designed for your roof and built to local code, with a clear proposal: options, expected savings and financing.</p></div><div class="step__img"><img src="assets/img/panel-texture-1000.webp" alt="Close-up of solar panel cells" loading="lazy"></div></article>
+      <article class="step step--ember"><div class="step__body"><div class="step__top"><span class="label label--sun">Step 03 / 04</span><span class="tag">We file everything</span></div><span class="step__num">03</span><h3 class="h-3">Permits &amp; install</h3><p>We handle permits and paperwork. Once approved, our certified technicians typically install in 1 to 3 days.</p></div><div class="step__img"><img src="assets/img/installer-roof-1000.webp" alt="Technician installing a rooftop solar panel" loading="lazy"></div></article>
+      <article class="step step--ink"><div class="step__body"><div class="step__top"><span class="label label--sun">Step 04 / 04</span><span class="tag">Power for life</span></div><span class="step__num">04</span><h3 class="h-3">Inspect &amp; power on</h3><p>We coordinate inspection and utility approval, switch you on together, then keep monitoring. Track every stage with your code.</p><a class="link-arrow" href="process.html" style="margin-top:6px">See every step <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div><div class="step__img"><img src="assets/img/roof-sunset-1000.webp" alt="Rooftop solar producing at sunset" loading="lazy"></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--forest" aria-labelledby="voices-title">
+  <span class="sec-num" aria-hidden="true">08</span>
   <div class="wrap">
     <div class="voices" data-voices>
-      <div class="voices__head">
-        <span class="kicker">Customer kind words</span>
-        <h2 class="h-2" data-reveal>Lower bills. <em>Happier homes.</em></h2>
-        <div class="voices__chips" role="tablist" aria-label="Choose a customer">
-          <button type="button" role="tab" aria-selected="true" aria-controls="v-john" id="t-john"><span>J</span>John</button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="v-sarah" id="t-sarah"><span>S</span>Sarah</button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="v-david" id="t-david"><span>D</span>David</button>
+      <div class="voices__visual" data-reveal>
+        <div class="media"><img src="assets/img/home-dusk-1000.webp" alt="A Southern California home with solar at dusk" loading="lazy"></div>
+        <span class="sticker" aria-hidden="true">Power<br>for life</span>
+      </div>
+      <div class="voices__body">
+        <span class="label label--sun">(08) — Customer kind words</span>
+        <h2 class="sr-only" id="voices-title">What customers say</h2>
+        <span class="voices__mark" aria-hidden="true">“</span>
+        <figure class="voice" role="tabpanel" id="v-john" aria-labelledby="t-john"><blockquote>Lithium LLC made the switch to solar seamless and stress-free. Our energy bills have been <em>cut in half!</em></blockquote><figcaption><span class="avatar">J</span><span><b>John T.</b>Homeowner</span></figcaption></figure>
+        <figure class="voice" role="tabpanel" id="v-sarah" aria-labelledby="t-sarah" hidden><blockquote>The team was professional and knowledgeable. They took care of everything from start to finish, and now we’re <em>saving money every month!</em></blockquote><figcaption><span class="avatar">S</span><span><b>Sarah M.</b>Homeowner</span></figcaption></figure>
+        <figure class="voice" role="tabpanel" id="v-david" aria-labelledby="t-david" hidden><blockquote>Going solar was one of the <em>best decisions</em> we’ve made. The installation was quick, and the results have been fantastic.</blockquote><figcaption><span class="avatar">D</span><span><b>David P.</b>Homeowner</span></figcaption></figure>
+        <div class="voices__tabs" role="tablist" aria-label="Choose a customer">
+          <button type="button" role="tab" id="t-john" aria-controls="v-john" aria-selected="true">John T.</button>
+          <button type="button" role="tab" id="t-sarah" aria-controls="v-sarah" aria-selected="false">Sarah M.</button>
+          <button type="button" role="tab" id="t-david" aria-controls="v-david" aria-selected="false">David P.</button>
         </div>
       </div>
-      <div class="voices__stage" data-reveal>
-        <figure class="voice" role="tabpanel" id="v-john" aria-labelledby="t-john"><span class="voice__mark" aria-hidden="true">“</span><blockquote>Lithium LLC made the switch to solar seamless and stress-free. Our energy bills have been <em>cut in half!</em></blockquote><figcaption><b>John T.</b>Homeowner</figcaption></figure>
-        <figure class="voice" role="tabpanel" id="v-sarah" aria-labelledby="t-sarah" hidden><span class="voice__mark" aria-hidden="true">“</span><blockquote>The team was professional and knowledgeable. They took care of everything from start to finish, and now we’re <em>saving money every month!</em></blockquote><figcaption><b>Sarah M.</b>Homeowner</figcaption></figure>
-        <figure class="voice" role="tabpanel" id="v-david" aria-labelledby="t-david" hidden><span class="voice__mark" aria-hidden="true">“</span><blockquote>Going solar was one of the <em>best decisions</em> we’ve made. The installation was quick, and the results have been fantastic.</blockquote><figcaption><b>David P.</b>Homeowner</figcaption></figure>
-      </div>
-      <div class="outcomes" data-stagger>
-        <div class="outcome"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l6 6 4-4 8 8M15 17h6v-6"/></svg><p>Energy bills cut in half</p></div>
-        <div class="outcome"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c6-3 8-8 8-13V5l-8-3-8 3v4c0 5 2 10 8 13z"/><path d="M9 12l2 2 4-4"/></svg><p>Handled from start to finish</p></div>
-        <div class="outcome"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg><p>Quick, clean installation</p></div>
-        <div class="outcome"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg><p>Saving money every month</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--sand">
-  <div class="wrap">
-    <div class="aquote">
-      <div class="aquote__media" data-reveal><div class="arch"><img src="assets/img/grid-sunset-1000.webp" alt="Power lines against a Southern California sunset" loading="lazy" data-parallax></div></div>
-      <div class="aquote__body">
-        <span class="kicker">Our promise</span>
-        <blockquote data-words>We don’t sell you a box of panels. We stay with you, from the first conversation to the day your system goes live, and <em>every sunny day</em> after.</blockquote>
-        <div class="aquote__by"><img src="assets/brand/lithium-mark.svg" alt=""><span><b>The Lithium team</b><small>Yucaipa, California</small></span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="shead">
-      <span class="kicker">How it starts</span>
-      <h2 class="h-2 shead__title" data-reveal>Your path to solar <em>starts here.</em></h2>
-      <p class="shead__aside" data-reveal>Three simple steps from you. We handle the permits, the paperwork and the install. The first step is free.</p>
-    </div>
-    <div class="psteps" data-stagger>
-      <article class="pstep">
-        <div class="pstep__body"><div class="pstep__top"><span class="pstep__num">01</span><span class="label">Step 1 of 3</span></div><h3>Book your free consultation</h3><p>A relaxed conversation about your bills, your roof and your goals, followed by a free site assessment.</p><div><a class="btn btn--primary" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-        <div class="pstep__media"><img src="assets/img/home-modern-1000.webp" alt="Modern home ready for a solar assessment" loading="lazy"></div>
-      </article>
-      <article class="pstep">
-        <div class="pstep__body"><div class="pstep__top"><span class="pstep__num">02</span><span class="label">Step 2 of 3</span></div><h3>Approve your custom design</h3><p>You get a clear proposal with system options, expected savings and financing. We take care of engineering and permits.</p></div>
-        <div class="pstep__media"><img src="assets/img/installer-roof-1000.webp" alt="Technician installing a rooftop solar panel" loading="lazy"></div>
-      </article>
-      <article class="pstep">
-        <div class="pstep__body"><div class="pstep__top"><span class="pstep__num">03</span><span class="label">Step 3 of 3</span></div><h3>Switch on your own power</h3><p>Installation typically takes 1 to 3 days. After inspection and utility approval, we switch you on together and keep monitoring.</p><a class="link-arrow" href="process.html"><span>See every step</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
-        <div class="pstep__media"><img src="assets/img/roof-sunset-1000.webp" alt="Rooftop solar array at sunset" loading="lazy"></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section section--flush-top">
-  <div class="wrap">
-    <div class="brandline" data-reveal>
-      <img src="assets/brand/lithium-mark.svg" alt="" style="background:var(--navy);border-radius:50%;padding:12px;width:64px">
-      <p>Your <em>roof</em> becomes your power plant.</p>
-      <span class="label">Lithium · Power for life</span>
     </div>
   </div>
 </section>

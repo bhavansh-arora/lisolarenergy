@@ -370,6 +370,7 @@
   var qs = new URLSearchParams(location.search);
   if (qs.get('type') === 'home' || qs.get('type') === 'business') state.type = qs.get('type');
   if (qs.get('bill')) state.bill = +qs.get('bill');
+  if (qs.get('goal')) { state.goals = state.goals || []; if (state.goals.indexOf(qs.get('goal')) < 0) state.goals.push(qs.get('goal')); }
 
   buildDays();
   writeForm();

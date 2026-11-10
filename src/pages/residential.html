@@ -7,30 +7,26 @@ scripts: house
 image: assets/img/home-dusk-1000.webp
 -->
 
-<section class="ehero ehero--inner">
+<section class="phero" aria-label="Introduction">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/home-dusk-2000.webp" alt="" fetchpriority="high" data-parallax></div>
+  <span class="hero-badge" data-reveal><i>✦</i>Designed around your roof and your usage</span>
   <div class="wrap">
-    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Residential</span></div>
-    <div class="ehero__grid">
-      <div class="ehero__copy">
-        <span class="kicker" data-reveal>For your home</span>
-        <h1 class="h-1" data-reveal data-delay=".05">Solar equals <em>low energy</em> costs.</h1>
-        <p class="lead" data-reveal data-delay=".1">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
-        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html?type=home">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="savings.html">Estimate savings <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </div>
-      <div class="ehero__visual" data-reveal data-delay=".1">
-        <div class="arch"><img src="assets/img/home-dusk-1000.webp" srcset="assets/img/home-dusk-1000.webp 1000w, assets/img/home-dusk-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Modern Southern California home at dusk" fetchpriority="high" data-parallax></div>
-        <div class="badge badge--bl">{{> badge}}</div>
-      </div>
+    <nav class="crumbs" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><span>/</span><span>Solar</span><span>/</span><span>Residential</span></nav>
+    <h1 class="h-1 hero__title" data-rise>Solar equals <em>low energy costs.</em></h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal data-delay=".2">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
+      <div class="hero__side" data-reveal data-delay=".3"><div class="btn-row"><a class="btn btn--gold btn--lg" href="quote.html?type=home">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="savings.html">Estimate savings</a></div></div>
     </div>
+    <div class="strip" data-stagger><div><span class="label">Panels</span><strong>Designed for your roof</strong></div><div><span class="label">Storage</span><strong>Battery backup ready</strong></div><div><span class="label">Electrical</span><strong>Panel upgrades to code</strong></div><div><span class="label">Driving</span><strong>EV charging at home</strong></div></div>
   </div>
 </section>
 
-<section class="section" style="padding-top:calc(var(--sec) * .6)">
+<section class="section section--forest" style="padding-top:calc(var(--sec) * .6)">
   <div class="wrap">
     <div class="dayw" data-spots>
       <div class="dayw__copy">
         <span class="kicker">Your home, explained</span>
-        <h2 class="h-2" data-reveal>Everything your home needs to run on sun.</h2>
+        <h2 class="h-2" data-rise>Everything your home needs to run on sun.</h2>
         <p class="body" data-reveal>Tap a number to see what each part does. The house runs through a full day on its own.</p>
         <div class="spot-card" data-spot-card aria-live="polite" data-reveal>
           <span class="label label--sun" data-spot-num>01</span>
@@ -57,11 +53,12 @@ image: assets/img/home-dusk-1000.webp
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section">
+  <span class="sec-num" aria-hidden="true">01</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Home services</span>
-      <h2 class="h-2 shead__title" data-reveal>One system, four parts. <em>Designed to work together.</em></h2>
+      <span class="label label--sun shead__label">(01) — Home services</span>
+      <h2 class="h-2 shead__title" data-rise>One system, four parts. <em>Designed to work together.</em></h2>
     </div>
     <div class="svc-list">
       <article class="split2">
@@ -120,36 +117,39 @@ image: assets/img/home-dusk-1000.webp
   </div>
 </section>
 
-<section class="section">
+<section class="section section--navy">
+  <span class="sec-num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Why storage matters now</span>
-      <h2 class="h-2 shead__title" data-reveal>Your solar should work after dark, too.</h2>
+      <span class="label label--sun shead__label">(02) — Why storage matters now</span>
+      <h2 class="h-2 shead__title" data-rise>Your solar should work after dark, too.</h2>
       <p class="shead__aside" data-reveal>Since April 2023, new solar customers of California’s major utilities are on the Net Billing Tariff (often called NEM 3.0), which pays less for the power you send back. Storing your own solar for the evening is how you keep more of its value.</p>
     </div>
-    <div class="trio" data-stagger>
-      <div class="card trio__card"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></span><h3 class="h-4">Daytime: panels power your home and charge the battery.</h3><p>Instead of sending your surplus to the grid for less, you bank it.</p><span class="big">Store <em>it</em></span></div>
-      <div class="card trio__card"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3 class="h-4">Evening peak: the battery covers the most expensive hours.</h3><p>Peak pricing on common time-of-use plans runs in the evening, right as the sun sets.</p><span class="big">4–9 <em>pm</em></span></div>
-      <div class="card trio__card"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3 class="h-4">Outage: your essentials stay on when the grid goes down.</h3><p>Lights, fridge, Wi-Fi and the things you choose keep running.</p><span class="big">Stay <em>on</em></span></div>
+    <div class="features" data-stagger>
+      <div class="feature"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></span><h3 class="h-4">Daytime: panels power your home and charge the battery.</h3><p>Instead of sending your surplus to the grid for less, you bank it.</p><span class="big">Store <em>it</em></span></div>
+      <div class="feature"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3 class="h-4">Evening peak: the battery covers the most expensive hours.</h3><p>Peak pricing on common time-of-use plans runs in the evening, right as the sun sets.</p><span class="big">4–9 <em>pm</em></span></div>
+      <div class="feature"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span><h3 class="h-4">Outage: your essentials stay on when the grid goes down.</h3><p>Lights, fridge, Wi-Fi and the things you choose keep running.</p><span class="big">Stay <em>on</em></span></div>
     </div>
   </div>
 </section>
 
-<section class="section section--flush-top">
+<section class="section section--ember section--tight">
   <div class="wrap">
-    <figure class="card card--soft" data-reveal style="display:grid;gap:22px;padding:clamp(28px,4vw,56px)">
-      <blockquote class="h-3" style="max-width:30ch;font-weight:500">“The team was professional and knowledgeable. They took care of everything from start to finish, and now we’re saving money every month!”</blockquote>
-      <figcaption style="display:flex;align-items:center;gap:12px"><span class="avatar">SM</span><span><b>Sarah M.</b><br><small class="muted">Homeowner</small></span></figcaption>
+    <figure class="pullq" data-reveal>
+      <span class="pullq__mark" aria-hidden="true">“</span>
+      <blockquote class="pullq__text" data-rise>The team was professional and knowledgeable. They took care of everything from start to finish, and now we’re <em>saving money every month.</em></blockquote>
+      <figcaption class="pullq__who"><span class="avatar">SM</span><span><b>Sarah M.</b><small>Homeowner · Southern California</small></span></figcaption>
     </figure>
   </div>
 </section>
 
-<section class="section section--flush-top">
+<section class="section">
+  <span class="sec-num" aria-hidden="true">03</span>
   <div class="wrap">
     <div class="faq">
       <div class="faq__head">
-        <span class="kicker">Homeowner FAQ</span>
-        <h2 class="h-2" data-reveal>Before you decide.</h2>
+        <span class="label label--sun shead__label">(03) — Homeowner FAQ</span>
+        <h2 class="h-2" data-rise>Before you decide.</h2>
       </div>
       <div class="faq__list" data-stagger>
         <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">What happens to my solar during an outage?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>Grid-tied solar without storage switches off during an outage to keep utility line workers safe. With battery backup, your home separates from the grid and your essentials keep running on stored solar.</div></div></div>

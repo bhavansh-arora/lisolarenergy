@@ -6,21 +6,17 @@ bodyClass: page-about
 image: assets/img/field-aerial-1000.webp
 -->
 
-<section class="ehero ehero--inner">
+<section class="phero" aria-label="Introduction">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/field-aerial-2000.webp" alt="" fetchpriority="high" data-parallax></div>
+  <span class="hero-badge" data-reveal><i>✦</i>Our team is the one on your roof</span>
   <div class="wrap">
-    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>About</span></div>
-    <div class="ehero__grid">
-      <div class="ehero__copy">
-        <span class="kicker" data-reveal>About Lithium</span>
-        <h1 class="h-1" data-reveal data-delay=".05">Empowering a <em>sustainable</em> future.</h1>
-        <p class="lead" data-reveal data-delay=".1">We make clean energy accessible and affordable for homeowners and businesses, so communities get lower energy costs and healthier places to live and work.</p>
-        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html">Get a free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="process.html">How we work <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-      </div>
-      <div class="ehero__visual" data-reveal data-delay=".1">
-        <div class="arch"><img src="assets/img/field-aerial-1000.webp" srcset="assets/img/field-aerial-1000.webp 1000w, assets/img/field-aerial-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Aerial view of rows of solar panels" fetchpriority="high" data-parallax></div>
-        <div class="badge badge--bl">{{> badge}}</div>
-      </div>
+    <nav class="crumbs" aria-label="Breadcrumb" data-reveal><a href="index.html">Home</a><span>/</span><span>About</span></nav>
+    <h1 class="h-1 hero__title" data-rise>Empowering a <em>sustainable</em> future.</h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal data-delay=".2">We make clean energy accessible and affordable for homeowners and businesses, so communities get lower energy costs and healthier places to live and work.</p>
+      <div class="hero__side" data-reveal data-delay=".3"><div class="btn-row"><a class="btn btn--gold btn--lg" href="quote.html">Get a free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="process.html">How we work</a></div></div>
     </div>
+    <div class="strip" data-stagger><div><span class="label">Experience</span><strong>17+ years in power</strong></div><div><span class="label">Support</span><strong>24/7 customer service</strong></div><div><span class="label">Pricing</span><strong>Transparent, no hidden fees</strong></div><div><span class="label">Based in</span><strong>Yucaipa, California</strong></div></div>
   </div>
 </section>
 
@@ -45,31 +41,33 @@ image: assets/img/field-aerial-1000.webp
   </div>
 </section>
 
-<section class="section section--white">
+<section class="section section--forest">
+  <span class="sec-num" aria-hidden="true">01</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Why choose us</span>
-      <h2 class="h-2 shead__title" data-reveal>What we stand on.</h2>
+      <span class="label label--sun shead__label">(01) — Why choose us</span>
+      <h2 class="h-2 shead__title" data-rise>What we stand on.</h2>
     </div>
-    <div class="values" data-stagger>
-      <div class="card card--soft tile"><span class="icon-tile" style="background:#fff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><h3 class="h-3">Customer-focused</h3><p>We listen first, then customize. Your system is built around your needs, not a package we’re trying to move.</p></div>
-      <div class="card card--soft tile"><span class="icon-tile" style="background:#fff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3 class="h-3">Transparent pricing</h3><p>Clear, upfront pricing with no hidden fees. You see what you’re paying for, line by line.</p></div>
-      <div class="card card--soft tile"><span class="icon-tile" style="background:#fff"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c6-3 8-8 8-13V5l-8-3-8 3v4c0 5 2 10 8 13z"/><path d="M9 12l2 2 4-4"/></svg></span><h3 class="h-3">Quality materials</h3><p>Panels and equipment chosen for long-lasting performance, because this system should outlast your mortgage.</p></div>
+    <div class="features" data-stagger>
+      <div class="feature"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span><h3 class="h-3">Customer-focused</h3><p>We listen first, then customize. Your system is built around your needs, not a package we’re trying to move.</p></div>
+      <div class="feature"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3 class="h-3">Transparent pricing</h3><p>Clear, upfront pricing with no hidden fees. You see what you’re paying for, line by line.</p></div>
+      <div class="feature"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22c6-3 8-8 8-13V5l-8-3-8 3v4c0 5 2 10 8 13z"/><path d="M9 12l2 2 4-4"/></svg></span><h3 class="h-3">Quality materials</h3><p>Panels and equipment chosen for long-lasting performance, because this system should outlast your mortgage.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section">
+  <span class="sec-num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="shead">
-      <span class="kicker">Expertise &amp; support</span>
-      <h2 class="h-2 shead__title" data-reveal>Certified experts. <em>Real support.</em></h2>
+      <span class="label label--sun shead__label">(02) — Expertise &amp; support</span>
+      <h2 class="h-2 shead__title" data-rise>Certified experts. <em>Real support.</em></h2>
     </div>
-    <div class="bento" data-stagger>
-      <div class="card tile b-6"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg></span><h3 class="h-3">Certified solar experts</h3><p>Experienced professionals delivering efficient, high-quality installs.</p></div>
-      <div class="card tile b-6"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg></span><h3 class="h-3">24/7 assistance</h3><p>Customer service and technical help whenever you need it.</p></div>
-      <div class="card tile b-6"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 21V12M11 21V7M16 21v-6M21 21V4"/></svg></span><h3 class="h-3">Complete support</h3><p>Help at every stage, so your system keeps running at peak performance.</p></div>
-      <div class="card tile b-6"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12V3M12 12l7 4M12 12l-7 4"/><circle cx="12" cy="12" r="2"/><path d="M12 12v10"/></svg></span><h3 class="h-3">Beyond solar</h3><p>Wind turbines, wind generators and maintenance for a cleaner energy mix.</p></div>
+    <div class="features features--4" data-stagger>
+      <div class="feature"><span class="icon-tile icon-tile--sun"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 8 5-3 5 3-2-8"/></svg></span><h3 class="h-3">Certified solar experts</h3><p>Experienced professionals delivering efficient, high-quality installs.</p></div>
+      <div class="feature"><span class="icon-tile icon-tile--blue"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="2" y="14" width="5" height="7" rx="2"/><rect x="17" y="14" width="5" height="7" rx="2"/></svg></span><h3 class="h-3">24/7 assistance</h3><p>Customer service and technical help whenever you need it.</p></div>
+      <div class="feature"><span class="icon-tile icon-tile--green"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 21V12M11 21V7M16 21v-6M21 21V4"/></svg></span><h3 class="h-3">Complete support</h3><p>Help at every stage, so your system keeps running at peak performance.</p></div>
+      <div class="feature"><span class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12V3M12 12l7 4M12 12l-7 4"/><circle cx="12" cy="12" r="2"/><path d="M12 12v10"/></svg></span><h3 class="h-3">Beyond solar</h3><p>Wind turbines, wind generators and maintenance for a cleaner energy mix.</p></div>
     </div>
     <div class="mt-l" data-reveal>
       <span class="label">Equipment partners</span>

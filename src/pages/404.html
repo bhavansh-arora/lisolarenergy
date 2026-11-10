@@ -5,14 +5,15 @@ page: 404
 bodyClass: page-404
 -->
 
-<section class="phead" style="min-height:72svh;display:grid;align-items:center">
-  <div class="wrap center" style="display:grid;justify-items:center;gap:22px">
-    <span class="kicker" data-reveal>Error 404</span>
-    <h1 class="display" data-reveal data-delay=".05">Off the grid. <em>This page doesn’t exist.</em></h1>
-    <p class="lead" data-reveal data-delay=".1">But your savings still do.</p>
-    <div class="btn-row" data-reveal data-delay=".15" style="justify-content:center">
-      <a class="btn btn--primary btn--lg" href="index.html">Back home <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="btn btn--ghost btn--lg" href="quote.html">Get a quote</a>
+<section class="phero" aria-label="Page not found">
+  <div class="hero__media" aria-hidden="true"><img src="assets/img/grid-sunset-1000.webp" alt="" fetchpriority="high"></div>
+  <div class="wrap">
+    <span class="eyebrow" data-reveal>Error 404</span>
+    <h1 class="display hero__title mt-m" data-rise>Off the <em>grid.</em></h1>
+    <div class="hero__row">
+      <p class="lead" data-reveal>This page doesn’t exist, but your savings still do.</p>
+      <div class="hero__side" data-reveal><div class="btn-row"><a class="btn btn--gold btn--lg" href="index.html">Back home <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="quote.html">Get a quote</a></div></div>
     </div>
+    <div class="strip"><div><span class="label">Try</span><strong><a href="residential.html">Residential solar</a></strong></div><div><span class="label">Try</span><strong><a href="commercial.html">Commercial solar</a></strong></div><div><span class="label">Try</span><strong><a href="savings.html">Savings calculator</a></strong></div><div><span class="label">Or call</span><strong><a href="{{phoneHref}}">{{phone}}</a></strong></div></div>
   </div>
 </section>
