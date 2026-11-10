@@ -6,7 +6,7 @@
 <title>Residential Solar & Battery Backup — Lithium</title>
 <meta name="description" content="Home solar, battery backup, main panel upgrades and EV charging in Southern California. Designed around your roof and usage, installed by certified technicians.">
 <link rel="canonical" href="https://lisolarenergy.com/residential.html">
-<meta name="theme-color" content="#f7f7f4">
+<meta name="theme-color" content="#f5f1e9">
 <meta name="view-transition" content="same-origin">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lithium — Power for life">
@@ -17,7 +17,8 @@
 <link rel="icon" href="assets/brand/lithium-mark.svg" type="image/svg+xml">
 <link rel="icon" href="assets/brand/favicon-48.png" sizes="48x48">
 <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <script>document.documentElement.classList.add('js');</script>
@@ -42,8 +43,9 @@
 <header class="site-header" data-header>
   <div class="wrap">
     <div class="site-header__bar">
-      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark.svg" alt="Lithium" width="118" height="27"></a>
+      <a class="brand" href="index.html" aria-label="Lithium — home"><img src="assets/brand/lithium-wordmark.svg" alt="Lithium" width="128" height="29"></a>
       <nav class="nav" aria-label="Primary">
+        <a href="index.html" data-nav="home">Home</a>
         <a href="residential.html" data-nav="residential" aria-current="page">Residential</a>
         <a href="commercial.html" data-nav="commercial">Commercial</a>
         <a href="process.html" data-nav="process">Process</a>
@@ -52,9 +54,9 @@
         <a href="contact.html" data-nav="contact">Contact</a>
       </nav>
       <div class="site-header__actions">
-        <a class="header-link" href="track.html" data-nav="track"><span class="pulse-dot"></span>Track project</a>
-        <a class="btn btn--primary btn--sm" href="quote.html">Get a free quote</a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle><span class="sr-only">Menu</span><i></i><i></i></button>
+        <a class="header-link" href="track.html" data-nav="track">Track</a>
+        <a class="btn btn--primary btn--sm" href="quote.html">Free quote</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>Menu <span class="bars" aria-hidden="true"><i></i><i></i></span></button>
       </div>
     </div>
   </div>
@@ -62,14 +64,14 @@
 
 <div class="menu" id="menu" data-menu aria-hidden="true">
   <nav class="menu__nav" aria-label="Mobile">
-    <a href="index.html" data-nav="home">Home</a>
-    <a href="residential.html" data-nav="residential" aria-current="page">Residential</a>
-    <a href="commercial.html" data-nav="commercial">Commercial</a>
-    <a href="process.html" data-nav="process">Process</a>
-    <a href="savings.html" data-nav="savings">Savings</a>
-    <a href="about.html" data-nav="about">About</a>
-    <a href="track.html" data-nav="track">Track a project</a>
-    <a href="contact.html" data-nav="contact">Contact</a>
+    <a href="index.html" data-nav="home"><i>I</i>Home</a>
+    <a href="residential.html" data-nav="residential" aria-current="page"><i>II</i>Residential</a>
+    <a href="commercial.html" data-nav="commercial"><i>III</i>Commercial</a>
+    <a href="process.html" data-nav="process"><i>IV</i>Process</a>
+    <a href="savings.html" data-nav="savings"><i>V</i>Savings</a>
+    <a href="about.html" data-nav="about"><i>VI</i>About</a>
+    <a href="track.html" data-nav="track"><i>VII</i>Track a project</a>
+    <a href="contact.html" data-nav="contact"><i>VIII</i>Contact</a>
   </nav>
   <div class="menu__foot">
     <a class="btn btn--primary btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -78,17 +80,22 @@
 </div>
 
 <main id="main">
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Residential</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>Solar equals low energy costs. <span class="soft">For every kind of home.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08">
-        <p class="lead">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
-        <a class="btn btn--primary btn--lg" href="quote.html">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Residential</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>For your home</span>
+        <h1 class="h-1" data-reveal data-delay=".05">Solar equals <em>low energy</em> costs.</h1>
+        <p class="lead" data-reveal data-delay=".1">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html?type=home">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="savings.html">Estimate savings <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/home-dusk-1000.webp" srcset="assets/img/home-dusk-1000.webp 1000w, assets/img/home-dusk-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Modern Southern California home at dusk" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl"><svg class="badge__ring" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="badge-path" d="M60 60m-47 0a47 47 0 1 1 94 0a47 47 0 1 1-94 0"/></defs><text><textPath href="#badge-path" startOffset="0">Free consultation ◆ No obligation ◆ </textPath></text></svg><img src="assets/brand/lithium-mark.svg" alt="">
+</div>
       </div>
     </div>
-    <div class="phead__media" data-reveal data-delay=".14"><img src="assets/img/home-dusk-2000.webp" alt="Modern home at dusk with lights on" fetchpriority="high"></div>
   </div>
 </section>
 
@@ -259,7 +266,7 @@
   <div class="wrap">
     <div class="shead">
       <span class="kicker">Home services</span>
-      <h2 class="h-2 shead__title" data-reveal>One system, four parts. <span class="soft">Designed to work together.</span></h2>
+      <h2 class="h-2 shead__title" data-reveal>One system, four parts. <em>Designed to work together.</em></h2>
     </div>
     <div class="svc-list">
       <article class="split2">
@@ -361,44 +368,42 @@
 </section>
 
 
-<section class="section section--flush-top">
-  <div class="wrap">
-    <div class="cta" data-reveal>
-      <div class="cta__copy">
-        <span class="kicker">Free consultation · No obligation</span>
-        <h2 class="h-1">The sun doesn’t send a bill. <span class="soft">Find out what yours could be.</span></h2>
-        <p class="lead" style="color:var(--ink-2)">Tell us about your property in about two minutes. We’ll design your system, show you the numbers and book your free site assessment.</p>
-      </div>
-      <div class="cta__side btn-row">
-        <a class="btn btn--primary btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn--ghost btn--lg" href="tel:+19516626748">Call (951) 662-6748</a>
-      </div>
+<section class="bigcta" aria-labelledby="cta-h">
+  <div class="bigcta__bg" aria-hidden="true"><img src="assets/img/roof-sunset-2000.webp" alt="" loading="lazy" data-parallax></div>
+  <div class="wrap bigcta__inner on-dark">
+    <span class="kicker" data-reveal>Your free consultation</span>
+    <h2 class="display" id="cta-h" data-reveal>Ready to go <em>solar?</em></h2>
+    <p data-reveal>Tell us about your property in about two minutes. We’ll design your system, show you the numbers and book your free site assessment. No pressure, no obligation.</p>
+    <div class="btn-row" data-reveal style="justify-content:center">
+      <a class="btn btn--light btn--lg" href="quote.html">Get my free quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
+    <a class="bigcta__mail" href="tel:+19516626748" data-reveal>or call (951) 662-6748</a>
   </div>
 </section>
 
 
 </main>
 
-<footer class="site-footer">
+<footer class="ftr">
   <div class="wrap">
-    <div class="site-footer__top">
-      <div class="site-footer__brand">
-        <img src="assets/brand/lithium-logo.svg" alt="Lithium — Power for life" width="170" height="57" loading="lazy">
-        <p>Custom solar, battery backup and EV charging for Southern California homes and businesses. 17+ years in power and renewable energy.</p>
+    <div class="ftr__top">
+      <div class="ftr__brand">
+        <img src="assets/brand/lithium-logo-white.svg" alt="Lithium — Power for life" width="170" height="57" loading="lazy">
+        <p>Custom solar, battery backup and EV charging for Southern California homes and businesses, with 17+ years in power and renewable energy.</p>
       </div>
-      <div class="site-footer__cols">
+      <div class="ftr__cols">
         <div>
           <p class="label">Explore</p>
+          <a href="index.html">Home</a>
           <a href="residential.html">Residential</a>
           <a href="commercial.html">Commercial</a>
           <a href="process.html">Our process</a>
-          <a href="savings.html">Savings calculator</a>
           <a href="about.html">About</a>
         </div>
         <div>
           <p class="label">Customers</p>
           <a href="quote.html">Free quote</a>
+          <a href="savings.html">Savings calculator</a>
           <a href="track.html">Track a project</a>
           <a href="contact.html">Contact</a>
           <a href="privacy.html">Privacy</a>
@@ -415,9 +420,9 @@
         </div>
       </div>
     </div>
-    <div class="site-footer__word" aria-hidden="true">Lithium</div>
-    <div class="site-footer__bottom">
-      <span>© 2026 Lithium LLC · Power for life</span>
+    <div class="ftr__word" aria-hidden="true"><span>Lithium</span><img src="assets/brand/lithium-mark.svg" alt=""><em>Power for life</em></div>
+    <div class="ftr__bottom">
+      <span>© 2026 Lithium LLC. All rights reserved.</span>
       <span data-sunclock="footer">Yucaipa, CA</span>
       <a href="#main">Back to top ↑</a>
     </div>

@@ -6,13 +6,19 @@ bodyClass: page-contact
 scripts: contact
 -->
 
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>Let’s talk power. <span class="soft">We’re around 24/7.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08">
-        <p class="lead">Questions, a project in progress, or a partnership idea. Call, email or send a note and the team will get back to you.</p>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>Let’s get in touch</span>
+        <h1 class="h-1" data-reveal data-delay=".05">Let’s talk <em>power.</em></h1>
+        <p class="lead" data-reveal data-delay=".1">Questions, a project in progress, or a partnership idea. Call, email or send a note and the team will get back to you.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="{{phoneHref}}">Call {{phone}} <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="mailto:{{email}}">Email us <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/roof-sunset-1000.webp" srcset="assets/img/roof-sunset-1000.webp 1000w, assets/img/roof-sunset-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Rooftop solar array at golden hour" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl">{{> badge}}</div>
       </div>
     </div>
   </div>

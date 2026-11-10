@@ -31,9 +31,14 @@
   /* ---------- Header + dock ---------- */
   function initHeader() {
     var header = $('[data-header]'), dock = $('[data-dock]');
+    var lastY = 0;
     function onScroll() {
       var y = window.scrollY;
-      if (header) header.classList.toggle('is-solid', y > 24);
+      if (header) {
+        header.classList.toggle('is-solid', y > 24);
+        header.classList.toggle('is-hidden', y > lastY && y > 400 && !root.classList.contains('menu-open'));
+      }
+      lastY = y;
       if (dock) dock.classList.toggle('is-visible', y > window.innerHeight * 0.6);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -212,9 +217,118 @@
     $$('input[type="range"].range').forEach(function (r) { setRangeFill(r); r.addEventListener('input', function () { setRangeFill(r); }); });
   }
 
+
+  /* ---------- Statements light up word by word as you scroll ---------- */
+  function initWords() {
+    $$('[data-words]').forEach(function (el) {
+      (function split(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = doc.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(doc.createTextNode(part)); return; }
+              var w = doc.createElement('span'); w.className = 'w'; w.textContent = part; frag.appendChild(w);
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1) split(n);
+        });
+      })(el);
+      el.classList.add('statement');
+      var words = $$('.w', el);
+      if (reduce) { words.forEach(function (w) { w.style.opacity = 1; }); return; }
+      var raf = 0;
+      function update() {
+        raf = 0;
+        var r = el.getBoundingClientRect(), vh = window.innerHeight;
+        var p = Math.max(0, Math.min(1, (vh * 0.85 - r.top) / (r.height + vh * 0.35)));
+        var lit = p * words.length;
+        words.forEach(function (w, i) { w.style.opacity = Math.max(0.18, Math.min(1, lit - i + 1)).toFixed(2); });
+      }
+      window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+      update();
+    });
+  }
+
+  /* ---------- Gentle image parallax ---------- */
+  function initParallax() {
+    var els = $$('[data-parallax]');
+    if (!els.length || reduce) return;
+    var raf = 0;
+    function update() {
+      raf = 0;
+      var vh = window.innerHeight;
+      els.forEach(function (img) {
+        var box = img.parentElement.getBoundingClientRect();
+        if (box.bottom < -100 || box.top > vh + 100) return;
+        var p = (box.top + box.height / 2 - vh / 2) / (vh / 2 + box.height / 2);
+        img.style.transform = 'translate3d(0,' + (p * -5).toFixed(2) + '%,0)';
+      });
+    }
+    window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update, { passive: true });
+    update();
+  }
+
+  /* ---------- Testimonial tabs (only one quote is ever shown) ---------- */
+  function initVoices() {
+    $$('[data-voices]').forEach(function (box) {
+      var tabs = $$('[role="tab"]', box);
+      function select(t) {
+        tabs.forEach(function (o) {
+          var on = o === t;
+          o.setAttribute('aria-selected', String(on));
+          o.tabIndex = on ? 0 : -1;
+          var panel = doc.getElementById(o.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !on;
+        });
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { select(t); });
+        t.addEventListener('keydown', function (e) {
+          var k = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!k) return;
+          var n = tabs[(i + k + tabs.length) % tabs.length]; select(n); n.focus();
+        });
+      });
+    });
+  }
+
+  /* ---------- Cost of waiting: utility vs solar ---------- */
+  function initWait() {
+    var box = $('[data-wait]');
+    if (!box || !window.LithiumCalc) return;
+    var C = window.LithiumCalc, r = C.estimate(250), s = r.series;
+    var card = $('.wait__card', box), list = $('[data-wait-list]', box), title = $('[data-wait-title]', box);
+    var DATA = {
+      utility: { title: 'If you keep paying the utility…', rows: [
+        ['$', 'Next 10 years of electric bills', C.money(s[10].utility)],
+        ['$', 'Next 25 years of electric bills', C.money(s[25].utility)],
+        ['↑', 'Typical yearly rate increase', '~3%'],
+        ['⌂', 'What you own at the end', 'Nothing']
+      ] },
+      solar: { title: 'If you go solar with Lithium…', rows: [
+        ['☀', 'System pays for itself in about', (r.payback || 0).toFixed(1) + ' years'],
+        ['$', 'Estimated 25-year net savings', C.money(r.net)],
+        ['⚡', 'Power during outages', 'With battery'],
+        ['⌂', 'What you own at the end', 'Your power plant']
+      ] }
+    };
+    function show(mode) {
+      var d = DATA[mode];
+      card.setAttribute('data-mode', mode);
+      title.textContent = d.title;
+      list.innerHTML = d.rows.map(function (row) { return '<li><i aria-hidden="true">' + row[0] + '</i><span>' + row[1] + '</span><b>' + row[2] + '</b></li>'; }).join('');
+      $$('[data-wait-mode]', box).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-wait-mode') === mode)); });
+      if (!reduce) { card.style.opacity = 0; card.style.transform = 'translateY(8px)'; requestAnimationFrame(function () { card.style.transition = 'opacity .5s var(--ease), transform .5s var(--ease)'; card.style.opacity = 1; card.style.transform = 'none'; }); }
+    }
+    $$('[data-wait-mode]', box).forEach(function (b) { b.addEventListener('click', function () { show(b.getAttribute('data-wait-mode')); }); });
+    show('utility');
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
-    initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator();
+    initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initWait();
     window.Lithium = { scrollTo: scrollTo, onReady: function (fn) { fn(); }, lenis: function () { return null; }, animateNumber: animateNumber, setRangeFill: setRangeFill };
     window.addEventListener('load', function () { root.classList.add('is-ready'); initLive(); });
   }

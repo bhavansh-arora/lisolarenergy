@@ -6,14 +6,19 @@ bodyClass: page-process
 image: assets/img/installer-roof-1000.webp
 -->
 
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Our process</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>From hello to you’re live. <span class="soft">Six clear steps.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08">
-        <p class="lead">One team handles everything. At every stage you’ll know what’s happening, what you need to do (usually nothing), and what comes next.</p>
-        <a class="btn btn--ghost btn--lg" href="track.html"><span class="pulse-dot"></span>Track a project</a>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Our process</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>How it works</span>
+        <h1 class="h-1" data-reveal data-delay=".05">From hello <em>to you’re live.</em></h1>
+        <p class="lead" data-reveal data-delay=".1">One team handles everything. At every stage you’ll know what’s happening, what you need to do (usually nothing), and what comes next.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html">Start with step one <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="track.html">Track a project <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/installer-roof-1000.webp" srcset="assets/img/installer-roof-1000.webp 1000w, assets/img/installer-roof-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Technician installing a rooftop solar panel" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl">{{> badge}}</div>
       </div>
     </div>
   </div>
@@ -76,10 +81,10 @@ image: assets/img/installer-roof-1000.webp
 
 <section class="section">
   <div class="wrap">
-    <div class="card card--ink tracker-promo" data-reveal>
+    <div class="card card--ink on-dark tracker-promo" data-reveal>
       <div class="tracker-promo__copy">
         <span class="kicker" style="color:rgba(255,255,255,.6)">Our promise</span>
-        <h2 class="h-2" style="color:#fff">No project goes quiet. <span style="color:rgba(255,255,255,.45)">You’ll always know.</span></h2>
+        <h2 class="h-2" style="color:#fff">No project goes quiet. <em>You’ll always know.</em></h2>
         <p class="muted">Every Lithium project gets a tracking code the day your consultation is booked: which stage you’re in, what happens next, and who to call.</p>
         <a class="btn btn--warm" href="track.html">Track a project <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
@@ -91,6 +96,25 @@ image: assets/img/installer-roof-1000.webp
           <div class="mini-track__row is-now"><i></i>Permitting<span>City review</span></div>
           <div class="mini-track__row"><i></i>Installation<span>Up next</span></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="wrap">
+    <div class="faq">
+      <div class="faq__head">
+        <span class="kicker">Questions</span>
+        <h2 class="h-2" data-reveal>Good questions, <em>straight answers.</em></h2>
+        <p class="body">Still curious? Call <a href="{{phoneHref}}" style="text-decoration:underline;text-underline-offset:3px">{{phone}}</a>. A real person picks up.</p>
+      </div>
+      <div class="faq__list" data-stagger>
+        <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">What warranties do you offer?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>We provide comprehensive warranties on our solar panels and installation, typically covering equipment for 20+ years, so your investment is protected.</div></div></div>
+        <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">What’s included in your solar services?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>Everything: the first consultation and site assessment, system design, permitting, installation, inspection, utility sign-off, monitoring and maintenance.</div></div></div>
+        <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">How long does installation take?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>It depends on system size and local rules, but once permits are approved, installation typically takes 1 to 3 days.</div></div></div>
+        <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">How much maintenance do panels need?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>Very little. Regular inspections and keeping the panels clean and free of debris is usually all it takes.</div></div></div>
+        <div class="acc"><button class="acc__btn" type="button" aria-expanded="false">Can I monitor my solar production?<span class="acc__icon" aria-hidden="true"></span></button><div class="acc__panel"><div>Yes. Your system comes with monitoring so you can track production in real time from a mobile app or web portal.</div></div></div>
       </div>
     </div>
   </div>

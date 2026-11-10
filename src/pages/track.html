@@ -6,13 +6,19 @@ bodyClass: page-track
 scripts: track
 -->
 
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Track a project</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>Your project, live. <span class="soft">Day or night, no chasing.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08">
-        <p class="lead">Enter the tracking code from your confirmation and the property ZIP to see your stage, what’s next and who to call.</p>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Track a project</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>Project tracker</span>
+        <h1 class="h-1" data-reveal data-delay=".05">Your project, <em>live.</em></h1>
+        <p class="lead" data-reveal data-delay=".1">Enter the tracking code from your confirmation and the property ZIP to see your stage, what’s next and who to call.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="#lookup">Look up my project <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/home-modern-1000.webp" srcset="assets/img/home-modern-1000.webp 1000w, assets/img/home-modern-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Modern home lit up in the evening" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl">{{> badge}}</div>
       </div>
     </div>
   </div>
@@ -20,7 +26,7 @@ scripts: track
 
 <section class="section section--tight" style="padding-top:0">
   <div class="wrap">
-    <div class="tracker">
+    <div class="tracker" id="lookup">
       <form class="card tracker__form" data-track-form novalidate data-reveal>
         <span class="kicker">Project lookup</span>
         <div class="field"><label for="t-code">Tracking code</label><input class="input" id="t-code" name="code" placeholder="LI-7K3QD" autocomplete="off" autocapitalize="characters" spellcheck="false"></div>

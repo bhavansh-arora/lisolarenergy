@@ -8,19 +8,27 @@ image: assets/img/field-sky-1000.webp
 -->
 
 
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Savings calculator</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>See your savings before you sign. <span class="soft">Every number, editable.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08"><p class="lead">Move the sliders and watch the numbers change. Every assumption is visible, because a good decision starts with numbers you can check.</p></div>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Savings calculator</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>Savings calculator</span>
+        <h1 class="h-1" data-reveal data-delay=".05">See your savings <em>before you sign.</em></h1>
+        <p class="lead" data-reveal data-delay=".1">Move the sliders and watch the numbers change. Every assumption is visible, because a good decision starts with numbers you can check.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="#calc">Use the calculator <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/field-sky-1000.webp" sizes="(max-width: 1023px) 90vw, 40vw" alt="Solar panels under a clear sky" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl">{{> badge}}</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section section--tight" style="padding-top:0">
   <div class="wrap">
-    <div class="calc" data-calc>
+    <div class="calc" data-calc id="calc">
       <form class="card calc__inputs" onsubmit="return false" aria-label="Savings inputs">
         <div class="row-between">
           <span class="label">Property</span>
@@ -92,7 +100,7 @@ image: assets/img/field-sky-1000.webp
   <div class="wrap">
     <div class="shead">
       <span class="kicker">How the math works</span>
-      <h2 class="h-2 shead__title" data-reveal>No black box. <span class="soft">Just math.</span></h2>
+      <h2 class="h-2 shead__title" data-reveal>No black box. <em>Just math.</em></h2>
     </div>
     <div class="trio" data-stagger>
       <div class="card trio__card"><span class="label">01 · Usage</span><h3 class="h-4">Your bill becomes kilowatt-hours.</h3><p>Monthly bill ÷ your rate = the energy you use. That’s what your system needs to produce.</p><span class="big">$ → <em>kWh</em></span></div>

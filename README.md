@@ -56,14 +56,15 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Design and motion
 
-- Light, product-style design system in `assets/css/site.css`: Geist and Geist Mono (self-hosted), warm white surfaces, rounded cards and bento grids.
-- No animation libraries. `assets/js/main.js` handles subtle fade-up reveals, count-ups, the FAQ, the mobile menu and the live hero widgets.
+- Editorial design in `assets/css/site.css`: warm ivory paper, deep navy bands, Bodoni Moda (headlines, with blue italic accents) and Manrope (text), both self-hosted.
+- Arched photo heroes with a rotating "Free consultation" badge, a tilted word ribbon, numbered rows, system "packages", a utility-vs-solar toggle, testimonial tabs and a full-photo closing section.
+- No animation libraries. `assets/js/main.js` handles fade-up reveals, statements that light up word by word, gentle photo parallax, count-ups, the FAQ, tabs, the toggle and the mobile menu.
 - Page changes use the browser's native cross-fade (View Transitions) where supported.
-- `assets/js/house.js` holds the illustrative energy model behind the house widget (8.2 kW system, 13.5 kWh battery) and the hero's live readouts; tweak it there.
-- `prefers-reduced-motion` turns off reveals and autoplay. Without JavaScript all content is still visible.
+- `assets/js/house.js` holds the illustrative energy model behind the Residential house and the savings toggle (8.2 kW system, 13.5 kWh battery).
+- `prefers-reduced-motion` turns off motion. Without JavaScript all content is still visible.
 
 ## Credits
 
 - Photography: Unsplash (free to use under the Unsplash License).
-- Fonts: Archivo, Instrument Serif and JetBrains Mono (SIL Open Font License), self-hosted.
+- Fonts: Bodoni Moda and Manrope (SIL Open Font License), self-hosted.
 - Logo and testimonials: Lithium LLC's existing website.

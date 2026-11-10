@@ -7,17 +7,21 @@ scripts: house
 image: assets/img/home-dusk-1000.webp
 -->
 
-<section class="phead">
+<section class="ehero ehero--inner">
   <div class="wrap">
-    <div class="phead__crumbs label" data-reveal><a href="index.html">Home</a><span>/</span><span>Residential</span></div>
-    <div class="phead__grid">
-      <h1 class="h-1" data-reveal>Solar equals low energy costs. <span class="soft">For every kind of home.</span></h1>
-      <div class="phead__side" data-reveal data-delay=".08">
-        <p class="lead">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
-        <a class="btn btn--primary btn--lg" href="quote.html">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="crumbs" data-reveal><a href="index.html">Home</a><span>/</span><span>Residential</span></div>
+    <div class="ehero__grid">
+      <div class="ehero__copy">
+        <span class="kicker" data-reveal>For your home</span>
+        <h1 class="h-1" data-reveal data-delay=".05">Solar equals <em>low energy</em> costs.</h1>
+        <p class="lead" data-reveal data-delay=".1">From your first consultation to installation and ongoing care, we design a system around how your household actually uses power.</p>
+        <div class="phero-actions" data-reveal data-delay=".15"><a class="btn btn--primary btn--lg" href="quote.html?type=home">Get a free home quote <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn btn--ghost btn--lg" href="savings.html">Estimate savings <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="ehero__visual" data-reveal data-delay=".1">
+        <div class="arch"><img src="assets/img/home-dusk-1000.webp" srcset="assets/img/home-dusk-1000.webp 1000w, assets/img/home-dusk-2000.webp 2000w" sizes="(max-width: 1023px) 90vw, 40vw" alt="Modern Southern California home at dusk" fetchpriority="high" data-parallax></div>
+        <div class="badge badge--bl">{{> badge}}</div>
       </div>
     </div>
-    <div class="phead__media" data-reveal data-delay=".14"><img src="assets/img/home-dusk-2000.webp" alt="Modern home at dusk with lights on" fetchpriority="high"></div>
   </div>
 </section>
 
@@ -57,7 +61,7 @@ image: assets/img/home-dusk-1000.webp
   <div class="wrap">
     <div class="shead">
       <span class="kicker">Home services</span>
-      <h2 class="h-2 shead__title" data-reveal>One system, four parts. <span class="soft">Designed to work together.</span></h2>
+      <h2 class="h-2 shead__title" data-reveal>One system, four parts. <em>Designed to work together.</em></h2>
     </div>
     <div class="svc-list">
       <article class="split2">
