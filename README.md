@@ -65,6 +65,6 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Credits
 
-- Photography: Unsplash (free to use under the Unsplash License).
+- Photography: Lithium LLC’s own image library from lisolarenergy.com. Partner logos belong to their owners and appear as Lithium’s product partners.
 - Fonts: Inter Tight, Instrument Serif and Geist Mono (SIL Open Font License), self-hosted.
 - Logo and testimonials: Lithium LLC's existing website.

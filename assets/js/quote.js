@@ -182,7 +182,7 @@
     save(true);
     var swap = function () {
       steps.forEach(function (s) { s.classList.toggle('is-active', s === next); });
-      $('[data-step-count]').textContent = 'Step ' + String(n).padStart(2, '0') + ' / ' + String(TOTAL).padStart(2, '0');
+      $('[data-step-count]').textContent = 'Step ' + n + ' of ' + TOTAL;
       $('[data-step-name]').textContent = next.getAttribute('data-name');
       $('[data-bar]').style.width = ((n - 1) / TOTAL * 100 + 100 / TOTAL / 2) + '%';
       $('[data-back]').hidden = n === 1;

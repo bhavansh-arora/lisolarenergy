@@ -412,18 +412,24 @@
     $$('[data-hscroll]').forEach(function (sec) {
       var track = $('.hscroll__track', sec), inner = $('.hscroll__inner', sec);
       var mq = window.matchMedia('(min-width: 1024px)'), raf = 0;
+      // The track only moves while the panel is stuck to the top of the screen.
+      // A short hold before and after lets the vertical scroll settle first.
+      var hold = 0;
       function layout() {
-        if (!mq.matches || reduce) { sec.classList.remove('is-pinned'); sec.style.height = ''; track.style.transform = ''; return; }
+        if (!mq.matches || reduce) { sec.classList.remove('is-pinned'); sec.style.height = ''; sec.style.removeProperty('--pin-h'); track.style.transform = ''; return; }
         sec.classList.add('is-pinned');
+        var vh = window.innerHeight;
+        sec.style.setProperty('--pin-h', vh + 'px');
         var dist = Math.max(0, track.scrollWidth - window.innerWidth);
-        sec.style.height = (window.innerHeight + dist) + 'px';
+        hold = Math.round(vh * 0.12);
+        sec.style.height = (vh + dist + hold * 2) + 'px';
         update();
       }
       function update() {
         raf = 0;
         if (!sec.classList.contains('is-pinned')) return;
         var r = sec.getBoundingClientRect(), dist = Math.max(0, track.scrollWidth - window.innerWidth);
-        var p = Math.max(0, Math.min(1, -r.top / Math.max(1, r.height - window.innerHeight)));
+        var p = dist ? Math.max(0, Math.min(1, (-r.top - hold) / dist)) : 0;
         track.style.transform = 'translate3d(' + (-p * dist).toFixed(1) + 'px,0,0)';
       }
       window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });

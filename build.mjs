@@ -51,7 +51,7 @@ for (const f of pages) {
     page: meta.page || f.replace('.html', ''),
     bodyClass: meta.bodyClass || '',
     file: f === 'index.html' ? '' : f,
-    image: meta.image || 'assets/img/roof-sunset-1000.webp',
+    image: meta.image || 'assets/img/li-engineer-1000.webp',
   };
   const scripts = (meta.scripts || '')
     .split(',')
