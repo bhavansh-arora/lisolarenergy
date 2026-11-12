@@ -58,6 +58,7 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 - Dark design in `assets/css/site.css`: ink background with rounded colour panels (forest, navy, ember), one gold accent, Inter Tight for headlines and text, Instrument Serif italic for the gold accent words, Geist Mono for small labels. All fonts are self-hosted.
 - Gold announcement ticker, photo heroes with a stats strip, outline section numbers, a giant word marquee that speeds up with scrolling, closing call-to-action with three “why now” cards, and a footer with a large gold wordmark whose letters rise in.
+- A first-visit loader: a battery charges to 100% with real page progress, then the curtain lifts with a curved edge (once per visit, skipped for reduced motion).
 - No animation libraries. `assets/js/main.js` handles headline words rising in, fade-up reveals, statements that light up word by word, photo parallax, count-ups, the pinned horizontal cards (desktop) and swipe cards (phone), the home calculator and payback bars, the FAQ, tabs and the mobile menu.
 - Page changes use the browser's native cross-fade (View Transitions) where supported.
 - `assets/js/house.js` holds the illustrative energy model behind the house player and hotspots (8.2 kW system, 13.5 kWh battery).

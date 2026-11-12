@@ -21,7 +21,7 @@
 <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
-<script>document.documentElement.classList.add('js');</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{if(!sessionStorage.getItem('li-boot')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-loading');}catch(e){}})();</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,6 +39,17 @@
 </head>
 <body class="page-home" data-page="home">
 <a class="skip" href="#main">Skip to content</a>
+<div class="loader" data-loader aria-hidden="true">
+  <div class="loader__glow"></div>
+  <div class="loader__in">
+    <img class="loader__logo" src="assets/brand/lithium-wordmark-white.svg" alt="" width="176" height="40">
+    <div class="loader__batt">
+      <span class="loader__fill"></span>
+      <svg class="loader__bolt" viewBox="0 0 24 24"><path d="M13.2 2 4.8 13.4h6.1L9.9 22l9.3-12.3h-6.3L13.2 2z"/></svg>
+    </div>
+    <div class="loader__meta"><span class="label">Charging · Power for life</span><span class="loader__num"><span data-loader-num>0</span>%</span></div>
+  </div>
+</div>
 
 <div class="ticker" aria-label="Announcements">
   <div class="ticker__track">

@@ -531,9 +531,49 @@
     }, { threshold: 0.3 }).observe(w);
   }
 
+  /* ---------- First-visit loader: battery charges with real page progress ---------- */
+  function initLoader() {
+    var el = $('[data-loader]');
+    if (!el) return;
+    if (!root.classList.contains('is-loading')) { el.parentNode.removeChild(el); return; }
+    var num = $('[data-loader-num]', el), t0 = performance.now(), MIN = 1400, MAX = 4500, p = 0, done = false, loaded = false, fonts = false;
+    var imgs = Array.prototype.filter.call(doc.images, function (i) { return i.loading !== 'lazy' && !el.contains(i); });
+    window.addEventListener('load', function () { loaded = true; });
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { fonts = true; }); else fonts = true;
+    function frac() {
+      if (loaded) return 1;
+      var n = imgs.filter(function (i) { return i.complete; }).length + (fonts ? 1 : 0);
+      return n / (imgs.length + 1);
+    }
+    function finish() {
+      if (done) return; done = true;
+      p = 1; num.textContent = '100'; el.style.setProperty('--p', 1);
+      el.classList.add('is-charged');
+      var lab = $('.loader__meta .label', el); if (lab) lab.textContent = 'Fully charged · Power for life';
+      try { sessionStorage.setItem('li-boot', '1'); } catch (e) {}
+      setTimeout(function () {
+        el.classList.add('is-done');
+        // Start page entrances as the curtain begins to lift.
+        setTimeout(function () { root.classList.remove('is-loading'); }, 380);
+        setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 1700);
+      }, 460);
+    }
+    (function tick(now) {
+      if (done) return;
+      var t = (now || performance.now()) - t0;
+      var target = Math.min(t / MIN, 0.12 + 0.88 * frac());
+      p += (target - p) * 0.14;
+      if (target >= 1 && p > 0.96) p = 1;
+      el.style.setProperty('--p', p.toFixed(4));
+      num.textContent = Math.round(p * 100);
+      if ((p >= 1 && t >= MIN) || t >= MAX) return finish();
+      requestAnimationFrame(tick);
+    })();
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
-    initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initCalcx(); initRoi(); initWord();
+    initLoader(); initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initCalcx(); initRoi(); initWord();
     window.Lithium = { scrollTo: scrollTo, onReady: function (fn) { fn(); }, lenis: function () { return null; }, animateNumber: animateNumber, setRangeFill: setRangeFill };
     window.addEventListener('load', function () { root.classList.add('is-ready'); initLive(); });
   }
