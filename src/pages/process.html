@@ -20,57 +20,128 @@ image: assets/img/li-hands-1000.webp
   </div>
 </section>
 
-<section class="section">
+<section class="section" aria-labelledby="journey-title">
+  <span class="sec-num" aria-hidden="true">01</span>
   <div class="wrap">
-    <div class="tline" data-stagger>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">01</span><h2 class="h-3">Consultation</h2><div class="chips"><span class="chip">Typical: day 1</span><span class="chip">You: share a recent bill</span></div></div>
-        <div class="tline__body">
-          <div><h4>Needs evaluation</h4><p>An in-depth conversation about your energy needs, budget and solar goals.</p></div>
-          <div><h4>Site assessment</h4><p>We visit the property to confirm its solar potential and the space available.</p></div>
-          <div><h4>Tailored proposal</h4><p>A detailed proposal with system options, expected savings and financing.</p></div>
+    <div class="shead">
+      <span class="label label--sun shead__label">01 / The journey</span>
+      <h2 class="h-2 shead__title" id="journey-title" data-rise>Every step, <em>out in the open.</em></h2>
+      <p class="shead__aside" data-reveal>What happens, how long it typically takes, and exactly what we’ll need from you. Spoiler: not much.</p>
+    </div>
+    <div class="journey" data-journey>
+      <aside class="journey__side" aria-label="Process progress">
+        <div class="journey__frame" aria-hidden="true">
+          <img src="assets/img/li-meeting-1000.webp" alt="" data-j-img class="is-on">
+          <img src="assets/img/li-plans.webp" alt="" data-j-img>
+          <img src="assets/img/li-stamp.webp" alt="" data-j-img>
+          <img src="assets/img/li-house-install.webp" alt="" data-j-img>
+          <img src="assets/img/li-inspection.webp" alt="" data-j-img>
+          <img src="assets/img/li-handshake.webp" alt="" data-j-img>
+          <span class="journey__time"><i></i><span data-j-time>Day 1</span></span>
+          <span class="journey__num" data-j-num>01</span>
         </div>
-      </article>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">02</span><h2 class="h-3">Engineering &amp; design</h2><div class="chips"><span class="chip">Typical: 1–2 weeks</span><span class="chip">You: approve the design</span></div></div>
-        <div class="tline__body">
-          <div><h4>System design</h4><p>A custom design that maximizes efficiency, follows local regulations and respects how your property looks.</p></div>
-          <div><h4>Technical specifications</h4><p>Detailed specs for every component going into your system.</p></div>
-          <div><h4>Project schedule</h4><p>A clear schedule so you’re updated at every stage of installation.</p></div>
+        <div class="journey__now"><span class="label">Now showing</span><b data-j-name>Consultation</b><span class="journey__of"><span data-j-idx>01</span> / 06</span></div>
+        <ol class="journey__rail">
+        <li class="journey__cell is-now" data-j-cell><button type="button" aria-label="Go to step 1: Consultation"><span class="journey__bar"></span><span class="journey__lbl">Consult</span></button></li>
+        <li class="journey__cell" data-j-cell><button type="button" aria-label="Go to step 2: Engineering &amp; design"><span class="journey__bar"></span><span class="journey__lbl">Design</span></button></li>
+        <li class="journey__cell" data-j-cell><button type="button" aria-label="Go to step 3: Permitting"><span class="journey__bar"></span><span class="journey__lbl">Permits</span></button></li>
+        <li class="journey__cell" data-j-cell><button type="button" aria-label="Go to step 4: Installation"><span class="journey__bar"></span><span class="journey__lbl">Install</span></button></li>
+        <li class="journey__cell" data-j-cell><button type="button" aria-label="Go to step 5: Inspection"><span class="journey__bar"></span><span class="journey__lbl">Inspect</span></button></li>
+        <li class="journey__cell" data-j-cell><button type="button" aria-label="Go to step 6: Permission to operate"><span class="journey__bar"></span><span class="journey__lbl">Power on</span></button></li>
+        </ol>
+      </aside>
+      <div class="journey__steps">
+      <article class="jstep is-now" id="step-1" data-j-step data-name="Consultation" data-time="Day 1">
+        <div class="jstep__mimg"><img src="assets/img/li-meeting-1000.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">01</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 1 of 6</span><span class="tag">Day 1</span></div>
+        <h2 class="h-2 jstep__title">Consultation, <em>on us.</em></h2>
+        <p class="jstep__lead">We assess your energy needs, walk the property and talk through what going solar would really mean for you.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Site visit, usage review, proposal</b></div>
+          <div class="jstep__you"><span class="label">Your part</span><b>Share a recent bill</b></div>
         </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">1.1</span><div><h3>Needs evaluation</h3><p>An in-depth conversation about your energy needs, budget and solar goals.</p></div></li>
+            <li><span class="jstep__k">1.2</span><div><h3>Site assessment</h3><p>We visit the property to confirm its solar potential and the space available.</p></div></li>
+            <li><span class="jstep__k">1.3</span><div><h3>Tailored proposal</h3><p>A detailed proposal with system options, expected savings and financing.</p></div></li>
+        </ol>
       </article>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">03</span><h2 class="h-3">Permitting</h2><div class="chips"><span class="chip">Typical: varies by city</span><span class="chip">You: nothing</span></div></div>
-        <div class="tline__body">
-          <div><h4>Documentation</h4><p>We prepare all the paperwork needed for local permits and approvals.</p></div>
-          <div><h4>Code compliance</h4><p>Designs are checked against local building standards to reduce approval delays.</p></div>
-          <div><h4>Permit application</h4><p>We submit to local authorities and keep you informed until it’s approved.</p></div>
+      <article class="jstep" id="step-2" data-j-step data-name="Engineering &amp; design" data-time="~1–2 weeks">
+        <div class="jstep__mimg"><img src="assets/img/li-plans.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">02</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 2 of 6</span><span class="tag">~1–2 weeks</span></div>
+        <h2 class="h-2 jstep__title">Engineering &amp; design, <em>made to fit.</em></h2>
+        <p class="jstep__lead">Our team designs a custom system around your roof, your usage and local code, then walks you through it.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Layout, specs, schedule</b></div>
+          <div class="jstep__you"><span class="label">Your part</span><b>Approve the design</b></div>
         </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">2.1</span><div><h3>System design</h3><p>A custom design that maximizes efficiency, follows local regulations and respects how your property looks.</p></div></li>
+            <li><span class="jstep__k">2.2</span><div><h3>Technical specifications</h3><p>Detailed specs for every component going into your system.</p></div></li>
+            <li><span class="jstep__k">2.3</span><div><h3>Project schedule</h3><p>A clear schedule so you’re updated at every stage of installation.</p></div></li>
+        </ol>
       </article>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">04</span><h2 class="h-3">Installation</h2><div class="chips"><span class="chip">Typical: 1–3 days</span><span class="chip">You: provide access</span></div></div>
-        <div class="tline__body">
-          <div><h4>Expert installation</h4><p>Qualified technicians install your system to industry standards for safety and performance.</p></div>
-          <div><h4>Quality assurance</h4><p>Checks throughout the install confirm every component is fitted correctly.</p></div>
-          <div><h4>Open communication</h4><p>The crew answers your questions as they go.</p></div>
+      <article class="jstep" id="step-3" data-j-step data-name="Permitting" data-time="Varies by city">
+        <div class="jstep__mimg"><img src="assets/img/li-stamp.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">03</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 3 of 6</span><span class="tag">Varies by city</span></div>
+        <h2 class="h-2 jstep__title">Permitting, <em>handled.</em></h2>
+        <p class="jstep__lead">We prepare all the paperwork, submit your plans to the city and utility, and chase them so you don’t have to.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Paperwork, submission, follow-up</b></div>
+          <div class="jstep__you is-easy"><span class="label">Your part</span><b>Nothing</b></div>
         </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">3.1</span><div><h3>Documentation</h3><p>We prepare all the paperwork needed for local permits and approvals.</p></div></li>
+            <li><span class="jstep__k">3.2</span><div><h3>Code compliance</h3><p>Designs are checked against local building standards to reduce approval delays.</p></div></li>
+            <li><span class="jstep__k">3.3</span><div><h3>Permit application</h3><p>We submit to local authorities and keep you informed until it’s approved.</p></div></li>
+        </ol>
       </article>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">05</span><h2 class="h-3">Inspection</h2><div class="chips"><span class="chip">Typical: after install</span><span class="chip">You: nothing</span></div></div>
-        <div class="tline__body">
-          <div><h4>Post-install evaluation</h4><p>A thorough check that the system performs properly and meets safety regulations.</p></div>
-          <div><h4>Utility coordination</h4><p>We work with your utility on any inspections or authorizations before activation.</p></div>
-          <div><h4>Final tuning</h4><p>Adjustments based on inspection feedback to get the best performance.</p></div>
+      <article class="jstep" id="step-4" data-j-step data-name="Installation" data-time="1–3 days">
+        <div class="jstep__mimg"><img src="assets/img/li-house-install.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">04</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 4 of 6</span><span class="tag">1–3 days</span></div>
+        <h2 class="h-2 jstep__title">Installation, <em>in days.</em></h2>
+        <p class="jstep__lead">Our certified technicians install your panels, inverter and any battery with precision and care.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Panels, inverter, battery, wiring</b></div>
+          <div class="jstep__you"><span class="label">Your part</span><b>Provide access</b></div>
         </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">4.1</span><div><h3>Expert installation</h3><p>Qualified technicians install your system to industry standards for safety and performance.</p></div></li>
+            <li><span class="jstep__k">4.2</span><div><h3>Quality assurance</h3><p>Checks throughout the install confirm every component is fitted correctly.</p></div></li>
+            <li><span class="jstep__k">4.3</span><div><h3>Open communication</h3><p>The crew answers your questions as they go.</p></div></li>
+        </ol>
       </article>
-      <article class="card tline__item">
-        <div class="tline__head"><span class="tline__num">06</span><h2 class="h-3">Permission to operate</h2><div class="chips"><span class="chip">The finish line</span><span class="chip">You: switch on with us</span></div></div>
-        <div class="tline__body">
-          <div><h4>Final approval</h4><p>Final confirmation from the authorities that your system can operate.</p></div>
-          <div><h4>System activation</h4><p>We help you switch on and start producing your own clean power.</p></div>
-          <div><h4>Continuous support</h4><p>Ongoing monitoring and support to keep your system running efficiently.</p></div>
+      <article class="jstep" id="step-5" data-j-step data-name="Inspection" data-time="After install">
+        <div class="jstep__mimg"><img src="assets/img/li-inspection.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">05</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 5 of 6</span><span class="tag">After install</span></div>
+        <h2 class="h-2 jstep__title">Inspection, <em>signed off.</em></h2>
+        <p class="jstep__lead">We coordinate with local authorities and meet the inspector on site, so everything is confirmed up to code.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Testing, inspector visit, tuning</b></div>
+          <div class="jstep__you is-easy"><span class="label">Your part</span><b>Nothing</b></div>
         </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">5.1</span><div><h3>Post-install evaluation</h3><p>A thorough check that the system performs properly and meets safety regulations.</p></div></li>
+            <li><span class="jstep__k">5.2</span><div><h3>Utility coordination</h3><p>We work with your utility on any inspections or authorizations before activation.</p></div></li>
+            <li><span class="jstep__k">5.3</span><div><h3>Final tuning</h3><p>Adjustments based on inspection feedback to get the best performance.</p></div></li>
+        </ol>
       </article>
+      <article class="jstep" id="step-6" data-j-step data-name="Permission to operate" data-time="The finish line">
+        <div class="jstep__mimg"><img src="assets/img/li-handshake.webp" alt="" loading="lazy"><span class="jstep__n" aria-hidden="true">06</span></div>
+        <div class="jstep__top"><span class="label label--sun">Step 6 of 6</span><span class="tag">The finish line</span></div>
+        <h2 class="h-2 jstep__title">Permission to operate. <em>You’re live.</em></h2>
+        <p class="jstep__lead">We work with your utility to get final approval, switch your system on with you, and keep watching it from there.</p>
+        <div class="jstep__roles">
+          <div><span class="label">Our part</span><b>Utility approval, activation, monitoring</b></div>
+          <div class="jstep__you"><span class="label">Your part</span><b>Switch on with us</b></div>
+        </div>
+        <ol class="jstep__list">
+            <li><span class="jstep__k">6.1</span><div><h3>Final approval</h3><p>Final confirmation from the authorities that your system can operate.</p></div></li>
+            <li><span class="jstep__k">6.2</span><div><h3>System activation</h3><p>We help you switch on and start producing your own clean power.</p></div></li>
+            <li><span class="jstep__k">6.3</span><div><h3>Continuous support</h3><p>Ongoing monitoring and support to keep your system running efficiently.</p></div></li>
+        </ol>
+      </article>
+      </div>
     </div>
   </div>
 </section>
@@ -98,11 +169,11 @@ image: assets/img/li-hands-1000.webp
 </section>
 
 <section class="section section--forest">
-  <span class="sec-num" aria-hidden="true">01</span>
+  <span class="sec-num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="faq">
       <div class="faq__head">
-        <span class="label label--sun shead__label">01 / Questions</span>
+        <span class="label label--sun shead__label">02 / Questions</span>
         <h2 class="h-2" data-rise>Good questions, <em>straight answers.</em></h2>
         <p class="body">Still curious? Call <a href="{{phoneHref}}" style="text-decoration:underline;text-underline-offset:3px">{{phone}}</a>. A real person picks up.</p>
       </div>

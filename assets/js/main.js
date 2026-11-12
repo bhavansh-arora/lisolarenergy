@@ -531,6 +531,43 @@
     }, { threshold: 0.3 }).observe(w);
   }
 
+  /* ---------- Process journey: rail cells fill as each step scrolls past ---------- */
+  function initJourney() {
+    var j = $('[data-journey]');
+    if (!j) return;
+    var steps = $$('[data-j-step]', j), imgs = $$('[data-j-img]', j), cells = $$('[data-j-cell]', j);
+    var num = $('[data-j-num]', j), name = $('[data-j-name]', j), time = $('[data-j-time]', j), idxEl = $('[data-j-idx]', j);
+    var cur = 0, raf = 0;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function update() {
+      raf = 0;
+      var mid = window.innerHeight * 0.5, idx = 0;
+      steps.forEach(function (s, i) {
+        var r = s.getBoundingClientRect();
+        var f = Math.max(0, Math.min(1, (mid - r.top) / Math.max(1, r.height)));
+        if (cells[i]) cells[i].style.setProperty('--f', f.toFixed(3));
+        if (r.top <= mid) idx = i;
+      });
+      if (idx === cur) return;
+      cur = idx;
+      imgs.forEach(function (im, k) { im.classList.toggle('is-on', k === idx); });
+      cells.forEach(function (c, k) { c.classList.toggle('is-now', k === idx); });
+      steps.forEach(function (s, k) { s.classList.toggle('is-now', k === idx); });
+      name.textContent = steps[idx].getAttribute('data-name');
+      time.textContent = steps[idx].getAttribute('data-time');
+      idxEl.textContent = pad(idx + 1);
+      num.classList.add('is-swap'); num.textContent = pad(idx + 1);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { num.classList.remove('is-swap'); }); });
+    }
+    cells.forEach(function (c, i) {
+      $('button', c).addEventListener('click', function () { steps[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' }); });
+    });
+    j.classList.add('is-live');
+    window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(update); }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   /* ---------- First-visit loader: battery charges with real page progress ---------- */
   function initLoader() {
     var el = $('[data-loader]');
@@ -573,7 +610,7 @@
 
   /* ---------- Boot ---------- */
   function boot() {
-    initLoader(); initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initCalcx(); initRoi(); initWord();
+    initLoader(); initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initJourney(); initCalcx(); initRoi(); initWord();
     window.Lithium = { scrollTo: scrollTo, onReady: function (fn) { fn(); }, lenis: function () { return null; }, animateNumber: animateNumber, setRangeFill: setRangeFill };
     window.addEventListener('load', function () { root.classList.add('is-ready'); initLive(); });
   }
