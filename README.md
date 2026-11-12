@@ -56,7 +56,7 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Design and motion
 
-- Dark design in `assets/css/site.css`: ink background with rounded colour panels (emerald forest, midnight navy, sunset ember), each lit by soft radial light and a fine grain (`--light-*` and `--grain` tokens), one sun-gold accent, Inter Tight for headlines and text, Instrument Serif italic for the gold accent words, Geist Mono for small labels. All fonts are self-hosted.
+- Daylight colour-block design in `assets/css/site.css`: a warm cream page with deep navy text, and rounded colour blocks for the hero, cobalt-blue and leaf-green panels, sun-orange panels (dark text, white italic accents), and a navy call-to-action and footer. Sun yellow is the one fill colour for buttons. Text, line and accent colours are context tokens (`--on-dark`, `--line`, `--accent`, `--fg-rgb` …) that flip automatically on dark and orange surfaces (see “Surface contexts” near the top of the file), so a component works on any block. Inter Tight for headlines and text, Instrument Serif italic for the accent words, Geist Mono for small labels. All fonts are self-hosted.
 - Gold announcement ticker, photo heroes with a stats strip, outline section numbers, a giant word marquee that speeds up with scrolling, closing call-to-action with three “why now” cards, and a footer with a large gold wordmark whose letters rise in.
 - A first-visit loader: a battery charges to 100% with real page progress, then the curtain lifts with a curved edge (once per visit, skipped for reduced motion).
 - The process journey's ambient glow changes colour with the active step (gold, blue, orange, teal, violet, gold).

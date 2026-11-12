@@ -539,7 +539,7 @@
     var num = $('[data-j-num]', j), name = $('[data-j-name]', j), time = $('[data-j-time]', j), idxEl = $('[data-j-idx]', j);
     var cur = 0, raf = 0;
     // Each step tints the ambient light around the journey.
-    var tones = ['#f5b544', '#4c95ff', '#ff8a3d', '#3fd1a8', '#9b7bff', '#f5b544'];
+    var tones = ['#ffc23d', '#2f6bff', '#ff7130', '#2ec99a', '#8b5cf6', '#ffc23d'];
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function update() {
       raf = 0;
