@@ -538,6 +538,8 @@
     var steps = $$('[data-j-step]', j), imgs = $$('[data-j-img]', j), cells = $$('[data-j-cell]', j);
     var num = $('[data-j-num]', j), name = $('[data-j-name]', j), time = $('[data-j-time]', j), idxEl = $('[data-j-idx]', j);
     var cur = 0, raf = 0;
+    // Each step tints the ambient light around the journey.
+    var tones = ['#f5b544', '#4c95ff', '#ff8a3d', '#3fd1a8', '#9b7bff', '#f5b544'];
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function update() {
       raf = 0;
@@ -548,8 +550,11 @@
         if (cells[i]) cells[i].style.setProperty('--f', f.toFixed(3));
         if (r.top <= mid) idx = i;
       });
+      var jr = j.getBoundingClientRect();
+      j.classList.toggle('is-in', jr.top < window.innerHeight * 0.6 && jr.bottom > window.innerHeight * 0.4);
       if (idx === cur) return;
       cur = idx;
+      j.style.setProperty('--tone', tones[idx] || tones[0]);
       imgs.forEach(function (im, k) { im.classList.toggle('is-on', k === idx); });
       cells.forEach(function (c, k) { c.classList.toggle('is-now', k === idx); });
       steps.forEach(function (s, k) { s.classList.toggle('is-now', k === idx); });
