@@ -539,7 +539,7 @@
     var num = $('[data-j-num]', j), name = $('[data-j-name]', j), time = $('[data-j-time]', j), idxEl = $('[data-j-idx]', j);
     var cur = 0, raf = 0;
     // Each step tints the ambient light around the journey.
-    var tones = ['#f5b544', '#4c95ff', '#ff8a3d', '#3fd1a8', '#9b7bff', '#f5b544'];
+    var tones = ['#f7b84b', '#6ea8ff', '#ff8a6b', '#3fd6b4', '#a593ff', '#f7b84b'];
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function update() {
       raf = 0;
@@ -578,7 +578,8 @@
     var el = $('[data-loader]');
     if (!el) return;
     if (!root.classList.contains('is-loading')) { el.parentNode.removeChild(el); return; }
-    var num = $('[data-loader-num]', el), t0 = performance.now(), MIN = 1400, MAX = 4500, p = 0, done = false, loaded = false, fonts = false;
+    var num = $('[data-loader-num]', el), cells = $$('.loader__cells i', el), N = cells.length || 10;
+    var t0 = performance.now(), MIN = 1500, MAX = 4500, STEP = 120, p = 0, lit = 0, lastStep = 0, done = false, loaded = false, fonts = false;
     var imgs = Array.prototype.filter.call(doc.images, function (i) { return i.loading !== 'lazy' && !el.contains(i); });
     window.addEventListener('load', function () { loaded = true; });
     if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { fonts = true; }); else fonts = true;
@@ -587,28 +588,35 @@
       var n = imgs.filter(function (i) { return i.complete; }).length + (fonts ? 1 : 0);
       return n / (imgs.length + 1);
     }
+    // The battery charges one cell at a time, never faster than STEP ms per cell.
+    function light(n) {
+      while (lit < n) { cells[lit].classList.add('on'); lit++; }
+      num.textContent = Math.round(lit / N * 100);
+      el.style.setProperty('--p', (lit / N).toFixed(3));
+    }
     function finish() {
       if (done) return; done = true;
-      p = 1; num.textContent = '100'; el.style.setProperty('--p', 1);
+      light(N);
       el.classList.add('is-charged');
-      var lab = $('.loader__meta .label', el); if (lab) lab.textContent = 'Fully charged · Power for life';
+      var lab = $('.loader__meta .label', el); if (lab) lab.textContent = 'Fully charged';
       try { sessionStorage.setItem('li-boot', '1'); } catch (e) {}
       setTimeout(function () {
         el.classList.add('is-done');
         // Start page entrances as the curtain begins to lift.
         setTimeout(function () { root.classList.remove('is-loading'); }, 380);
         setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 1700);
-      }, 460);
+      }, 520);
     }
     (function tick(now) {
       if (done) return;
-      var t = (now || performance.now()) - t0;
+      now = now || performance.now();
+      var t = now - t0;
       var target = Math.min(t / MIN, 0.12 + 0.88 * frac());
       p += (target - p) * 0.14;
       if (target >= 1 && p > 0.96) p = 1;
-      el.style.setProperty('--p', p.toFixed(4));
-      num.textContent = Math.round(p * 100);
-      if ((p >= 1 && t >= MIN) || t >= MAX) return finish();
+      var want = Math.floor(p * N + 0.0001);
+      if (want > lit && now - lastStep >= STEP) { light(lit + 1); lastStep = now; }
+      if ((lit >= N && t >= MIN) || t >= MAX) return finish();
       requestAnimationFrame(tick);
     })();
   }
