@@ -1188,3 +1188,22 @@ html.pt-leave .pt__mark { opacity: 0; transform: translateY(-16px); transition: 
 .avatar { color: var(--gold-light); }
 .dayw__outage { color: #b23a30; box-shadow: inset 0 0 0 1px rgba(210, 75, 64, .5); }
 .dayw__outage i { background: var(--red); }
+
+/* ---------- Hero bottom: the info strip becomes a white card that bridges photo and page ---------- */
+.hero:has(.strip), .phero:has(.strip) { --overhang: 44px; background: transparent; border-radius: 0; }
+.hero:has(.strip) .hero__media, .phero:has(.strip) .hero__media { bottom: var(--overhang); overflow: hidden; border-radius: 0 0 var(--panel-r) var(--panel-r); }
+.hero:has(.strip) .hero__glow { display: none; }
+.hero .strip, .phero .strip {
+  --fg-rgb: 19, 32, 47; --on-dark: #13202f; --on-dark-2: rgba(19, 32, 47, .72); --on-dark-3: rgba(19, 32, 47, .52);
+  --line: rgba(19, 32, 47, .1); --accent: #a3560f;
+  color: var(--on-dark); background: #fff; border-top: 0; border-radius: var(--r-lg); padding: 4px 6px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .6) inset, 0 30px 60px -30px rgba(19, 32, 47, .45), 0 0 0 1px rgba(19, 32, 47, .06);
+}
+.hero .strip > div, .phero .strip > div { padding: 16px 20px 18px; }
+.hero .strip > div + div, .phero .strip > div + div { padding-left: 20px; }
+.hero .strip strong, .phero .strip strong { color: var(--on-dark); }
+@media (max-width: 860px) { .hero .strip > div:nth-child(n+3), .phero .strip > div:nth-child(n+3) { padding-top: 16px; } }
+
+/* Page-change curtain matches the light loader. */
+.pt { background: var(--cream); }
+.pt__mark { width: 60px; height: 60px; filter: drop-shadow(0 10px 22px rgba(19, 32, 47, .18)); }
