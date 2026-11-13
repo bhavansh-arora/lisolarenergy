@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import crypto from 'node:crypto';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const src = path.join(root, 'src');
@@ -41,6 +42,18 @@ function fill(tpl, vars) {
   return s.replace(/\{\{\s*([\w]+)\s*\}\}/g, (_, k) => (k in vars ? vars[k] : `{{${k}}}`));
 }
 
+// Append ?v=<content hash> to local CSS and JS so browsers and the CDN pick up changes at once.
+const hashes = {};
+function cacheBust(html) {
+  return html.replace(/(src|href)="(assets\/(?:css|js)\/[^"?#]+)"/g, (m, attr, file) => {
+    if (!(file in hashes)) {
+      const full = path.join(root, file);
+      hashes[file] = fs.existsSync(full) ? crypto.createHash('md5').update(fs.readFileSync(full)).digest('hex').slice(0, 8) : '';
+    }
+    return hashes[file] ? `${attr}="${file}?v=${hashes[file]}"` : m;
+  });
+}
+
 const pages = fs.readdirSync(path.join(src, 'pages')).filter((f) => f.endsWith('.html'));
 for (const f of pages) {
   const { meta, body } = parse(path.join(src, 'pages', f));
@@ -64,6 +77,7 @@ for (const f of pages) {
   let html = fill(partial('head') + partial('header') + body + partial('footer'), vars);
   // Mark the current page in every nav.
   html = html.replace(new RegExp(`data-nav="${vars.page}"`, 'g'), `data-nav="${vars.page}" aria-current="page"`);
+  html = cacheBust(html);
   fs.writeFileSync(path.join(out, f), html);
   console.log('built', f);
 }

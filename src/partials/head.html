@@ -6,8 +6,7 @@
 <title>{{title}}</title>
 <meta name="description" content="{{description}}">
 <link rel="canonical" href="{{siteUrl}}/{{file}}">
-<meta name="theme-color" content="#0a0f14">
-<meta name="view-transition" content="same-origin">
+<meta name="theme-color" content="#13202f">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lithium — Power for life">
 <meta property="og:title" content="{{title}}">
@@ -21,7 +20,7 @@
 <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
-<script>(function(){var d=document.documentElement;d.classList.add('js');try{if(!sessionStorage.getItem('li-boot')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('is-loading');}catch(e){}})();</script>
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;if(!sessionStorage.getItem('li-boot')&&!rm)d.classList.add('is-loading');else if(sessionStorage.getItem('li-nav')&&!rm)d.classList.add('pt-in');sessionStorage.removeItem('li-nav');}catch(e){}})();</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

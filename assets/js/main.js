@@ -539,7 +539,7 @@
     var num = $('[data-j-num]', j), name = $('[data-j-name]', j), time = $('[data-j-time]', j), idxEl = $('[data-j-idx]', j);
     var cur = 0, raf = 0;
     // Each step tints the ambient light around the journey.
-    var tones = ['#f5b544', '#4c95ff', '#ff8a3d', '#3fd1a8', '#9b7bff', '#f5b544'];
+    var tones = ['#f0ab3c', '#3b6fc4', '#e2843a', '#2f8f73', '#8a6fc0', '#f0ab3c'];
     function pad(n) { return (n < 10 ? '0' : '') + n; }
     function update() {
       raf = 0;
@@ -579,7 +579,7 @@
     if (!el) return;
     if (!root.classList.contains('is-loading')) { el.parentNode.removeChild(el); return; }
     var num = $('[data-loader-num]', el), cells = $$('.loader__cells i', el), N = cells.length || 10;
-    var t0 = performance.now(), MIN = 1500, MAX = 4500, p = 0, done = false, loaded = false, fonts = false;
+    var t0 = performance.now(), MIN = 1700, MAX = 4500, STEP = 150, p = 0, lit = 0, lastStep = -1e9, done = false, loaded = false, fonts = false;
     var imgs = Array.prototype.filter.call(doc.images, function (i) { return i.loading !== 'lazy' && !el.contains(i); });
     window.addEventListener('load', function () { loaded = true; });
     if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(function () { fonts = true; }); else fonts = true;
@@ -588,15 +588,15 @@
       var n = imgs.filter(function (i) { return i.complete; }).length + (fonts ? 1 : 0);
       return n / (imgs.length + 1);
     }
-    // Charge flows smoothly through the cells, left to right.
-    function paint(v) {
-      cells.forEach(function (c, i) { c.style.setProperty('--f', Math.max(0, Math.min(1, v * N - i)).toFixed(3)); });
-      num.textContent = Math.round(v * 100);
-      el.style.setProperty('--p', v.toFixed(4));
+    // Whole cells switch on one after another, at a steady pace, as the page loads.
+    function light(n) {
+      while (lit < n) { cells[lit].classList.add('on'); lit++; }
+      num.textContent = Math.round(lit / N * 100);
+      el.style.setProperty('--p', (lit / N).toFixed(3));
     }
     function finish() {
       if (done) return; done = true;
-      p = 1; paint(1);
+      light(N);
       el.classList.add('is-charged');
       var lab = $('.loader__meta .label', el); if (lab) lab.textContent = 'Fully charged';
       try { sessionStorage.setItem('li-boot', '1'); } catch (e) {}
@@ -614,15 +614,45 @@
       var target = Math.min(t / MIN, 0.12 + 0.88 * frac());
       p += (target - p) * 0.14;
       if (target >= 1 && p > 0.96) p = 1;
-      paint(p);
-      if ((p >= 1 && t >= MIN) || t >= MAX) return finish();
+      var want = Math.min(N, Math.floor(p * N + 0.0001) + 1);
+      if (want > lit && now - lastStep >= STEP) { light(lit + 1); lastStep = now; }
+      if ((lit >= N && t >= MIN) || t >= MAX) return finish();
       requestAnimationFrame(tick);
     })();
   }
 
+  /* ---------- Page transitions: curtain covers on leave, lifts on arrival ---------- */
+  function initPageTransition() {
+    if (reduce) return;
+    function lift() {
+      if (!root.classList.contains('pt-in')) return;
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        root.classList.add('pt-leave');
+        setTimeout(function () { root.classList.remove('pt-in', 'pt-leave'); }, 950);
+      }); });
+    }
+    if (doc.readyState === 'complete') setTimeout(lift, 60); else window.addEventListener('load', function () { setTimeout(lift, 60); });
+    // Safety: never leave the curtain down if load is slow.
+    setTimeout(lift, 2500);
+    window.addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('pt-out', 'pt-in', 'pt-leave'); });
+    doc.addEventListener('click', function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest('a[href]');
+      if (!a || a.target && a.target !== '_self' || a.hasAttribute('download')) return;
+      var url;
+      try { url = new URL(a.getAttribute('href'), location.href); } catch (err) { return; }
+      if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname)) return;
+      if (url.pathname === location.pathname) return; // same page, hash or reload: let it be
+      e.preventDefault();
+      try { sessionStorage.setItem('li-nav', '1'); } catch (err) {}
+      root.classList.add('pt-out');
+      setTimeout(function () { location.href = url.href; }, 560);
+    });
+  }
+
   /* ---------- Boot ---------- */
   function boot() {
-    initLoader(); initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initJourney(); initCalcx(); initRoi(); initWord();
+    initLoader(); initPageTransition(); initHeader(); initMenu(); initReveal(); initCounters(); initAccordion(); initStack(); initSunclock(); initEstimator(); initWords(); initParallax(); initVoices(); initChrome(); initRise(); initMega(); initHScroll(); initJourney(); initCalcx(); initRoi(); initWord();
     window.Lithium = { scrollTo: scrollTo, onReady: function (fn) { fn(); }, lenis: function () { return null; }, animateNumber: animateNumber, setRangeFill: setRangeFill };
     window.addEventListener('load', function () { root.classList.add('is-ready'); initLive(); });
   }

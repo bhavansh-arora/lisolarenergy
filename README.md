@@ -56,12 +56,13 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 
 ## Design and motion
 
-- Dark design in `assets/css/site.css`: ink background with rounded colour panels (emerald forest, midnight navy, sunset ember), each lit by soft radial light and a fine grain (`--light-*` and `--grain` tokens), one sun-gold accent, Inter Tight for headlines and text, Instrument Serif italic for the gold accent words, Geist Mono for small labels. All fonts are self-hosted.
+- Light design in `assets/css/site.css`: a warm white page with navy text, soft tinted panels (sage, sky and sand, each with its own accent ink), sun-amber buttons, and navy blocks for the photo heroes, the closing call-to-action and the footer. Text, line and accent colours are context tokens (`--on-dark`, `--line`, `--accent`, `--fg-rgb` …) that flip automatically on dark blocks (see “Surface contexts” near the top of the file). Inter Tight for headlines and text, Instrument Serif italic for the accent words, Geist Mono for small labels. All fonts are self-hosted.
 - Gold announcement ticker, photo heroes with a stats strip, outline section numbers, a giant word marquee that speeds up with scrolling, closing call-to-action with three “why now” cards, and a footer with a large gold wordmark whose letters rise in.
-- A first-visit loader: a ten-cell battery charges smoothly to 100%, flowing through the cells with real page progress, then the curtain lifts with a curved edge (once per visit, skipped for reduced motion).
+- A first-visit loader: a ten-cell battery charges cell by cell to 100%, paced by real page progress, then the curtain lifts with a curved edge (once per visit, skipped for reduced motion).
 - The process journey's ambient glow changes colour with the active step (gold, blue, orange, teal, violet, gold).
 - No animation libraries. `assets/js/main.js` handles headline words rising in, fade-up reveals, statements that light up word by word, photo parallax, count-ups, the pinned horizontal cards (desktop) and swipe cards (phone), the home calculator and payback bars, the FAQ, tabs and the mobile menu.
-- Page changes use the browser's native cross-fade (View Transitions) where supported.
+- Page changes: a navy curtain with the Lithium mark wipes up over the page on internal links and lifts off the next page (works in every browser; off for reduced motion).
+- `node build.mjs` adds `?v=<hash>` to local CSS and JS links, so visitors get new styles and scripts as soon as they are published.
 - `assets/js/house.js` holds the illustrative energy model behind the house player and hotspots (8.2 kW system, 13.5 kWh battery).
 - `prefers-reduced-motion` turns off motion. Without JavaScript all content is still visible.
 
