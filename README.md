@@ -61,7 +61,7 @@ The quote payload includes: tracking code, property type, monthly bill, goals, o
 - A first-visit loader: a ten-cell battery charges cell by cell to 100%, paced by real page progress, then the curtain lifts with a curved edge (once per visit, skipped for reduced motion).
 - The process journey's ambient glow changes colour with the active step (gold, blue, orange, teal, violet, gold).
 - No animation libraries. `assets/js/main.js` handles headline words rising in, fade-up reveals, statements that light up word by word, photo parallax, count-ups, the pinned horizontal cards (desktop) and swipe cards (phone), the home calculator and payback bars, the FAQ, tabs and the mobile menu.
-- Page changes: a light curtain with the Lithium mark (matching the loader) wipes up over the page on internal links and lifts off the next page (works in every browser; off for reduced motion).
+- Page changes: the current page eases back while a light curtain sweeps up; a mini five-cell battery charges under the name of the page you're going to, then the curtain lifts off the new page as its content rises into place. Works in every browser; off for reduced motion.
 - `node build.mjs` adds `?v=<hash>` to local CSS and JS links, so visitors get new styles and scripts as soon as they are published.
 - `assets/js/house.js` holds the illustrative energy model behind the house player and hotspots (8.2 kW system, 13.5 kWh battery).
 - `prefers-reduced-motion` turns off motion. Without JavaScript all content is still visible.

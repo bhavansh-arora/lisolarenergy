@@ -624,16 +624,26 @@
   /* ---------- Page transitions: curtain covers on leave, lifts on arrival ---------- */
   function initPageTransition() {
     if (reduce) return;
+    var nameEl = $('[data-pt-name]');
+    var NAMES = { 'index.html': 'Home', '': 'Home', 'residential.html': 'Residential solar', 'commercial.html': 'Commercial solar',
+      'savings.html': 'Savings calculator', 'process.html': 'Our process', 'track.html': 'Track a project', 'about.html': 'About Lithium',
+      'contact.html': 'Contact', 'quote.html': 'Your free quote', 'privacy.html': 'Privacy', '404.html': 'Lithium' };
+    function nameFor(url) { var f = url.pathname.split('/').pop(); return NAMES[f] || 'Lithium'; }
+    if (root.classList.contains('pt-in') && nameEl) nameEl.textContent = nameFor(location);
+    var lifted = false;
     function lift() {
-      if (!root.classList.contains('pt-in')) return;
+      if (lifted || !root.classList.contains('pt-in')) return;
+      lifted = true;
       requestAnimationFrame(function () { requestAnimationFrame(function () {
         root.classList.add('pt-leave');
-        setTimeout(function () { root.classList.remove('pt-in', 'pt-leave'); }, 950);
+        setTimeout(function () { root.classList.remove('pt-in', 'pt-leave'); }, 1300);
       }); });
     }
-    if (doc.readyState === 'complete') setTimeout(lift, 60); else window.addEventListener('load', function () { setTimeout(lift, 60); });
-    // Safety: never leave the curtain down if load is slow.
-    setTimeout(lift, 2500);
+    // Hold the full battery for a beat, then lift once the page has loaded.
+    var t0 = Date.now();
+    function ready() { setTimeout(lift, Math.max(0, 420 - (Date.now() - t0))); }
+    if (doc.readyState === 'complete') ready(); else window.addEventListener('load', ready);
+    setTimeout(lift, 2500); // never leave the curtain down on a slow load
     window.addEventListener('pageshow', function (e) { if (e.persisted) root.classList.remove('pt-out', 'pt-in', 'pt-leave'); });
     doc.addEventListener('click', function (e) {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
@@ -644,9 +654,10 @@
       if (url.origin !== location.origin || !/(\.html|\/)$/.test(url.pathname)) return;
       if (url.pathname === location.pathname) return; // same page, hash or reload: let it be
       e.preventDefault();
-      try { sessionStorage.setItem('li-nav', '1'); } catch (err) {}
+      if (nameEl) nameEl.textContent = nameFor(url);
+      try { sessionStorage.setItem('li-nav', '1'); sessionStorage.setItem('li-nav-name', nameFor(url)); } catch (err) {}
       root.classList.add('pt-out');
-      setTimeout(function () { location.href = url.href; }, 560);
+      setTimeout(function () { location.href = url.href; }, 900);
     });
   }
 

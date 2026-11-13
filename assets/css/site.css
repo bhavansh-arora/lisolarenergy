@@ -1169,19 +1169,44 @@ html.is-loading .hero__media { transform: scale(1.08); }
 .faq__ask { background: radial-gradient(90% 120% at 100% 0%, rgba(240, 171, 60, .16), transparent 60%), rgba(255, 255, 255, .55); }
 .reason::before { background: linear-gradient(180deg, rgba(19, 32, 47, .2) 0%, rgba(19, 32, 47, .55) 45%, rgba(19, 32, 47, .95) 80%); }
 
-/* ---------- Page transition: a navy curtain wipes up between pages ---------- */
-.pt { position: fixed; inset: -2px 0; z-index: 2900; pointer-events: none; display: grid; place-items: center; background: var(--ink); transform: translateY(calc(102% + 16vh)); visibility: hidden; }
-.pt::before { content: ''; position: absolute; left: -15%; right: -15%; bottom: 100%; height: 14vh; background: inherit; border-radius: 50% 50% 0 0; }
-.pt__mark { width: 54px; height: 54px; opacity: 0; transform: translateY(10px) scale(.9); transition: opacity .3s ease, transform .5s var(--ease); }
-html.pt-out .pt { pointer-events: auto; visibility: visible; transform: translateY(0); transition: transform .55s cubic-bezier(.76, 0, .24, 1); }
-html.pt-out .pt__mark { opacity: 1; transform: none; transition-delay: .25s; }
+/* ---------- Page transition ----------
+   Leave: the page eases back, a light curtain sweeps up, a mini battery charges under the next page's name.
+   Arrive: the curtain (battery full) lifts away and the new page rises into place. */
+.pt { position: fixed; inset: -2px 0; z-index: 2900; pointer-events: none; display: grid; place-items: center; visibility: hidden;
+  background: radial-gradient(60% 50% at 50% 55%, rgba(240, 171, 60, .14), transparent 70%), var(--cream); transform: translateY(calc(102% + 16vh)); }
+.pt::before { content: ''; position: absolute; left: -15%; right: -15%; bottom: calc(100% - 1px); height: 14vh; background: var(--cream); border-radius: 50% 50% 0 0; }
+.pt::after { content: ''; position: absolute; left: -15%; right: -15%; top: calc(100% - 1px); height: 14vh; background: var(--cream); border-radius: 0 0 50% 50%; display: none; }
+.pt__in { display: grid; justify-items: center; gap: 18px; opacity: 0; transform: translateY(18px); }
+.pt__mark { width: 44px; height: 44px; filter: drop-shadow(0 8px 18px rgba(19, 32, 47, .16)); }
+.pt__batt { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; width: 108px; height: 40px; padding: 4px; border-radius: 11px; background: #fff; box-shadow: inset 0 0 0 1.5px rgba(19, 32, 47, .2), 0 16px 34px -20px rgba(19, 32, 47, .45); }
+.pt__batt::after { content: ''; position: absolute; right: -7px; top: 50%; width: 4px; height: 14px; transform: translateY(-50%); border-radius: 0 3px 3px 0; background: rgba(19, 32, 47, .2); }
+.pt__batt i { border-radius: 4px; background: rgba(19, 32, 47, .06); transition: background-color .18s ease-out; }
+.pt__to { display: grid; justify-items: center; gap: 4px; }
+.pt__to b { font-weight: 700; font-size: clamp(1.5rem, 2.6vw, 2.1rem); letter-spacing: -.03em; line-height: 1; color: var(--ink); }
+/* Charged cell colours, warming left to right. */
+html.pt-out .pt__batt i, html.pt-in .pt__batt i { background: #e08f2c; }
+.pt__batt i:nth-child(2) { --d: .08s; } .pt__batt i:nth-child(3) { --d: .16s; } .pt__batt i:nth-child(4) { --d: .24s; } .pt__batt i:nth-child(5) { --d: .32s; }
+html.pt-out .pt__batt i:nth-child(n+3) { background: #ea9d38; } html.pt-out .pt__batt i:nth-child(n+5) { background: #f0ab3c; }
+html.pt-in .pt__batt i:nth-child(n+3) { background: #ea9d38; } html.pt-in .pt__batt i:nth-child(n+5) { background: #f0ab3c; }
+
+/* Leave */
+main, .ftr { transition: transform .6s cubic-bezier(.76, 0, .24, 1), opacity .6s ease; transform-origin: 50% 30vh; }
+html.pt-out main, html.pt-out .ftr { transform: scale(.965) translateY(-2vh); opacity: .55; }
+html.pt-out .pt { pointer-events: auto; visibility: visible; transform: translateY(0); transition: transform .62s cubic-bezier(.76, 0, .24, 1); }
+html.pt-out .pt__in { opacity: 1; transform: none; transition: opacity .3s ease .28s, transform .5s var(--ease) .28s; }
+html.pt-out .pt__batt i { transition: background-color .15s ease-out calc(.42s + var(--d, 0s)); }
+
+/* Arrive */
 html.pt-in .pt { visibility: visible; transform: translateY(0); transition: none; }
-html.pt-in .pt__mark { opacity: 1; transform: none; transition: none; }
 html.pt-in .pt::before { display: none; }
-html.pt-in .pt::after { content: ''; position: absolute; left: -15%; right: -15%; top: 100%; height: 14vh; background: inherit; border-radius: 0 0 50% 50%; }
-html.pt-leave .pt { transform: translateY(calc(-100% - 15vh)); transition: transform .8s cubic-bezier(.76, 0, .24, 1) .05s; }
-html.pt-leave .pt__mark { opacity: 0; transform: translateY(-16px); transition: opacity .25s ease, transform .4s var(--ease); }
-@media (prefers-reduced-motion: reduce) { .pt { display: none; } }
+html.pt-in .pt::after { display: block; }
+html.pt-in .pt__in { opacity: 1; transform: none; transition: none; }
+html.pt-in .pt__batt i { transition: none; }
+html.pt-in main { transform: translateY(8vh); transition: none; }
+html.pt-leave .pt { transform: translateY(calc(-100% - 15vh)); transition: transform .85s cubic-bezier(.76, 0, .24, 1) .08s; }
+html.pt-leave .pt__in { opacity: 0; transform: translateY(-40px); transition: opacity .4s ease .35s, transform .9s cubic-bezier(.76, 0, .24, 1) .08s; }
+html.pt-leave main { transform: none; transition: transform 1.1s cubic-bezier(.16, 1, .3, 1) .12s; }
+@media (prefers-reduced-motion: reduce) { .pt { display: none; } html.pt-out main, html.pt-in main { transform: none; opacity: 1; } }
 
 /* Light-theme touch-ups */
 .step--ink { background: radial-gradient(70% 90% at 0% 0%, rgba(255, 255, 255, .8), transparent 60%), radial-gradient(60% 80% at 100% 100%, rgba(240, 171, 60, .16), transparent 62%), #f1ece2; }
@@ -1205,5 +1230,3 @@ html.pt-leave .pt__mark { opacity: 0; transform: translateY(-16px); transition: 
 @media (max-width: 860px) { .hero .strip > div:nth-child(n+3), .phero .strip > div:nth-child(n+3) { padding-top: 16px; } }
 
 /* Page-change curtain matches the light loader. */
-.pt { background: var(--cream); }
-.pt__mark { width: 60px; height: 60px; filter: drop-shadow(0 10px 22px rgba(19, 32, 47, .18)); }
